@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class radioBehavior : MonoBehaviour
 {
+    private GameObject radioScreen;
     // Start is called before the first frame update
     void Start()
     {
-        
+        radioScreen = GameObject.Find("radioScreen");
+        radioScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -16,7 +18,8 @@ public class radioBehavior : MonoBehaviour
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
      if (Physics.Raycast(ray, out hit)){
-        Debug.Log("xdd");
+        Debug.Log(hit.collider.gameObject.name);
+        radioScreen.SetActive(true);
      }
    }
  }
