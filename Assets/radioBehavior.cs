@@ -5,6 +5,9 @@ using UnityEngine;
 public class radioBehavior : MonoBehaviour
 {
     private GameObject radioScreen;
+    private bool guiActive = false;
+    private string radioObjectName = "Monitor";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +17,18 @@ public class radioBehavior : MonoBehaviour
 
     // Update is called once per frame
  void Update(){
-   if (Input.GetMouseButtonDown(0)){ // if left button pressed...
+   if (Input.GetMouseButtonDown(0) && !guiActive){ // if left button pressed AND gui disabled
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
+
      if (Physics.Raycast(ray, out hit)){
-        Debug.Log(hit.collider.gameObject.name);
-        radioScreen.SetActive(true);
+        if(hit.collider.gameObject.name == radioObjectName){ // if clicked on the radio 
+            radioScreen.SetActive(true);
+            guiActive = true;
+        }
+        else{
+            Debug.Log(hit.collider.gameObject.name);
+        }
      }
    }
  }
