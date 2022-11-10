@@ -13,7 +13,7 @@ public class WaveClicked : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        radioScreen = GameObject.Find("SpeachToText");
+        radioScreen = GameObject.Find("radioScreen");
         subtitles = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
         //radioScreen.SetActive(false);
     }

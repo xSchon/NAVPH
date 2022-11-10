@@ -5,7 +5,7 @@ using UnityEngine;
 public class radioBehavior : MonoBehaviour
 {
     private GameObject radioScreen;
-    private string radioObjectName = "Monitor";
+    private string radioObjectName = "Radio";
 
     // Start is called before the first frame update
     void Start()
