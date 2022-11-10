@@ -16,8 +16,7 @@ public class radioBehavior : MonoBehaviour
 
     // Update is called once per frame
  void Update(){
-
-   if (Input.GetMouseButtonDown(0) && radioScreen.activeSelf){ // if left button pressed AND gui disabled
+   if (Input.GetMouseButtonDown(0) && !radioScreen.activeSelf){ // if left button pressed AND gui disabled
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
 
