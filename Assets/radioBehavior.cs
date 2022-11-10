@@ -33,5 +33,9 @@ public class radioBehavior : MonoBehaviour
    }
  }
 
+ public void deactivateGui(){
+    this.guiActive = false;   
+ }
+
 }
 
