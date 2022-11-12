@@ -6,7 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     float xRotation = 0f;
     public Vector2 turn;
-    public float sensitivity = 50;
+    public float sensitivity = 25;
     public Vector3 deltaMove;
     public float speed = 1;
     void Start()
