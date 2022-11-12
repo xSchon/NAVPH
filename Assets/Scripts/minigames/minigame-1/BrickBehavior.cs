@@ -8,7 +8,14 @@ public class BrickBehavior : MonoBehaviour
     public bool hasEntered = false;
     private bool movingLeft = true;
     public float speed = 0.03f;
+    public float mass = 2f;
     private Spawner spawner;
+    public Rigidbody rb;
+
+    void Awake() {
+        rb = GetComponent<Rigidbody>();
+     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +25,7 @@ public class BrickBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)){
+        if (Input.GetKeyDown(KeyCode.Space)){
             addGravity();
         }
 
@@ -36,8 +43,20 @@ public class BrickBehavior : MonoBehaviour
         }
     }
 
+    void FixedUpdate()          // stops bouncing completly
+     {
+         var currentVelocity = rb.velocity;
+  
+         if (currentVelocity.y <= 0f) 
+             return;
+          
+         currentVelocity.y = 0f;
+          
+         rb.velocity = currentVelocity;
+     }
+
     void addGravity(){
-        Rigidbody gameObjectsRigidBody = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = true;
         has_gravity = true;
     }
 
