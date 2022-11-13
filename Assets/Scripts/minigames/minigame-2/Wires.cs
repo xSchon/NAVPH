@@ -42,6 +42,7 @@ public class Wires : MonoBehaviour
                 // check if the wires are the same color 
                 if (transform.parent.name.Equals(collider.transform.parent.name))
                 {
+                    Main.Instance.AddScore();
                     Debug.Log("Correct");
                     Destroy(this);
                 }
