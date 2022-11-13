@@ -11,8 +11,6 @@ public class WaveClicked : MonoBehaviour
     private TMP_Text subtitles;
     private float nextActionTime = 0.0f;
     public float period = 0.3f;
-    private int number_of_clicks = 0;
-
     private AssetBundle myLoadedAssetBundle;
     private string[] scenePaths;
     // Start is called before the first frame update
