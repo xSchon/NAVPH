@@ -475,7 +475,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1018476511}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: LoadScenes, Assembly-CSharp
         m_MethodName: endMinigame
         m_Mode: 1
         m_Arguments:
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018476506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d543c65c695294f8f4ce079adee60f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2113875a0c6a1972ab268c532f9f0dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1166811478
