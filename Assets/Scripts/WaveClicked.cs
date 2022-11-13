@@ -39,14 +39,6 @@ public class WaveClicked : MonoBehaviour
         subtitles.enabled = !subtitles.enabled;
     }
 
-    public void CloseCanvas(){
-        number_of_clicks++;
-        radioScreen.SetActive(false);
-        if (number_of_clicks == 5){
-            LoadMinigame1();
-        }
-    }
-
     public void LoadMinigame1(){
         Debug.Log("sceneName to load: " + "/minigames/minigame-1");
         SceneManager.LoadScene("minigame-1");
