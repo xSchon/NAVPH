@@ -9,7 +9,7 @@ public class BrickBehavior : MonoBehaviour
     private bool movingLeft = true;
     public float speed = 0.03f;
     public float mass = 2f;
-    private Spawner spawner;
+    private Minigame1 spawner;
     public Rigidbody rb;
 
     void Awake() {
@@ -19,7 +19,7 @@ public class BrickBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawner = FindObjectOfType<Spawner>();
+        spawner = FindObjectOfType<Minigame1>();
     }
 
     // Update is called once per frame
@@ -44,15 +44,15 @@ public class BrickBehavior : MonoBehaviour
     }
 
     void FixedUpdate()          // stops bouncing completly
-     {
-         var currentVelocity = rb.velocity;
-  
-         if (currentVelocity.y <= 0f) 
-             return;
-          
-         currentVelocity.y = 0f;
-          
-         rb.velocity = currentVelocity;
+    {
+        var currentVelocity = rb.velocity;
+
+        if (currentVelocity.y <= 0f) 
+            return;
+        
+        currentVelocity.y = 0f;
+        
+        rb.velocity = currentVelocity;
      }
 
     void addGravity(){
@@ -64,8 +64,8 @@ public class BrickBehavior : MonoBehaviour
         if (other.gameObject && !hasEntered) {
             hasEntered = true;
 
-            spawner.spawNewBrick();
             spawner.incremenmtScore(transform.position.y);
+            spawner.spawNewBrick();
         }
    }
 }
