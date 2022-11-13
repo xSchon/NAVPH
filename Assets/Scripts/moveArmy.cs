@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class moveArmy : MonoBehaviour
 {
-    // private GameObject sectors;
+    private GameObject sectors;
     // Start is called before the first frame update
     void Start()
     {
-        // sectors = GameObject.Find("sectorsDeffence").GetComponent<TextMeshProUGUI>();
+        sectors = GameObject.Find("selectedSectors").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
