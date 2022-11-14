@@ -1,0 +1,39 @@
+{
+    "morse": [
+        {
+            "morse_text": ".-.. . -. .. -.",
+            "ascii_text": "lenin",
+            "guess_time": 60
+        },
+        {
+            "morse_text": ".-. . -.. / .-. . ...- --- .-.. ..- - .. --- -.",
+            "ascii_text": "red revolution",
+            "guess_time": 180
+        },
+        {
+            "morse_text": ".- -- . .-. .. -.-. .- -. / .. -. ...- .- ... .. --- -.",
+            "ascii_text": "american invasion",
+            "guess_time": 120
+        },
+        {
+            "morse_text": "-.-. --- -- -- ..- -. .. ... --",
+            "ascii_text": "communism",
+            "guess_time": 60
+        },
+        {
+            "morse_text": "--. --- - - .-- .- .-.. -..",
+            "ascii_text": "gottwald",
+            "guess_time": 60
+        },
+        {
+            "morse_text": "...- .- ... .. .-.. / -... .. .-.. .- -.-",
+            "ascii_text": "vasil bilak",
+            "guess_time": 120
+        },
+        {
+            "morse_text": ".-.. . --- -. .. -.. / .. .-.. .--- .. -.-. / -... .-. . --.. -. . ...-",
+            "ascii_text": "leonid iljic breznev",
+            "guess_time": 180
+        }
+    ]
+}
