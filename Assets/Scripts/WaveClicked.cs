@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static radioBehavior;
 using TMPro;
 
 public class WaveClicked : MonoBehaviour
