@@ -11,10 +11,6 @@ public class moveArmy : MonoBehaviour
     void Start()
     {
         sectors = GameObject.Find("selectedSectors");
-        sectors.GetComponent<sectorsDeffence>().changeText();
-
-        //Debug.Log(sectors);
-        //sectors.GetComponent<sectorsDeffence>().changeText();
     }
 
     // Update is called once per frame
@@ -25,6 +21,6 @@ public class moveArmy : MonoBehaviour
 
     public void selectSector()
     {
-        Debug.Log("Presunul si armadu na "+ this.name);
+        sectors.GetComponent<sectorsDeffence>().noteSector(this.name);
     }
 }

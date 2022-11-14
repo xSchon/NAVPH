@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Branime sektory:'
+  m_text: 'Deffending sectors: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1679,6 +1679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9951d1b0e37aa174fa99d3430be3d4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sectorsAmount: 5
 --- !u!1 &498402882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2254,10 @@ PrefabInstance:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
       value: sector1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081103166311205502, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -4253,6 +4258,10 @@ PrefabInstance:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
       value: sector5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081103166311205502, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
