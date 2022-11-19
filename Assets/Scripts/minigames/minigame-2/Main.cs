@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
     static public Main Instance;
 
     private int count = 0;
+    private int ending = 9;
     private void Awake() 
     {
         Instance = this;
@@ -28,7 +29,7 @@ public class Main : MonoBehaviour
     {
         count++;
         Debug.Log(count);
-        if (count == 4)
+        if (count == ending)
         {
             Debug.Log("You Win!");
         }
