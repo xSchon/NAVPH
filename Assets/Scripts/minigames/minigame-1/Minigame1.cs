@@ -77,4 +77,10 @@ public class Minigame1 : MonoBehaviour
         ui_score.text = "Tvoje score je: " + score;
         ui_bricks.text = "Zostavajuci pocet tehal: " + number_of_bricks;
    }
+
+   public void backToMenu(){
+        SceneManager.LoadScene("Menu");
+       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
+        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
+   }
 }

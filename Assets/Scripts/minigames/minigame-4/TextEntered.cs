@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextEntered : MonoBehaviour
 {
@@ -62,4 +63,10 @@ public class TextEntered : MonoBehaviour
 
         Debug.Log("Set Attribttues metoda");
     }
+    
+    public void backToMenu(){
+        SceneManager.LoadScene("Menu");
+       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
+        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
+   }
 }

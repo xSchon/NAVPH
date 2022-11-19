@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Wires : MonoBehaviour
 {
@@ -76,4 +77,10 @@ public class Wires : MonoBehaviour
         float dist = Vector2.Distance(startPoint, startPosition);
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
     }
+
+    public void backToMenu(){
+        SceneManager.LoadScene("Menu");
+       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
+        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
+   }
 }
