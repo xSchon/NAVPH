@@ -43,7 +43,7 @@ public class timer : MonoBehaviour
         int minutes;
         int hours;
 
-        minutes = ((int)(this.timePassed / 7)) * 10;
+        minutes = ((int)(this.timePassed / secondsInTenMinutes)) * 10;
         minutes +=(int) startingHour * 60;  
 
         hours = minutes / 60;
@@ -58,4 +58,5 @@ public class timer : MonoBehaviour
     public void StopTimer(){
         this.timerActive = false;
     }
+
 }

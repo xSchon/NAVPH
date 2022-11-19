@@ -1,0 +1,8 @@
+{"1" :{
+        "StartingTime": "08:00",
+        "EndingTime": "10:00",
+        "StartingMessage" : "Welcome to the very first day in your new work.",
+        "Scene" : "Day1",
+        "Minigames" : [1]
+    }
+}

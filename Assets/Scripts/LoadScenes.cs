@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScenes : MonoBehaviour
 {
+    public string sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,4 +21,10 @@ public class LoadScenes : MonoBehaviour
     public void endMinigame(){
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void loadOtherScene(){
+        SceneManager.LoadScene(sceneToLoad);
+        Time.timeScale = 1.0f;
+    }
+
 }

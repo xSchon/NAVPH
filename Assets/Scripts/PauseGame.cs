@@ -11,6 +11,7 @@ public class PauseGame : MonoBehaviour
     {
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
+        Time.timeScale = 0.0f;
     }
 
     void Update(){
