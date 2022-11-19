@@ -17,13 +17,13 @@ public class PauseGame : MonoBehaviour
     }
 
     public void StartPause(){
+        Debug.Log("Pause started");
         Time.timeScale = 0.0f;
         pauseScreen.SetActive(true);
-        EndPause();
    }
 
     public void EndPause(){
-        Debug.Log("Hmm");
+        Debug.Log("Pause ended, game continues");
         Time.timeScale = 1.0f;    
         pauseScreen.SetActive(false);
     }

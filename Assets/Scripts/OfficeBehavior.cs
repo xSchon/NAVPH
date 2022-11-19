@@ -25,7 +25,6 @@ public class OfficeBehavior : MonoBehaviour
    if (Input.GetMouseButtonDown(0) && !radioScreen.activeSelf && !mapScreen.activeSelf
       && !pauseScreen.activeSelf
    ){ // if left button pressed AND gui disabled
-     Debug.Log("xdd");
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
 
