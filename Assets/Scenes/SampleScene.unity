@@ -5957,7 +5957,7 @@ GameObject:
   - component: {fileID: 1845140556}
   - component: {fileID: 1845140555}
   m_Layer: 0
-  m_Name: dailyTimer
+  m_Name: DailyTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class timer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     private float timePassed;
     private bool timerActive;
@@ -57,6 +57,10 @@ public class timer : MonoBehaviour
 
     public void StopTimer(){
         this.timerActive = false;
+    }
+
+    public int getCurrentMinutes(){
+        return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
     }
 
 }

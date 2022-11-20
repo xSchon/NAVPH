@@ -10,13 +10,15 @@ public class SearchMessage : MonoBehaviour
 {
     public float movingSpeed;
     private RectTransform myRectTransform;
+    private Color normalColor = new Color(83.0f/255.0f, 255.0f/255.0f, 84.0f/255.0f, 156.0f/255.0f);
+    private Color stopColor = new Color(255.0f/255.0f, 83.0f/255.0f, 84.0f/255.0f, 156.0f/255.0f);
+    private bool activeSearch = true;
     // Start is called before the first frame update
     void Start()
     {   
        if (this.movingSpeed <= 0){
         this.movingSpeed = 0.5f; // in case of invalid input
        }
-       Debug.Log(gameObject.GetComponent<Image>().color); 
        myRectTransform = GetComponent<RectTransform>();
     }
 
@@ -48,11 +50,30 @@ public class SearchMessage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRectTransform.localPosition += new Vector3(this.movingSpeed, 0, 0);
-        if (!RectContainsAnother(GameObject.Find("WaveButton").GetComponent<RectTransform>(), myRectTransform)){
-            this.movingSpeed *= -1;
-            myRectTransform.localPosition += new Vector3(2*this.movingSpeed, 0, 0);  // bounce back immediately
+        if (activeSearch){
+            myRectTransform.localPosition += new Vector3(this.movingSpeed, 0, 0);
+            if (!RectContainsAnother(GameObject.Find("WaveButton").GetComponent<RectTransform>(), myRectTransform)){
+                this.movingSpeed *= -1;
+                myRectTransform.localPosition += new Vector3(2*this.movingSpeed, 0, 0);  // bounce back immediately
+            }
         }
-        
+
+        Debug.Log(getTime());
     }
+
+    public void stopSearch(){
+        this.activeSearch = false;
+        gameObject.GetComponent<Image>().color = stopColor;
+    }
+    
+
+    public void startSearch(){
+        this.activeSearch = true;
+        gameObject.GetComponent<Image>().color = normalColor;
+    }
+
+    public int getTime(){
+        return GameObject.Find("DailyTimer").GetComponent<Timer>().getCurrentMinutes();
+    }
+
 }
