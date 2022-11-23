@@ -34,4 +34,8 @@ public class RadioConfig{
     public void setMessage(string newMessage){
         this.radioMessage = newMessage;
     }
+
+    public string getMessage(){
+        return this.radioMessage;
+    }
 }

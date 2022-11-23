@@ -32,14 +32,18 @@ public class OfficeBehavior : MonoBehaviour
      RaycastHit hit;
 
      if (Physics.Raycast(ray, out hit)){
-        if(this.radiosNames.Contains(hit.collider.gameObject.name)){ // if clicked on the radio 
+        string colliderHit = hit.collider.gameObject.name;
+        if(this.radiosNames.Contains(colliderHit)){ // if clicked on the radio 
+            int selectedRadio = (int.Parse(colliderHit[colliderHit.Length-1].ToString()) - 1);
             radioScreen.SetActive(true);
+            GameObject.Find("WaveButton").GetComponent<WaveClicked>().loadScene(selectedRadio);
         }
-        else if(hit.collider.gameObject.name == mapObjectName){
+
+        else if(colliderHit == mapObjectName){
             mapScreen.SetActive(true);
         }
         else{
-            Debug.Log(hit.collider.gameObject.name);
+            Debug.Log(colliderHit);
         }
      }
    }

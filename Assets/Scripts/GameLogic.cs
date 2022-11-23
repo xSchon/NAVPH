@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     public TextAsset jsonFile;
+    private JObject getResult;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(getResult["1"]);
     }
+    
 }
