@@ -32,7 +32,7 @@ public class PauseGame : MonoBehaviour
 
     public void backToMenu(){
         SceneManager.LoadScene("Menu");
-       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
+        //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
         //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
    }
 }

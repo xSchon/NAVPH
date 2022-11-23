@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
-
 public class SearchMessage : MonoBehaviour
 {
     public float movingSpeed;
@@ -57,8 +55,6 @@ public class SearchMessage : MonoBehaviour
                 myRectTransform.localPosition += new Vector3(2*this.movingSpeed, 0, 0);  // bounce back immediately
             }
         }
-
-        Debug.Log(getTime());
     }
 
     public void stopSearch(){
