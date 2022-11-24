@@ -8,6 +8,7 @@ public class GameLogic : MonoBehaviour
 {
     public TextAsset jsonFile;
     private JObject getResult;
+    private int [] playerSectors;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,12 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(getResult["1"]);
+        //Debug.Log(getResult["1"]);
     }
     
+    public void setSectors(int[] sectors){
+        this.playerSectors = sectors;
+        Debug.Log("New sectors are "+ this.playerSectors);
+    }
+
 }

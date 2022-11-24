@@ -5,14 +5,16 @@ using UnityEngine;
 public class RadioConfig{
     private int radioNumber;
     private Color backgroundColor;
-    private float posYSearcher;
+    private float posXSearcher;
     private string radioMessage;
+    private bool activeSearch;
 
-    public RadioConfig(int radioNumber, Color backgroundColor, float posYSearcher, string radioMessage){
+    public RadioConfig(int radioNumber, Color backgroundColor){
         this.radioNumber = radioNumber;
         this.backgroundColor = backgroundColor;
-        this.posYSearcher = posYSearcher;
-        this.radioMessage = radioMessage;
+        this.posXSearcher = 0.0f;
+        this.radioMessage = "";
+        this.activeSearch = true;
     }
 
     public int getNumber(){
@@ -23,12 +25,12 @@ public class RadioConfig{
         return this.backgroundColor;
     }
 
-    public void setPosY(float newPosY){
-        this.posYSearcher = newPosY;
+    public void setPosX(float newPosX){
+        this.posXSearcher = newPosX;
     }
 
-    public float getPosY(){
-        return this.posYSearcher;
+    public float getPosX(){
+        return this.posXSearcher;
     }
 
     public void setMessage(string newMessage){
@@ -37,5 +39,13 @@ public class RadioConfig{
 
     public string getMessage(){
         return this.radioMessage;
+    }
+
+    public bool isActive(){
+        return this.activeSearch;
+    }
+
+    public void setActive(bool newActive){
+        this.activeSearch = newActive;
     }
 }

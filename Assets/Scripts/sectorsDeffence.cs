@@ -9,6 +9,7 @@ public class sectorsDeffence : MonoBehaviour
 {   
     public int sectorsAmount; // set in Unity
     private int[] selectedSectors;
+    private GameLogic gameLogic;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,9 @@ public class sectorsDeffence : MonoBehaviour
         for(int i = 0; i < selectedSectors.Length; i += 1){
             selectedSectors[i] = 0;
         }
+
+        gameLogic = GameObject.Find("GameLogic").GetComponent<GameLogic>();
+        gameLogic.setSectors(selectedSectors);
     }
 
     // Update is called once per frame
@@ -49,6 +53,8 @@ public class sectorsDeffence : MonoBehaviour
             visibleSector("sector"+dropSector, false);
         }
         visibleSector(sectorName, true);
+
+        gameLogic.setSectors(selectedSectors);
     }
 
     private void changeText(string sectorsNumbers){

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class SearchMessage : MonoBehaviour
 {
     public float movingSpeed;
@@ -62,10 +61,17 @@ public class SearchMessage : MonoBehaviour
         gameObject.GetComponent<Image>().color = stopColor;
     }
     
-
     public void startSearch(){
         this.activeSearch = true;
         gameObject.GetComponent<Image>().color = normalColor;
+    }
+
+    public void setSearch(bool searchBool){
+        if(searchBool){
+            startSearch();
+        } else {
+            stopSearch();
+        }
     }
 
     public int getTime(){
