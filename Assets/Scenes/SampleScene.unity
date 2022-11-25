@@ -4245,7 +4245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957e0c5409bcf1845b5c4960cdd5dee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
+  jsonFile: {fileID: 4900000, guid: 82515fcc8c3a8324680a718369f96863, type: 3}
 --- !u!4 &1287202082
 Transform:
   m_ObjectHideFlags: 0
@@ -6820,7 +6820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2113875a0c6a1972ab268c532f9f0dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Menu
 --- !u!224 &2002077874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}

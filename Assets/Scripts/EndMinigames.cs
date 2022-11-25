@@ -20,19 +20,16 @@ public class EndMinigames : MonoBehaviour
     }
 
     public void endMinigame(){
-        Debug.Log("XD scena je: " +  SceneManager.GetActiveScene().name);
-
         int countLoaded = SceneManager.sceneCount;
         int parent_scene_id = -1;
         for (int i = 0; i < countLoaded; i++)
         {
-            
             Scene scene = SceneManager.GetSceneAt(i);
+            Debug.Log(scene.name);
             if (scene.name != minigameName){
                 parent_scene_id = i;
             }
         }
-
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(parent_scene_id));
         minigameCamera.enabled = false;
 

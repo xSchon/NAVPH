@@ -12,6 +12,7 @@ public class WaveClicked : MonoBehaviour
     private TMP_Text gameText;
     private RadioConfig[] radios;
     private int activeRadio = 0;
+    private int[] minigamesIDs;
 
     private Scene main_scene;
     Camera main_camera;
@@ -48,19 +49,17 @@ public class WaveClicked : MonoBehaviour
     public void StartVoice(){
         Debug.Log("CLickol si na wave button :)");
         gameText.enabled = !gameText.enabled;
-        StartCoroutine(LoadMinigame1());
+
+        float probability = Random.Range(0.0f, 1.0f);
+        Debug.Log(probability);
+        if (probability <= 0.3f){
+            int index = Random.Range(0, minigamesIDs.Length);
+            StartCoroutine(LoadMinigame1(minigamesIDs[index]));
+        }
     }
 
-    IEnumerator LoadMinigame1(){
-        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);
-        Debug.Log("sceneName to load: " + "/minigames/minigame-1");
-
-        AsyncOperation async = SceneManager.LoadSceneAsync("minigame-1", LoadSceneMode.Additive); 
-
-        //yield return async;
-        
-
-        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);
+    IEnumerator LoadMinigame1(int index){
+        AsyncOperation async = SceneManager.LoadSceneAsync($"minigame-{index}", LoadSceneMode.Additive); 
         
         while (!async.isDone)
         {
@@ -69,20 +68,14 @@ public class WaveClicked : MonoBehaviour
             //yield return new WaitForEndOfFrame();
             //GUIManager.instance.guiLoading.setProgress(async.progress);
         }
-
-        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);
         
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("minigame-1"));
-
-        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName($"minigame-{index}"));
 
         minigame_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         main_camera.enabled = false;
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
-        //minigame_camera.SetActive(true);
-        //SceneHelper.LoadScene( "minigame-1", additive: true, setActive: true);
     }
 
     public void loadScene(int radioNumber){
@@ -101,5 +94,9 @@ public class WaveClicked : MonoBehaviour
             SceneManager.UnloadSceneAsync(arg0.name);
             main_camera.enabled = true;
             mainEventSystem.enabled = true;
+    }
+
+    public void setMinigames(int[] minigamesIndexes){
+        minigamesIDs = minigamesIndexes;
     }
 }
