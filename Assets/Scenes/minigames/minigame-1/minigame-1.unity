@@ -610,7 +610,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1018476511}
-        m_TargetAssemblyTypeName: LoadScenes, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndMinigames, Assembly-CSharp
         m_MethodName: endMinigame
         m_Mode: 1
         m_Arguments:
@@ -620,7 +620,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1018476509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,10 +668,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018476506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2113875a0c6a1972ab268c532f9f0dcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7507d8e3a8b117c46b9cf3585bcecf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  minigameCamera: {fileID: 1414697121}
+  minigameName: minigame-1
 --- !u!1 &1166811478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1048,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414697119}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1414697121
 Camera:
   m_ObjectHideFlags: 0

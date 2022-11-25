@@ -18,6 +18,7 @@ public class Minigame1 : MonoBehaviour
     private TMP_Text popup;
 
     private GameObject button;
+    private Camera minigame_camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Minigame1 : MonoBehaviour
         ui_bricks = GameObject.Find("nm_bricks").GetComponent<TextMeshProUGUI>();
         popup = GameObject.Find("popup").GetComponent<TextMeshProUGUI>();
         button = GameObject.Find("button");
+        minigame_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         popup.enabled = false;
         button.SetActive(false);
     }
@@ -51,6 +53,7 @@ public class Minigame1 : MonoBehaviour
     }
 
     public void incremenmtScore(float height){
+        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);      // ZMAZ!!!!
         if (height > score) score = height;
         Debug.Log(score);
     }
@@ -79,8 +82,18 @@ public class Minigame1 : MonoBehaviour
    }
 
    public void backToMenu(){
-        SceneManager.LoadScene("Menu");
-       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
-        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
+        int countLoaded = SceneManager.sceneCount;
+        int parent_scene_id = -1;
+        for (int i = 0; i < countLoaded; i++)
+        {
+            
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name != "minigame-1"){
+                parent_scene_id = i;
+            }
+        }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(parent_scene_id));
+        minigame_camera.enabled = false;
    }
 }
