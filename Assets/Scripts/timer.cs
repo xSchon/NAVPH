@@ -63,4 +63,12 @@ public class Timer : MonoBehaviour
         return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
     }
 
+    public void setStartingTime(string time){
+        string setStartingTime = time;
+    }
+
+    public void setEndingTime(string time){
+        string setEndingTime = time;
+    }
+
 }

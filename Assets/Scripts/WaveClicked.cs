@@ -36,6 +36,8 @@ public class WaveClicked : MonoBehaviour
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
+
+        clickable = GameObject.FindGameObjectsWithTag("Clickable");
     }   
 
     // Update is called once per frame
@@ -78,8 +80,6 @@ public class WaveClicked : MonoBehaviour
         main_camera.enabled = false;
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
-        
-        clickable = GameObject.FindGameObjectsWithTag("Clickable");
 
         foreach(GameObject clickObject in clickable){
             clickObject.SetActive(false);
@@ -97,13 +97,16 @@ public class WaveClicked : MonoBehaviour
         GameObject.Find("FindingCursor").GetComponent<SearchMessage>().setSearch(radios[radioNumber].isActive());
     }
 
-    public void returnScene(Scene arg0, Scene arg1){
+    private void returnScene(Scene arg0, Scene arg1){
         if (arg1.name == main_scene.name)
             SceneManager.UnloadSceneAsync(arg0.name);
             main_camera.enabled = true;
             mainEventSystem.enabled = true;
 
+            Debug.Log(clickable.Length);
+
             foreach(GameObject clickObject in clickable){
+                Debug.Log(clickObject);
                 clickObject.SetActive(true);
             }
     }

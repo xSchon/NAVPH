@@ -19,8 +19,9 @@ public class GameLogic : MonoBehaviour
     private JObject getResult;
     private int[] playerSectors;
     private Dictionary<string, Day> days;
-
-    private WaveClicked waveClicked;
+    public string dayIndex = "1";
+    //private WaveClicked waveClicked;
+    private Timer timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,10 @@ public class GameLogic : MonoBehaviour
         Debug.Log(days["1"]);
         Debug.Log(days["1"].StartingTime);
 
-        FindObjectOfType<WaveClicked>().setMinigames(days["1"].Minigames);
+        //FindObjectOfType<WaveClicked>().setMinigames(days["1"].Minigames);
+        timer = FindObjectOfType<Timer>();
+
+        loadDay(days);
     }
 
     // Update is called once per frame
@@ -48,6 +52,13 @@ public class GameLogic : MonoBehaviour
     public void setSectors(int[] sectors){
         this.playerSectors = sectors;
         Debug.Log("New sectors are "+ this.playerSectors);
+    }
+
+    private void loadDay(Dictionary<string, Day> days){
+        timer.setStartingTime(days[dayIndex].StartingTime);
+        timer.setEndingTime(days[dayIndex].EndingTime);
+
+        FindObjectOfType<WaveClicked>().setMinigames(days[dayIndex].Minigames);
     }
 
 }

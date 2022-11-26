@@ -1,0 +1,22 @@
+{
+    "Day": "1",
+    "SusMeterValue": 0,
+    "StoryLines": [
+        {
+            "id": 5,
+            "active": true,
+            "completed": false
+        },
+        {
+            "id": 6,
+            "active": false,
+            "completed": false
+        }
+    ],
+    "Status": {
+        "Vehicle": 0,
+        "Health": 0,
+        "SocialStatus": 0,
+        "Living": 0
+    }
+}

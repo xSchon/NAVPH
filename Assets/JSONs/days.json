@@ -4,6 +4,6 @@
         "EndingTime": "10:00",
         "StartingMessage": "Welcome to the very first day in your new work.",
         "Scene": "Day1",
-        "Minigames": [4]
+        "Minigames": [1,4]
     }
 }
