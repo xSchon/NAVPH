@@ -1,0 +1,26 @@
+{
+    "Vehicle": [
+        "None",
+        "Bicycle",
+        "Lada",
+        "Skoda"
+    ],
+    "Health": [
+        "In Pain",
+        "Unhealthy",
+        "OK",
+        "Healthy"
+    ],
+    "SocialStatus": [
+        "Renegade",
+        "MiddleClass",
+        "Popular",
+        "SuperPopular"
+    ],
+    "Living": [
+        "Dormitory",
+        "Studio",
+        "Flat",
+        "House"
+    ]
+}

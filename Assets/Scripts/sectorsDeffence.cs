@@ -11,6 +11,14 @@ public class sectorsDeffence : MonoBehaviour
     private int[] selectedSectors;
     private GameLogic gameLogic;
     // Start is called before the first frame update
+
+    /*class Message
+    {
+        public int Radio
+    }   
+    Dictionary<string, Dictionary<string, Message>> data; */
+
+    
     void Start()
     {
         if (sectorsAmount < 0 || sectorsAmount > 9){

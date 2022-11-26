@@ -1,0 +1,135 @@
+1. Tvoj znamy kamarat chce utiect. Vola sa Fero. 2. vecer ti dojde od neho list, ktory ti ukazuje, ze ste kamarati a ze chce utiect. 
+Den 3 ho mozes pustit --> ak ho pustis 
+
+2. 3 revolucionari    1 --> 2 --> 3  ENDING: REVOLUCIA, 3 dojde v den 8, ak pustis vsetkych 3, nastane revolucia, koniec hry, rozpravaju o ludi, podpore a slobode
+
+4. Rumunska revolucia 1--> 2 --> 3 ENDING: RUMUNSKA REVOLUCIA, rozpravaju o armade, zbraniach a vyvrazdeni komunistov
+
+5. 3 vysoko postavenych ludi, ktori chcu utiect - maju informacie o sovietskom zvaze, si informovany velenim, ze ich NEMAS ZA ZIADNU CENU PUSTAT.
+	Ak pustis vsetkych 3 --> Sovietsky zvaz zanikne, rozpadne sa utokom zvonku
+
+6. Daju ti viac damagu, ak ich pustis cez hranice. Vecer ti pride list od *Jana*, rano ti *Ivan* povie, ze "Tu Ivan, pisal som ti list, pusti ma" 
+	nechal si sa ojekabatit.
+
+7. 2 sestricky 1 --> 2  2. sestricka dojde v den 7, ak pustis obe prec, skolabuje zdravotnictvo CSSR -- vypise sa priebezne, noviny na konci dna
+
+8. Paserak - slubi ti, ze ti nieco da, ked sa vrati - na konci sa na teba bud vyserie, alebo ti nieco realne da
+
+9. Felak
+
+10. Rodinka
+
+11. STBak - zmrd 
+
+12. Ucitel -- nemal si ho rad, lebo ti daval 5tky
+
+13. 
+
+
+
+
+ENDINGY
+1. 0 susBar/ pustil si malo ludi cez hranice (menej ako 7) --> Vlast ti podakuje, pokracujes v robote, nic sa nezmenilo, 
+   v tvojej krajine ostane Socializmus navzdy.
+2. 100 susBar --> Zavreli ta do Gulagu, prehral si 
+3. Neutralny ending - susBar ani 0, ani 100 - miernejsi komunizmus, ale stale pokracuje
+4. NEZNA REVOLUCIA, vid storku 2
+5. RUMUNSKA REVOLUCIA 
+6. ZANIK ZSSR
+
+
+
+JSONy conversations:			
+{    "<DAYNO>" : { 
+        "<HOURNO>" : {
+            "Radio": [1-3],
+            "Name" : text,
+            "HourShow" : hh:mm,
+            "HourTill" : hh:mm,  
+            "Text" : array_of_string,  
+            "StoryLine" : int,           
+            "Sector" : [1-9],
+            "WhenDeffendSector" : hh:mm,
+            "SusMeterPenalisation" : int
+            },
+        "2" :  {
+
+        },
+        "3" : {
+
+        }
+            },
+  "2" : {
+  }
+}
+
+Poznamky:
+Hour*,  WhenDeffendSector - musi byt v ramci jedneho dna - standardne medzi 08:00 - 16:00
+Text - Jeden prvok pola sa zobrazi v jeden cas. Chceme predist privela textu, este presnejsie definujem, kolko znakov na jeden prvok je max
+StoryLine - 0 pre genericke texty s nicim nesuvisiace. Cisla 1-n pre konkretne storylines v inom JSON file
+SusMeterPenalisation  - optional, ak explicitne nie je urcena hodnota strhnutia, tak bude default
+
+Vysvetlivky:
+Radio - Cislo radia, na ktorom sa ma sprava zobrazit. POZOR NA TO, ABY BOLO V DANY DEN DOSTUPNE!!!
+Name - Meno pisaca
+Day - Den, kedy ma sprava prist
+HourShow - Kedy sa ma ukazat sprava
+HourTill - Dokedy ma hrac sancu na policko kliknut, kedy zmizne
+Text - Hlavne telo spravy
+StoryLine- Cislo story line textu
+Sector - Sector na mape, ktory je treba branit v case WhenDeffendSector
+SusMeterPenalisation - Kolko punishmentu dostane hrac ak nezachyti prechodlika
+
+
+JSONy story:
+{	
+  "StoryLines": {
+	  "id" : int,
+	  "onCompletion" : {
+		"ResultText" : text,
+		"EndGame" : boolean
+		}
+	  }
+  "Endings" : {
+	"id" : int,
+	  "onCompletion" : {
+		"ResultText" : text,
+		}
+	}
+}
+
+JSONy save: 
+{
+  "Day": int,
+  "SusMeterValue" : int,
+  "StoryLines" : {{
+                  "id" : int,
+		  "active" : boolean,
+		  "completed" : boolean
+		 },{}},
+   "Status" : {
+	"Vehicle" : [0-4],
+   	"Health" : [0-4],
+   	"SocialStatus" : [0-4],
+  	"Living" : : [0-4],
+	}
+}
+
+
+JSON status:
+{
+   "Vehicle" : ["None", "Bicycle", "Lada", "Skoda"],
+   "Health" : ["In Pain", "Unhealthy", "OK", "Healthy"],
+   "SocialStatus" : ["Renegade", "MiddleClass", "Popular", "SuperPopular"],
+   "Living" : ["Dormitory", "Studio", "Flat", "House"],
+}
+
+
+JSON days:
+{
+    "StartingTime": hh:mm,
+    "EndingTime": hh:mm,
+    "StartingMessage" : text,
+    "Scene" : str,
+    "Minigames" : list
+}
