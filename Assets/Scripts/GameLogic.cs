@@ -13,12 +13,29 @@ class Day{
     public int[] Minigames;
 }
 
+class Save{
+    public string Day;
+    public float SusMeterValue;
+    public string[] StoryLines;
+    public string Scene;
+    public Status Status;
+}
+
+class Status{
+    public int Vehicle;
+    public int Health;
+    public int SocialStatus;
+    public int Living;
+    
+}
+
 public class GameLogic : MonoBehaviour
 {
     public TextAsset jsonFile;
     private JObject getResult;
     private int[] playerSectors;
     private Dictionary<string, Day> days;
+    private Save savedData;
     public string dayIndex = "1";
     //private WaveClicked waveClicked;
     private Timer timer;
@@ -40,6 +57,7 @@ public class GameLogic : MonoBehaviour
         //FindObjectOfType<WaveClicked>().setMinigames(days["1"].Minigames);
         timer = FindObjectOfType<Timer>();
 
+        //saveGame();
         loadDay(days);
     }
 
@@ -51,7 +69,6 @@ public class GameLogic : MonoBehaviour
     
     public void setSectors(int[] sectors){
         this.playerSectors = sectors;
-        Debug.Log("New sectors are "+ this.playerSectors);
     }
 
     private void loadDay(Dictionary<string, Day> days){
@@ -59,6 +76,30 @@ public class GameLogic : MonoBehaviour
         timer.setEndingTime(days[dayIndex].EndingTime);
 
         FindObjectOfType<WaveClicked>().setMinigames(days[dayIndex].Minigames);
+
+        string savedDataText = File.ReadAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json");
+        savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
+        Debug.Log(savedData.Scene);
     }
 
+    private void saveGame(){
+        Status statusData = new Status();
+        statusData.Vehicle = 1;
+        statusData.Health = 1;
+        statusData.SocialStatus = 1;
+        statusData.Living = 1;
+        
+        Save storeData = new Save();
+        storeData.Day = dayIndex;
+        storeData.SusMeterValue = 0.45f;
+        storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
+        storeData.Scene = "LMAO";
+        storeData.Status = statusData;
+
+        string output = JsonConvert.SerializeObject(storeData);
+
+        System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
+
+        Debug.Log("Saved brasko");
+    }
 }

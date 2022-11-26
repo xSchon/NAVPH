@@ -54,12 +54,13 @@ public class WaveClicked : MonoBehaviour
         Debug.Log("CLickol si na wave button :)");
         gameText.enabled = !gameText.enabled;
 
-        float probability = Random.Range(0.0f, 1.0f);
+        
+        /*float probability = Random.Range(0.0f, 1.0f);
         Debug.Log(probability);
         if (probability <= 0.3f){
             int index = Random.Range(0, minigamesIDs.Length);
             StartCoroutine(LoadMinigame1(minigamesIDs[index]));
-        }
+        }*/
     }
 
     IEnumerator LoadMinigame1(int index){
@@ -103,10 +104,7 @@ public class WaveClicked : MonoBehaviour
             main_camera.enabled = true;
             mainEventSystem.enabled = true;
 
-            Debug.Log(clickable.Length);
-
             foreach(GameObject clickObject in clickable){
-                Debug.Log(clickObject);
                 clickObject.SetActive(true);
             }
     }
