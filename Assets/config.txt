@@ -41,16 +41,15 @@ ENDINGY
 
 JSONy conversations:			
 {    "<DAYNO>" : { 
-        "<HOURNO>" : {
-            "Radio": [1-3],
-            "Name" : text,
-            "HourShow" : hh:mm,
-            "HourTill" : hh:mm,  
-            "Text" : array_of_string,  
-            "StoryLine" : int,           
-            "Sector" : [1-9],
-            "WhenDeffendSector" : hh:mm,
-            "SusMeterPenalisation" : int
+            <hh:mm HOURSHOW>: {
+              "Name" : text,
+              "HourShow" : hh:mm,
+              "HourTill" : hh:mm,  
+              "Text" : array_of_string,  
+              "StoryLine" : int,           
+              "Sector" : [1-9],
+              "WhenDeffendSector" : hh:mm,
+              "SusMeterPenalisation" : int
             },
         "2" :  {
 

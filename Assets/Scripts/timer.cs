@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
     private float timePassed;
+    private float sinceLast = 0.0f;
     private bool timerActive;
     private TMP_Text mainTimer;
     // time granularity of program is in 10 minutes
@@ -26,8 +28,9 @@ public class Timer : MonoBehaviour
         }
         timerActive = true;
         timePassed = 0;
-
+    
         mainTimer = GameObject.Find("timeText").GetComponent<TextMeshProUGUI>();
+        UpdateTime();
     }
 
     // Update is called once per frame
@@ -35,11 +38,17 @@ public class Timer : MonoBehaviour
     {
         if(timerActive){
             timePassed += Time.deltaTime;
+            sinceLast += Time.deltaTime;
         }
-        DisplayTime();
+
+        if (sinceLast >= secondsInTenMinutes){
+            // There is no need to call time-dependend functions every second.
+            UpdateTime();
+            sinceLast = 0.0f;
+        }
     }
 
-    private void DisplayTime(){
+    private void UpdateTime(){
         int minutes;
         int hours;
 
@@ -48,7 +57,10 @@ public class Timer : MonoBehaviour
 
         hours = minutes / 60;
         minutes = minutes % 60;
-        mainTimer.text = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, "00");
+        string newTime = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, "00");
+        mainTimer.text = newTime;
+
+        GameObject.Find("GameLogic").GetComponent<GameLogic>().checkMessages(mmHHtoMinutes(newTime));
     }
 
     public void StartTimer(){
@@ -61,6 +73,12 @@ public class Timer : MonoBehaviour
 
     public int getCurrentMinutes(){
         return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
+    }
+
+    public int mmHHtoMinutes(string timeHHMM){
+        int tmpMins;
+        tmpMins = (int) TimeSpan.Parse(timeHHMM).TotalMinutes;
+        return tmpMins; 
     }
 
 }

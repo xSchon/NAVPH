@@ -36,7 +36,7 @@ public class OfficeBehavior : MonoBehaviour
      if (Physics.Raycast(ray, out hit)){
         string colliderHit = hit.collider.gameObject.name;
         if(this.radiosNames.Contains(colliderHit)){ // if clicked on the radio 
-            int selectedRadio = (int.Parse(colliderHit[colliderHit.Length-1].ToString()) - 1);
+            int selectedRadio = int.Parse(colliderHit[colliderHit.Length-1].ToString());
             radioScreen.SetActive(true);
             radioStatic.Play();
             radioScreen.GetComponent<Canvas>().enabled = true;

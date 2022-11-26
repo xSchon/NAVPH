@@ -49,7 +49,6 @@ public class WaveClicked : MonoBehaviour
     }
 
     public void StartVoice(){
-        Debug.Log("CLickol si na wave button :)");
         gameText.enabled = !gameText.enabled;
 
         float probability = Random.Range(0.0f, 1.0f);
@@ -87,6 +86,8 @@ public class WaveClicked : MonoBehaviour
     }
 
     public void loadScene(int radioNumber){
+        radioNumber = radioNumber - 1;
+
         GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].getColor();
         gameText.text = radios[radioNumber].getMessage();
         
@@ -110,5 +111,10 @@ public class WaveClicked : MonoBehaviour
 
     public void setMinigames(int[] minigamesIndexes){
         minigamesIDs = minigamesIndexes;
+    }
+
+    public void changeRadioMessage(string newMessage, int radioNumber){
+        radioNumber = radioNumber - 1;
+        radios[radioNumber].setMessage(newMessage);
     }
 }
