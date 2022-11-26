@@ -15,9 +15,11 @@ public class WaveClicked : MonoBehaviour
     private int[] minigamesIDs;
 
     private Scene main_scene;
-    Camera main_camera;
-    Camera minigame_camera;
-    EventSystem mainEventSystem;
+    private Camera main_camera;
+    private Camera minigame_camera;
+    private EventSystem mainEventSystem;
+
+    private GameObject[] clickable;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +78,12 @@ public class WaveClicked : MonoBehaviour
         main_camera.enabled = false;
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
+        
+        clickable = GameObject.FindGameObjectsWithTag("Clickable");
+
+        foreach(GameObject clickObject in clickable){
+            clickObject.SetActive(false);
+        }
     }
 
     public void loadScene(int radioNumber){
@@ -94,6 +102,10 @@ public class WaveClicked : MonoBehaviour
             SceneManager.UnloadSceneAsync(arg0.name);
             main_camera.enabled = true;
             mainEventSystem.enabled = true;
+
+            foreach(GameObject clickObject in clickable){
+                clickObject.SetActive(true);
+            }
     }
 
     public void setMinigames(int[] minigamesIndexes){
