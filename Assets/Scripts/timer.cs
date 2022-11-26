@@ -65,10 +65,12 @@ public class Timer : MonoBehaviour
 
     public void setStartingTime(string time){
         string setStartingTime = time;
+        Debug.Log(setStartingTime);
     }
 
     public void setEndingTime(string time){
         string setEndingTime = time;
+        Debug.Log(setEndingTime);
     }
 
 }

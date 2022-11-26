@@ -59,11 +59,11 @@ public class WaveClicked : MonoBehaviour
         Debug.Log(probability);
         if (probability <= 0.3f){
             int index = Random.Range(0, minigamesIDs.Length);
-            StartCoroutine(LoadMinigame1(minigamesIDs[index]));
+            StartCoroutine(LoadMinigame(minigamesIDs[index]));
         }*/
     }
 
-    IEnumerator LoadMinigame1(int index){
+    IEnumerator LoadMinigame(int index){
         AsyncOperation async = SceneManager.LoadSceneAsync($"minigame-{index}", LoadSceneMode.Additive); 
         
         while (!async.isDone)
@@ -99,7 +99,8 @@ public class WaveClicked : MonoBehaviour
     }
 
     private void returnScene(Scene arg0, Scene arg1){
-        if (arg1.name == main_scene.name)
+        if (arg0.name != "Summary" || arg1.name != "Summary") return;
+        if (arg1.name == main_scene.name && arg0.name != "Summary")
             SceneManager.UnloadSceneAsync(arg0.name);
             main_camera.enabled = true;
             mainEventSystem.enabled = true;

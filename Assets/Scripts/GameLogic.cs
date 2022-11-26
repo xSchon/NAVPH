@@ -4,6 +4,8 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 class Day{
     public string StartingTime;
@@ -18,14 +20,22 @@ class Save{
     public float SusMeterValue;
     public string[] StoryLines;
     public string Scene;
-    public Status Status;
+    public NestedStatus Status;
 }
 
-class Status{
+class NestedStatus{
     public int Vehicle;
     public int Health;
     public int SocialStatus;
     public int Living;
+    
+}
+
+class Status{
+    public string[] Vehicle;
+    public string[] Health;
+    public string[] SocialStatus;
+    public string[] Living;
     
 }
 
@@ -48,17 +58,10 @@ public class GameLogic : MonoBehaviour
         Debug.Log(getResult);*/
 
         //waveClicked = FindObjectOfType<WaveClicked>();
-
-        days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(jsonFile.text);
-
-        Debug.Log(days["1"]);
-        Debug.Log(days["1"].StartingTime);
-
-        //FindObjectOfType<WaveClicked>().setMinigames(days["1"].Minigames);
         timer = FindObjectOfType<Timer>();
-
         //saveGame();
         loadDay(days);
+        //endDay();
     }
 
     // Update is called once per frame
@@ -72,18 +75,27 @@ public class GameLogic : MonoBehaviour
     }
 
     private void loadDay(Dictionary<string, Day> days){
-        timer.setStartingTime(days[dayIndex].StartingTime);
-        timer.setEndingTime(days[dayIndex].EndingTime);
-
-        FindObjectOfType<WaveClicked>().setMinigames(days[dayIndex].Minigames);
-
-        string savedDataText = File.ReadAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json");
+        var directory = new DirectoryInfo(Application.persistentDataPath);
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
+        
+        if (!files.Any()){          // no save was found
+            firstTimeRun();
+            return;
+        }
+        
+        string savedDataText = File.ReadAllText(files.First().FullName);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
-        Debug.Log(savedData.Scene);
+
+        dayIndex = savedData.Day;       // add +1 to last loaded day
+
+        Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(jsonFile.text);
+        timer.setStartingTime(day[dayIndex].StartingTime);
+        timer.setEndingTime(day[dayIndex].EndingTime);
+        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].Minigames);
     }
 
     private void saveGame(){
-        Status statusData = new Status();
+        NestedStatus statusData = new NestedStatus();
         statusData.Vehicle = 1;
         statusData.Health = 1;
         statusData.SocialStatus = 1;
@@ -101,5 +113,16 @@ public class GameLogic : MonoBehaviour
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Saved brasko");
+    }
+
+    public void endDay(){
+        //saveGame();
+        SceneManager.LoadScene("Summary");
+    }
+
+    private void firstTimeRun(){
+        // some additional setup when it is first run?
+        // TODO: add reset after game is done
+        dayIndex = "1";
     }
 }
