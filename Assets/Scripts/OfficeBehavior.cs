@@ -11,6 +11,7 @@ public class OfficeBehavior : MonoBehaviour
     private GameObject pauseScreen;
     private string[] radiosNames = new string[3]{"Radio1", "Radio2", "Radio3"};
     private string mapObjectName = "Map";
+    [SerializeField] private AudioSource radioStatic;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class OfficeBehavior : MonoBehaviour
         if(this.radiosNames.Contains(colliderHit)){ // if clicked on the radio 
             int selectedRadio = (int.Parse(colliderHit[colliderHit.Length-1].ToString()) - 1);
             radioScreen.SetActive(true);
+            radioStatic.Play();
             radioScreen.GetComponent<Canvas>().enabled = true;
             GameObject.Find("WaveButton").GetComponent<WaveClicked>().loadScene(selectedRadio);
         }
