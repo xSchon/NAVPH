@@ -42,7 +42,7 @@ ENDINGY
 JSONy conversations:			
 {    "<DAYNO>" : { 
             <hh:mm HOURSHOW>: {
-              "Name" : text,
+              "Author" : text,
               "HourShow" : hh:mm,
               "HourTill" : hh:mm,  
               "Text" : array_of_string,  
@@ -70,7 +70,7 @@ SusMeterPenalisation  - optional, ak explicitne nie je urcena hodnota strhnutia,
 
 Vysvetlivky:
 Radio - Cislo radia, na ktorom sa ma sprava zobrazit. POZOR NA TO, ABY BOLO V DANY DEN DOSTUPNE!!!
-Name - Meno pisaca
+Author - Meno pisaca
 Day - Den, kedy ma sprava prist
 HourShow - Kedy sa ma ukazat sprava
 HourTill - Dokedy ma hrac sancu na policko kliknut, kedy zmizne

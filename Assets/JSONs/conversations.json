@@ -1,80 +1,78 @@
 {
     "1": {
-            "08:30": {
-                "Radio": 1,
-                "Name": "Adam Zak",
-                "HourShow": "08:30",
-                "HourTill": "09:00",
-                "Text": [
-                    "Hello and welcome to this game.",
-                    "We will go throught this tutorial together"
-                ],
-                "StoryLine": 0,
-                "Sector": 3,
-                "WhenDeffendSector": "9:30",
-                "SusMeterPenalisation": 5
-            },
-            "09:30": {
-                "Radio": 1,
-                "Name": "Adam Zak",
-                "HourShow": "08:30",
-                "HourTill": "09:00",
-                "Text": [
-                    "Hello and welcome to this game.",
-                    "We will go throught this tutorial together"
-                ],
-                "StoryLine": 0,
-                "Sector": 3,
-                "WhenDeffendSector": "9:30",
-                "SusMeterPenalisation": 5
-            },
-            "10:30": {
-                "Radio": 1,
-                "Name": "Adam Zak",
-                "HourShow": "08:30",
-                "HourTill": "09:00",
-                "Text": [
-                    "Hello and welcome to this game.",
-                    "We will go throught this tutorial together"
-                ],
-                "StoryLine": 0,
-                "Sector": 3,
-                "WhenDeffendSector": "9:30",
-                "SusMeterPenalisation": 5
-            }
+        "08:30": {
+            "Radio": 1,
+            "Author": "Adam Zak",
+            "HourShow": "08:30",
+            "HourTill": "10:00",
+            "Text": [
+                "Hello and welcome to this game.",
+                "We will go throught this tutorial together"
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "9:30",
+            "SusMeterPenalisation": 5
         },
-
-        
-        "2": {
-            "07:30": {
-                "Radio": 1,
-                "Name": "Lucia Zak",
-                "HourShow": "08:30",
-                "HourTill": "09:00",
-                "Text": [
-                    "Hello and welcome to this game.",
-                    "We will go throught this tutorial together"
-                ],
-                "StoryLine": 0,
-                "Sector": 3,
-                "WhenDeffendSector": "9:30",
-                "SusMeterPenalisation": 5
-            }
+        "09:30": {
+            "Radio": 2,
+            "Author": "Martin Zak",
+            "HourShow": "09:30",
+            "HourTill": "10:00",
+            "Text": [
+                "Hello and welcome to this game.",
+                "We will go throught this tutorial together"
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "10:30",
+            "SusMeterPenalisation": 5
         },
-        "3": {
-            "07:30": {
-                "Radio": 1,
-                "Name": "Martin Zak",
-                "HourShow": "08:30",
-                "HourTill": "09:00",
-                "Text": [
-                    "Hello and welcome to this game.",
-                    "We will go throught this tutorial together"
-                ],
-                "StoryLine": 0,
-                "Sector": 3,
-                "WhenDeffendSector": "9:30",
-                "SusMeterPenalisation": 5
-            }
+        "10:30": {
+            "Radio": 1,
+            "Author": "Adam Zak",
+            "HourShow": "08:30",
+            "HourTill": "09:00",
+            "Text": [
+                "Hello and welcome to this game.",
+                "We will go throught this tutorial together"
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "9:30",
+            "SusMeterPenalisation": 5
+        }
+    },
+    "2": {
+        "07:30": {
+            "Radio": 1,
+            "Author": "Lucia Zak",
+            "HourShow": "08:30",
+            "HourTill": "09:00",
+            "Text": [
+                "Hello and welcome to this game.",
+                "We will go throught this tutorial together"
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "9:30",
+            "SusMeterPenalisation": 5
+        }
+    },
+    "3": {
+        "07:30": {
+            "Radio": 1,
+            "Author": "Martin Zak",
+            "HourShow": "08:30",
+            "HourTill": "09:00",
+            "Text": [
+                "Hello and welcome to this game.",
+                "We will go throught this tutorial together"
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "9:30",
+            "SusMeterPenalisation": 5
         }
     }
+}

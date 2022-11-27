@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
@@ -9,6 +10,8 @@ using TMPro;
 public class WaveClicked : MonoBehaviour
 {
     private GameObject radioScreen;
+    private GameObject readingScreen;
+    private GameObject[] clickable;
     private TMP_Text gameText;
     private RadioConfig[] radios;
     private int activeRadio = 0;
@@ -18,13 +21,18 @@ public class WaveClicked : MonoBehaviour
     private Camera main_camera;
     private Camera minigame_camera;
     private EventSystem mainEventSystem;
+    private Dictionary<int, List<int>> resetSearch  = new Dictionary<int, List<int>>();
+    private Timer timer;
 
-    private GameObject[] clickable;
+    
     // Start is called before the first frame update
     void Start()
     {
         radioScreen = GameObject.Find("RadioScreen");
+        readingScreen = GameObject.Find("ReadingScreen");
+        readingScreen.SetActive(false);
         gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
+        timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
         radios = 
         new RadioConfig[3]
         {new RadioConfig(1, new Color (0.2f, 0.6f, 0.55f)), 
@@ -36,6 +44,7 @@ public class WaveClicked : MonoBehaviour
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
+        
     }   
 
     // Update is called once per frame
@@ -46,17 +55,6 @@ public class WaveClicked : MonoBehaviour
 
     private void updatePosX(){
         this.radios[activeRadio].setPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
-    }
-
-    public void StartVoice(){
-        gameText.enabled = !gameText.enabled;
-
-        float probability = Random.Range(0.0f, 1.0f);
-        Debug.Log(probability);
-        if (probability <= 0.3f){
-            int index = Random.Range(0, minigamesIDs.Length);
-            StartCoroutine(LoadMinigame1(minigamesIDs[index]));
-        }
     }
 
     IEnumerator LoadMinigame1(int index){
@@ -89,13 +87,18 @@ public class WaveClicked : MonoBehaviour
         radioNumber = radioNumber - 1;
 
         GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].getColor();
-        gameText.text = radios[radioNumber].getMessage();
-        
+        gameText.text = "";
         this.activeRadio = radioNumber;
         RectTransform tmp = GameObject.Find("FindingCursor").GetComponent<RectTransform>();
         tmp.localPosition = new Vector3(this.radios[activeRadio].getPosX(), tmp.localPosition.y, tmp.localPosition.z);
 
         GameObject.Find("FindingCursor").GetComponent<SearchMessage>().setSearch(radios[radioNumber].isActive());
+        if(!radios[radioNumber].isActive()){
+            gameText.text = "...";
+            GameObject.Find("WaveButton").GetComponent<Button>().enabled = true;
+        } else {
+            GameObject.Find("WaveButton").GetComponent<Button>().enabled = false;
+        }
     }
 
     public void returnScene(Scene arg0, Scene arg1){
@@ -113,8 +116,78 @@ public class WaveClicked : MonoBehaviour
         minigamesIDs = minigamesIndexes;
     }
 
-    public void changeRadioMessage(string newMessage, int radioNumber){
-        radioNumber = radioNumber - 1;
-        radios[radioNumber].setMessage(newMessage);
+    public void radioActivation(Conversation activeConvo){
+        int radioNumber = activeConvo.Radio - 1;
+        radios[radioNumber].setActive(false);
+        try{
+            if (this.activeRadio == radioNumber){
+                loadScene(radioNumber + 1);
+            }}
+        catch (NullReferenceException){
+            // Expected exception for the time when radio is closed
+        };
+
+        int renewSearch = timer.mmHHtoMinutes(activeConvo.HourTill);
+        if (this.resetSearch.ContainsKey(renewSearch)){
+            List<int> tmp = this.resetSearch[renewSearch];
+            tmp.Add(radioNumber);
+            this.resetSearch[renewSearch] = tmp;
+        } else {
+            this.resetSearch.Add(renewSearch, (new List<int>{radioNumber}));
+        }
+
+        radios[radioNumber].setRadioArray(activeConvo.Text);     
+        radios[radioNumber].setAuthor(activeConvo.Author);
     }
+
+    public void checkStopped(int currentTime){
+        if (this.resetSearch.ContainsKey(currentTime)){
+            foreach(int timeRen in this.resetSearch[currentTime]){
+                this.radios[timeRen].setActive(true);
+                this.radios[timeRen].setRadioArray(Array.Empty<string>());
+                this.radios[timeRen].setAuthor("");
+                try{
+                    if (this.activeRadio == timeRen){
+                        loadScene(timeRen + 1);
+                    }} catch (NullReferenceException){
+                        // Expected exception for the time when radio is closed
+                    };
+            }
+        }
+
+    }
+
+    public void StartVoice(){
+        float probability = UnityEngine.Random.Range(0.0f, 1.0f);
+        Debug.Log(probability);
+
+        if (probability <= 0.0f){
+            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
+            StartCoroutine(LoadMinigame1(minigamesIDs[index]));
+        }
+
+        ClickedRead();
+    }
+    public void ClickedRead(){
+        string[] showText = radios[this.activeRadio].getRadioArray();
+        string authr = radios[this.activeRadio].getAuthor();
+
+        readingScreen.SetActive(true);
+        timer.StopTimer();
+
+        // read message 
+        readingScreen.GetComponent<ReadingStory>().DisplayConversation(authr, showText, gameText);
+    }
+
+    public void FinishedRead(){
+        timer.StartTimer();
+        readingScreen.SetActive(false);
+        radios[activeRadio].setActive(true);
+        loadScene(activeRadio + 1);
+    }
+
+        
+        // TODO VYHODNOCOVACI POPUP
+        // TODO DICT BRANENE SEKTORY <CAS, SEKTOR>   
+
 }

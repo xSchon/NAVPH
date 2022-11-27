@@ -8,6 +8,8 @@ public class RadioConfig{
     private float posXSearcher;
     private string radioMessage;
     private bool activeSearch;
+    private string [] radioArray;
+    private string author;
 
     public RadioConfig(int radioNumber, Color backgroundColor){
         this.radioNumber = radioNumber;
@@ -47,5 +49,21 @@ public class RadioConfig{
 
     public void setActive(bool newActive){
         this.activeSearch = newActive;
+    }
+
+    public void setRadioArray(string [] newArray){
+        this.radioArray = newArray;
+    }
+
+    public string[] getRadioArray(){
+        return this.radioArray;
+    }
+
+    public void setAuthor(string newAuthor){
+        this.author = newAuthor;
+    }
+
+    public string getAuthor(){
+        return this.author;
     }
 }

@@ -12,9 +12,9 @@ public class Timer : MonoBehaviour
     private TMP_Text mainTimer;
     // time granularity of program is in 10 minutes
     // select how many seconds represent one window of 10 minutes
-    public float secondsInTenMinutes;  
+    public float secondsInTenMinutes = 8.0f;  
     // first hour of a working day. 24 hour format. 8.5 represents 8:30
-    public float startingHour;
+    public float startingHour = 7.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -65,10 +65,12 @@ public class Timer : MonoBehaviour
 
     public void StartTimer(){
         this.timerActive = true;
+        mainTimer.color = new Color(0.267f, 0.773f, 0.325f, 1.000f);
     }
 
     public void StopTimer(){
         this.timerActive = false;
+        mainTimer.color = new Color(0.130f, 0.349f, 0.160f, 1.000f);
     }
 
     public int getCurrentMinutes(){

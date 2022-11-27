@@ -14,16 +14,6 @@ class Day{
     public int[] Minigames;
 }
 
-class Conversation{
-    public string Name = "Anonymous";
-    public string HourShow;
-    public string HourTill;
-    public string[] Text;
-    public int StoryLine = 0;
-    public int Sector = 0;
-    public string WhenDeffendSector;
-    public int SusMeterPenalisation = 10;
-}
 
 public class GameLogic : MonoBehaviour
 {
@@ -48,8 +38,8 @@ public class GameLogic : MonoBehaviour
         timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
         loadDayMessages(currentDay);
 
-        FindObjectOfType<WaveClicked>().setMinigames(days[currentDay].Minigames);
-        
+        waveClicked = FindObjectOfType<WaveClicked>();
+        waveClicked.setMinigames(days[currentDay].Minigames);
     }
 
     // Update is called once per frame
@@ -74,10 +64,11 @@ public class GameLogic : MonoBehaviour
     }
     
     public void checkMessages(int currentMintes){
-        if (this.messagesTimes.Keys.ToArray().Contains(currentMintes)){ 
+        if (this.messagesTimes.ContainsKey(currentMintes)){ 
             // if there is message at given time
-            Debug.Log(conversations[currentDay][messagesTimes[currentMintes]].Text[0]);
+            waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMintes]]);
         }
+        waveClicked.checkStopped(currentMintes);
     }
 
 }
