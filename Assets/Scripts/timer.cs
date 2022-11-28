@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     public float secondsInTenMinutes = 8.0f;  
     // first hour of a working day. 24 hour format. 8.5 represents 8:30
     public float startingHour = 7.0f;
+    
 
     // Start is called before the first frame update
     void Start()

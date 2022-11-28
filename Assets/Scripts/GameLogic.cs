@@ -42,12 +42,13 @@ public class GameLogic : MonoBehaviour
         waveClicked = FindObjectOfType<WaveClicked>();
         sectrsDeff = FindObjectOfType<sectorsDeffence>();
         waveClicked.setMinigames(days[currentDay].Minigames);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void loadDayMessages(string dayNum){
