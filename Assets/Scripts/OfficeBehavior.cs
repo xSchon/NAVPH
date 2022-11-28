@@ -21,14 +21,14 @@ public class OfficeBehavior : MonoBehaviour
       radioScreen = GameObject.Find("RadioScreen");
       radioScreen.GetComponent<Canvas>().enabled = false;
       mapScreen = GameObject.Find("MapScreen");
-      mapScreen.SetActive(false);
+      mapScreen.GetComponent<Canvas>().enabled = false;
       pauseScreen = GameObject.Find("PauseScreen");
     }
 
     // Update is called once per frame
  void Update(){
    if (Input.GetMouseButtonDown(0) && (!radioScreen.GetComponent<Canvas>().enabled || !radioScreen.activeSelf)
-        && !mapScreen.activeSelf && !pauseScreen.activeSelf){ 
+        && (!mapScreen.GetComponent<Canvas>().enabled || !mapScreen.activeSelf) && !pauseScreen.activeSelf){ 
       // if left button pressed AND gui disabled
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
@@ -44,6 +44,7 @@ public class OfficeBehavior : MonoBehaviour
         }
 
         else if(colliderHit == mapObjectName){
+            mapScreen.GetComponent<Canvas>().enabled = true;
             mapScreen.SetActive(true);
         }
         else{

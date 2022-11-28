@@ -14,6 +14,7 @@ public class WaveClicked : MonoBehaviour
     private GameObject[] clickable;
     private TMP_Text gameText;
     private RadioConfig[] radios;
+    private sectorsDeffence sectrsDeff;
     private int activeRadio = 0;
     private int[] minigamesIDs;
 
@@ -31,6 +32,8 @@ public class WaveClicked : MonoBehaviour
         radioScreen = GameObject.Find("RadioScreen");
         readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
+        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<sectorsDeffence>();
+
         gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
         timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
         radios = 
@@ -44,6 +47,7 @@ public class WaveClicked : MonoBehaviour
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
+        
         
     }   
 
@@ -136,6 +140,15 @@ public class WaveClicked : MonoBehaviour
             this.resetSearch.Add(renewSearch, (new List<int>{radioNumber}));
         }
 
+        // Add new information to map, information obtained from radio text
+        DeffendableSector deff = new DeffendableSector();
+        deff.sectorNum = activeConvo.Sector;
+        deff.storyNum = activeConvo.StoryLine;
+        deff.susPunish = activeConvo.SusMeterPenalisation;
+        sectrsDeff.NewToDeffend(
+            timer.mmHHtoMinutes(activeConvo.WhenDeffendSector), deff
+        );
+
         radios[radioNumber].setRadioArray(activeConvo.Text);     
         radios[radioNumber].setAuthor(activeConvo.Author);
     }
@@ -154,7 +167,6 @@ public class WaveClicked : MonoBehaviour
                     };
             }
         }
-
     }
 
     public void StartVoice(){
@@ -185,9 +197,5 @@ public class WaveClicked : MonoBehaviour
         radios[activeRadio].setActive(true);
         loadScene(activeRadio + 1);
     }
-
-        
-        // TODO VYHODNOCOVACI POPUP
-        // TODO DICT BRANENE SEKTORY <CAS, SEKTOR>   
 
 }

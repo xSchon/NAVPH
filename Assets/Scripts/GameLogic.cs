@@ -21,13 +21,14 @@ public class GameLogic : MonoBehaviour
     public TextAsset conversationsJson;
     private JObject getResult;
     private string currentDay;
-    private int[] playerSectors;
     private Dictionary<string, Day> days;
     private Dictionary<string, Dictionary<string, Conversation>> conversations;
     private Dictionary<int, string> messagesTimes;
     private Timer timer;
 
     private WaveClicked waveClicked;
+    private sectorsDeffence sectrsDeff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class GameLogic : MonoBehaviour
         loadDayMessages(currentDay);
 
         waveClicked = FindObjectOfType<WaveClicked>();
+        sectrsDeff = FindObjectOfType<sectorsDeffence>();
         waveClicked.setMinigames(days[currentDay].Minigames);
     }
 
@@ -46,11 +48,6 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         
-    }
-    
-    public void setSectors(int[] sectors){
-        this.playerSectors = sectors;
-        Debug.Log("New sectors are "+ this.playerSectors);
     }
 
     private void loadDayMessages(string dayNum){
@@ -63,12 +60,13 @@ public class GameLogic : MonoBehaviour
         }
     }
     
-    public void checkMessages(int currentMintes){
-        if (this.messagesTimes.ContainsKey(currentMintes)){ 
+    public void checkMessages(int currentMinutes){
+        if (this.messagesTimes.ContainsKey(currentMinutes)){ 
             // if there is message at given time
-            waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMintes]]);
+            waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMinutes]]);
         }
-        waveClicked.checkStopped(currentMintes);
+        waveClicked.checkStopped(currentMinutes);
+        sectrsDeff.CheckSectors(currentMinutes);
     }
 
 }

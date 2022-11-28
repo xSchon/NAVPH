@@ -11,13 +11,13 @@
             ],
             "StoryLine": 0,
             "Sector": 3,
-            "WhenDeffendSector": "9:30",
+            "WhenDeffendSector": "9:00",
             "SusMeterPenalisation": 5
         },
-        "09:30": {
+        "08:40": {
             "Radio": 2,
             "Author": "Martin Zak",
-            "HourShow": "09:30",
+            "HourShow": "08:40",
             "HourTill": "10:00",
             "Text": [
                 "Hello and welcome to this game.",
@@ -25,7 +25,7 @@
             ],
             "StoryLine": 0,
             "Sector": 3,
-            "WhenDeffendSector": "10:30",
+            "WhenDeffendSector": "09:00",
             "SusMeterPenalisation": 5
         },
         "10:30": {

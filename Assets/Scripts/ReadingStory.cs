@@ -50,7 +50,8 @@ public class ReadingStory : MonoBehaviour
         this.messageAuthor = author;
         this.messageText = mainText;
         this.textField = textField;
-        sinceLast = secondsForText;
+        textField.text = "Radio communication of " +author+".";
+        sinceLast = 0.0f;
         readActive = true;
         currentChunk = 0;
     }
