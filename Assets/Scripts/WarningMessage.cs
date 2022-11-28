@@ -66,7 +66,6 @@ public class WarningMessage : MonoBehaviour
                 messageText.text = lines[UnityEngine.Random.Range(0, lines.Length)];
                 messageEvaluation.text =  "Sector "+affectedSectors[0];
 
-                
                 tmp = new Color(0.0f, 1.0f, 0.0f, 1.0f);
 
             } else { // if warning
