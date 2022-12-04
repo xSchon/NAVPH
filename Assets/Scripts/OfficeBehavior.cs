@@ -13,7 +13,6 @@ public class OfficeBehavior : MonoBehaviour
     private string mapObjectName = "Map";
     [SerializeField] private AudioSource radioStatic;
 
-    // Start is called before the first frame update
     void Start()
     {
       // GUI alternative if needs to be accessed via other scripts as well:
@@ -25,7 +24,6 @@ public class OfficeBehavior : MonoBehaviour
       pauseScreen = GameObject.Find("PauseScreen");
     }
 
-    // Update is called once per frame
  void Update(){
    if (Input.GetMouseButtonDown(0) && (!radioScreen.GetComponent<Canvas>().enabled || !radioScreen.activeSelf)
         && (!mapScreen.GetComponent<Canvas>().enabled || !mapScreen.activeSelf) && !pauseScreen.activeSelf){ 

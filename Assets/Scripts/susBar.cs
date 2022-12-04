@@ -8,7 +8,7 @@ public class susBar : MonoBehaviour
     private Slider slider;
     private float standardChangeValue; 
     private GameObject sliderFilling;
-    // Start is called before the first frame update
+
     void Start()
     {
         standardChangeValue = 5.0f;
@@ -17,11 +17,6 @@ public class susBar : MonoBehaviour
         controlSus();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void controlSus(){
         Color newBarColor = new Color(1, 1, 1);

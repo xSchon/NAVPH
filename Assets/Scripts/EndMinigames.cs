@@ -7,17 +7,6 @@ public class EndMinigames : MonoBehaviour
 {
     public Camera minigameCamera;
     public string minigameName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void endMinigame(){
         int countLoaded = SceneManager.sceneCount;

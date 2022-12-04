@@ -15,7 +15,6 @@ public class WarningMessage : MonoBehaviour
     public TextAsset warningMessages;
     public TextAsset approvalMessages;  
 
-    // Start is called before the first frame update
     void Start()
     {
         messageText = GameObject.Find("WarningText").GetComponent<TextMeshProUGUI>();
@@ -34,7 +33,6 @@ public class WarningMessage : MonoBehaviour
         messageEvaluation.color = tmp;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameObject.GetComponent<Image>().color.a > 0.0f){

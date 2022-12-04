@@ -14,10 +14,6 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
-    void Update(){
-
-    }
-
     public void StartPause(){
         Debug.Log("Pause started");
         Time.timeScale = 0.0f;
@@ -32,7 +28,5 @@ public class PauseGame : MonoBehaviour
 
     public void backToMenu(){
         SceneManager.LoadScene("Menu");
-        //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
-        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
    }
 }

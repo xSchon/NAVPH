@@ -14,7 +14,6 @@ public class sectorsDeffence : MonoBehaviour
     public Dictionary<int, List<bool>> storyLines = new Dictionary<int, List<bool>>();
     
 
-    // Start is called before the first frame update
     void Start()
     {
         if (sectorsAmount < 0 || sectorsAmount > 9){
@@ -27,12 +26,6 @@ public class sectorsDeffence : MonoBehaviour
             selectedSectors[i] = 0;
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void noteSector(string sectorName){

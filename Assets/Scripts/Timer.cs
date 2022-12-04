@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
     public float startingHour = 7.0f;
     
 
-    // Start is called before the first frame update
     void Start()
     {
         // 7 seconds per 10 minutes makes in game 8 hours == 5.5 minutes irl
@@ -34,7 +33,6 @@ public class Timer : MonoBehaviour
         UpdateTime();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(timerActive){

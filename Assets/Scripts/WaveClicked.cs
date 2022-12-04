@@ -26,7 +26,6 @@ public class WaveClicked : MonoBehaviour
     private Timer timer;
 
     
-    // Start is called before the first frame update
     void Start()
     {
         radioScreen = GameObject.Find("RadioScreen");
@@ -51,7 +50,6 @@ public class WaveClicked : MonoBehaviour
         
     }   
 
-    // Update is called once per frame
     void Update()
     {
         updatePosX();
