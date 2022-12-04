@@ -47,6 +47,7 @@ public class GameLogic : MonoBehaviour
     private Dictionary<string, Day> days;
     private Save savedData;
     public string dayIndex = "1";
+    public int endingTime = 480; // ending time after 480 minutes (8 hours) pass 
     //private WaveClicked waveClicked;
     private Timer timer;
     // Start is called before the first frame update
@@ -67,7 +68,15 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(getResult["1"]);
+        //timer.setEndingTime(endingTime);
+        Debug.Log(timer.getCurrentMinutes());
+        Debug.Log(endingTime);
+        if (endingTime == timer.getCurrentMinutes())
+        {
+            Debug.Log("End of day");
+            endDay();
+        }
+
     }
     
     public void setSectors(int[] sectors){
@@ -94,6 +103,7 @@ public class GameLogic : MonoBehaviour
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].Minigames);
     }
 
+
     private void saveGame(){
         NestedStatus statusData = new NestedStatus();
         statusData.Vehicle = 1;
@@ -116,6 +126,7 @@ public class GameLogic : MonoBehaviour
     }
 
     public void endDay(){
+        // ukaz summary, uloz hru do json, zavolaj prepnutie current day + 1 na dalsi den, ked to bude posledny den, pusti endgame
         //saveGame();
         SceneManager.LoadScene("Summary");
     }
