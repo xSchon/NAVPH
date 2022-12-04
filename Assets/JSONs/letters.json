@@ -6,7 +6,7 @@
         "Evening": {
             "Text1": "Congratulations on completing your first day!"
         }
-        
+
     },
     "2": {
         "Morning": {
@@ -15,6 +15,13 @@
         },
         "Evening": {
             "Text1": "Congratulations on completing your second day!"
+        }
+    },
+    "3": {
+        "Morning": {
+            "Text1": "Good morning, comrade! This is your third day."},
+        "Evening": {
+            "Text1": "Congratulations on completing your third day!"
         }
     }
 }

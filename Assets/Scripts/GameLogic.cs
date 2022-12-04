@@ -7,7 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-class Day{
+class Day
+{
     public string StartingTime;
     public string EndingTime;
     public string StartingMessage;
@@ -15,7 +16,8 @@ class Day{
     public int[] Minigames;
 }
 
-class Save{
+class Save
+{
     public string Day;
     public float SusMeterValue;
     public string[] StoryLines;
@@ -23,7 +25,8 @@ class Save{
     public NestedStatus Status;
 }
 
-class NestedStatus{
+class NestedStatus
+{
     public int Vehicle;
     public int Health;
     public int SocialStatus;
@@ -31,7 +34,8 @@ class NestedStatus{
     
 }
 
-class Status{
+class Status
+{
     public string[] Vehicle;
     public string[] Health;
     public string[] SocialStatus;
@@ -46,13 +50,14 @@ public class GameLogic : MonoBehaviour
     private int[] playerSectors;
     private Dictionary<string, Day> days;
     private Save savedData;
-    public string dayIndex = "1";
-    public int endingTime = 480; // ending time after 480 minutes (8 hours) pass 
+    public string dayIndex;// = "1";
+    public int endingTime;// = 480; // ending time after 480 minutes (8 hours) pass 
     //private WaveClicked waveClicked;
     private Timer timer;
-    // Start is called before the first frame update
+
     void Start()
     {
+        Debug.Log(Application.persistentDataPath);
         /*JObject getResult = JObject.Parse(jsonFile.text);
         Debug.Log(getResult.GetType());
         Debug.Log(getResult["1"]);
@@ -62,6 +67,7 @@ public class GameLogic : MonoBehaviour
         timer = FindObjectOfType<Timer>();
         //saveGame();
         loadDay(days);
+        Debug.Log(days);
         //endDay();
     }
 
@@ -69,8 +75,8 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         //timer.setEndingTime(endingTime);
-        Debug.Log(timer.getCurrentMinutes());
-        Debug.Log(endingTime);
+        //Debug.Log(timer.getCurrentMinutes());
+        //Debug.Log(endingTime);
         if (endingTime == timer.getCurrentMinutes())
         {
             Debug.Log("End of day");
@@ -95,11 +101,27 @@ public class GameLogic : MonoBehaviour
         string savedDataText = File.ReadAllText(files.First().FullName);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
-        dayIndex = savedData.Day;       // add +1 to last loaded day
+        dayIndex = savedData.Day;    
+        //increase day 
+        int dayIndexInt = int.Parse(dayIndex);
+        dayIndexInt++;
+        dayIndex = dayIndexInt.ToString();
+        Debug.Log(dayIndex);
+        //testovacie, nebude to tu hardcoded 
+        if (dayIndex == "5")
+        {
+            Debug.Log("Ending");
+            //SceneManager.LoadScene("Ending");
+            // return 
+       }
+       else {
+       //     SceneManager.LoadScene(savedData.Scene);
+        }
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(jsonFile.text);
         timer.setStartingTime(day[dayIndex].StartingTime);
         timer.setEndingTime(day[dayIndex].EndingTime);
+        //endingTime = int.Parse(day[dayIndex].EndingTime); TO DO
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].Minigames);
     }
 
@@ -115,7 +137,7 @@ public class GameLogic : MonoBehaviour
         storeData.Day = dayIndex;
         storeData.SusMeterValue = 0.45f;
         storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
-        storeData.Scene = "LMAO";
+        storeData.Scene = "SampleScene";
         storeData.Status = statusData;
 
         string output = JsonConvert.SerializeObject(storeData);
@@ -125,10 +147,18 @@ public class GameLogic : MonoBehaviour
         Debug.Log("Saved brasko");
     }
 
-    public void endDay(){
-        // ukaz summary, uloz hru do json, zavolaj prepnutie current day + 1 na dalsi den, ked to bude posledny den, pusti endgame
-        //saveGame();
+    public void endDay()
+    {
+        // 1. Uloz hru 
+        // 2. Prepni scenu na summary, ukaz summary
+        // => V Summary je PrepareNewDay skript 
+        // 3. prepni dalsi den (current day + 1) 
+        //    ak je to posledny den, ukaz endgame 
+        // 4. loadDays(days) zacni novy den
+
+        saveGame();
         SceneManager.LoadScene("Summary");
+        //loadDay(days);
     }
 
     private void firstTimeRun(){

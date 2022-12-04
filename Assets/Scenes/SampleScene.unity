@@ -6682,6 +6682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: ca32d74cc8a330a4eb7523d980030c43, type: 3}
+  saveJsonFile: {fileID: 4900000, guid: d39c63bdbda6c0f448d548d7d3f1378f, type: 3}
+  dayIndex: 1
   letterTextMesh: {fileID: 1634259374}
 --- !u!224 &1938869266 stripped
 RectTransform:
