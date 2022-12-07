@@ -76,10 +76,19 @@ public class Timer : MonoBehaviour
         return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
     }
 
+    public void setStartingTime(string time){
+        string setStartingTime = time;
+        Debug.Log(setStartingTime);
+    }
+
+    public void setEndingTime(string time){
+        string setEndingTime = time;
+        Debug.Log(setEndingTime);
+    }
+
     public int mmHHtoMinutes(string timeHHMM){
         int tmpMins;
         tmpMins = (int) TimeSpan.Parse(timeHHMM).TotalMinutes;
         return tmpMins; 
     }
-
 }

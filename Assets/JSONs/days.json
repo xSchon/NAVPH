@@ -1,9 +1,44 @@
 {
     "1": {
-        "StartingTime": "08:00",
+        "StartingTime": "08:45",
         "EndingTime": "10:00",
         "StartingMessage": "Welcome to the very first day in your new work.",
         "Scene": "Day1",
-        "Minigames": [4]
+        "Minigames": [1,4]
+    },
+    "2": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very second day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "3": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very third day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "4": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very fourth day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "5": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very fifth day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "6": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very sixth day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
     }
 }

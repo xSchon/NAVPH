@@ -1,0 +1,27 @@
+{
+    "1": {
+        "Morning": {
+            "Text1": "Good morning, comrade! This is your first day."
+        },
+        "Evening": {
+            "Text1": "Congratulations on completing your first day!"
+        }
+
+    },
+    "2": {
+        "Morning": {
+            "Text1": "Good morning, comrade! This is your second day.",
+            "Text2": "Hey... comrade, it's me... Fero... it's been a while. I hope you're doing well and your wife is as well. You know... I heard somewhere you got that job... at the borders... you know... Could you do me a favor? Today, around 10 in the morning... Could you do that for me? Comrade, I would be forever grateful. Please... "
+        },
+        "Evening": {
+            "Text1": "Congratulations on completing your second day!"
+        }
+    },
+    "3": {
+        "Morning": {
+            "Text1": "Good morning, comrade! This is your third day."},
+        "Evening": {
+            "Text1": "Congratulations on completing your third day!"
+        }
+    }
+}

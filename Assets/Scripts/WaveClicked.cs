@@ -46,8 +46,7 @@ public class WaveClicked : MonoBehaviour
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
-        
-        
+        clickable = GameObject.FindGameObjectsWithTag("Clickable");
     }   
 
     void Update()
@@ -59,7 +58,7 @@ public class WaveClicked : MonoBehaviour
         this.radios[activeRadio].setPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
     }
 
-    IEnumerator LoadMinigame1(int index){
+    IEnumerator LoadMinigame(int index){
         AsyncOperation async = SceneManager.LoadSceneAsync($"minigame-{index}", LoadSceneMode.Additive); 
         
         while (!async.isDone)
@@ -77,8 +76,6 @@ public class WaveClicked : MonoBehaviour
         main_camera.enabled = false;
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
-        
-        clickable = GameObject.FindGameObjectsWithTag("Clickable");
 
         foreach(GameObject clickObject in clickable){
             clickObject.SetActive(false);
@@ -103,8 +100,9 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    public void returnScene(Scene arg0, Scene arg1){
-        if (arg1.name == main_scene.name)
+    private void returnScene(Scene arg0, Scene arg1){
+        if (arg0.name != "Summary" || arg1.name != "Summary") return;
+        if (arg1.name == main_scene.name && arg0.name != "Summary")
             SceneManager.UnloadSceneAsync(arg0.name);
             main_camera.enabled = true;
             mainEventSystem.enabled = true;
@@ -173,7 +171,7 @@ public class WaveClicked : MonoBehaviour
 
         if (probability <= 0.0f){
             int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            StartCoroutine(LoadMinigame1(minigamesIDs[index]));
+            StartCoroutine(LoadMinigame(minigamesIDs[index]));
         }
 
         ClickedRead();
