@@ -6,9 +6,9 @@ using TMPro;
 
 public class OfficeBehavior : MonoBehaviour
 {
-    private GameObject radioScreen;
-    private GameObject mapScreen;
-    private GameObject pauseScreen;
+    public GameObject radioScreen;
+    public GameObject mapScreen;
+    public GameObject pauseScreen;
     private string[] radiosNames = new string[3]{"Radio1", "Radio2", "Radio3"};
     private string mapObjectName = "Map";
     [SerializeField] private AudioSource radioStatic;

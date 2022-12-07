@@ -2631,7 +2631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.90259206, y: 0}
   m_AnchorMax: {x: 1, y: 0.03884027}
-  m_AnchoredPosition: {x: -62, y: 13.14978}
+  m_AnchoredPosition: {x: -62, y: 13.149902}
   m_SizeDelta: {x: 93.09277, y: 10.099594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546358028
@@ -4735,7 +4735,7 @@ MonoBehaviour:
   daysJson: {fileID: 4900000, guid: 82515fcc8c3a8324680a718369f96863, type: 3}
   conversationsJson: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
   dayIndex: 1
-  endingTime: 480
+  endingTime: 10
 --- !u!4 &1287202082
 Transform:
   m_ObjectHideFlags: 0
@@ -5620,7 +5620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9562501, y: 0.90978295}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21.900024, y: -19.225403}
+  m_AnchoredPosition: {x: -21.899902, y: -19.225342}
   m_SizeDelta: {x: 15, y: 4.4508}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1589353190
@@ -7580,7 +7580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.9250001}
   m_AnchorMax: {x: 0.11118404, y: 1}
-  m_AnchoredPosition: {x: 48.154053, y: -20.30371}
+  m_AnchoredPosition: {x: 48.15381, y: -20.30371}
   m_SizeDelta: {x: 70.3082, y: 12.607391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070254930
