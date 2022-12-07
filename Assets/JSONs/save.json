@@ -14,9 +14,9 @@
         }
     ],
     "Status": {
-        "Vehicle": 0,
-        "Health": 0,
+        "Vehicle": 2,
+        "Health": 2,
         "SocialStatus": 0,
         "Living": 0
     }
-}
+}   

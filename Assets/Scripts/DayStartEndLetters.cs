@@ -34,6 +34,7 @@ public class DayStartEndLetters : MonoBehaviour
             int dayIndexInt = int.Parse(dayIndex);
             dayIndexInt++;
             dayIndex = dayIndexInt.ToString();
+            
             Debug.Log(dayIndex);
         // testovacie, nebude to tu hardcoded 
             if (dayIndex == "5")

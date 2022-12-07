@@ -5,25 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;    
 
+
 public class sectorsDeffence : MonoBehaviour
 {   
-    public int sectorsAmount; // set in Unity
+    public int sectorsAmount = 2; // set in Unity
     private int[] selectedSectors;
-    private GameLogic gameLogic;
-    // Start is called before the first frame update
-
-    /*class Message
-    {
-        public int Radio
-    }   
-    Dictionary<string, Dictionary<string, Message>> data; */
-
+    public Dictionary<int, List<DeffendableSector>> toDeffend = new Dictionary<int, List<DeffendableSector>>();
+    public Dictionary<int, List<bool>> storyLines = new Dictionary<int, List<bool>>();
     
+
     void Start()
     {
         if (sectorsAmount < 0 || sectorsAmount > 9){
             // if not set properly in unity, protect program from breaking
-            sectorsAmount = 1; 
+            sectorsAmount = 2; 
             }
         selectedSectors = new int[sectorsAmount];
         
@@ -31,14 +26,6 @@ public class sectorsDeffence : MonoBehaviour
             selectedSectors[i] = 0;
         }
 
-        gameLogic = GameObject.Find("GameLogic").GetComponent<GameLogic>();
-        gameLogic.setSectors(selectedSectors);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void noteSector(string sectorName){
@@ -62,7 +49,6 @@ public class sectorsDeffence : MonoBehaviour
         }
         visibleSector(sectorName, true);
 
-        gameLogic.setSectors(selectedSectors);
     }
 
     private void changeText(string sectorsNumbers){
@@ -80,4 +66,48 @@ public class sectorsDeffence : MonoBehaviour
         }
         GameObject.Find(sectorName).GetComponent<Image>().color = objColor;
     }
+
+
+    public void NewToDeffend(int deffendAt, DeffendableSector defSect){
+        if (this.toDeffend.ContainsKey(deffendAt)){
+            List<DeffendableSector> tmp = this.toDeffend[deffendAt];
+            tmp.Add(defSect);
+            this.toDeffend[deffendAt] = tmp; 
+        } else {
+            this.toDeffend.Add(deffendAt, (new List<DeffendableSector>{defSect}));
+        }
+    }
+
+    public void CheckSectors(int currentTime){
+        bool passed; 
+        if (this.toDeffend.ContainsKey(currentTime)){
+            WarningMessage wM = FindObjectOfType<WarningMessage>();
+            foreach(DeffendableSector dS in this.toDeffend[currentTime]){
+                if (!this.selectedSectors.Contains(dS.sectorNum)){
+                    wM.AddWarning(dS.sectorNum, dS.susPunish);
+                    FindObjectOfType<susBar>().increaseSus(dS.susPunish);
+
+                    passed = true;
+                } else {  // if protected
+                    wM.AddApproval(dS.sectorNum);
+                    passed = false;
+                }
+
+                
+                if(this.storyLines.ContainsKey(dS.storyNum)){
+                    List<bool> tmp = this.storyLines[dS.storyNum];
+                    tmp.Add(passed);
+                    this.storyLines[dS.storyNum] = tmp;
+                } else {
+                    this.storyLines.Add(dS.storyNum, (new List<bool>{passed}));
+                }
+            }
+        }
+    }
+
+    public Dictionary<int, List<bool>> getStoryLines(){
+        return this.storyLines;
+    }
+
+    
 }

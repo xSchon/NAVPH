@@ -10,7 +10,7 @@ public class SearchMessage : MonoBehaviour
     private Color normalColor = new Color(83.0f/255.0f, 255.0f/255.0f, 84.0f/255.0f, 156.0f/255.0f);
     private Color stopColor = new Color(255.0f/255.0f, 83.0f/255.0f, 84.0f/255.0f, 156.0f/255.0f);
     private bool activeSearch = true;
-    // Start is called before the first frame update
+
     void Start()
     {   
        if (this.movingSpeed <= 0){
@@ -44,7 +44,7 @@ public class SearchMessage : MonoBehaviour
         var a = GetWorldRect(another);
         return r.xMin <= a.xMin && r.xMax >= a.xMax;
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (activeSearch){

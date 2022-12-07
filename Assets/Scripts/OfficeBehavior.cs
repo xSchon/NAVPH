@@ -13,7 +13,6 @@ public class OfficeBehavior : MonoBehaviour
     private string mapObjectName = "Map";
     [SerializeField] private AudioSource radioStatic;
 
-    // Start is called before the first frame update
     void Start()
     {
       // GUI alternative if needs to be accessed via other scripts as well:
@@ -21,14 +20,13 @@ public class OfficeBehavior : MonoBehaviour
       radioScreen = GameObject.Find("RadioScreen");
       radioScreen.GetComponent<Canvas>().enabled = false;
       mapScreen = GameObject.Find("MapScreen");
-      mapScreen.SetActive(false);
+      mapScreen.GetComponent<Canvas>().enabled = false;
       pauseScreen = GameObject.Find("PauseScreen");
     }
 
-    // Update is called once per frame
  void Update(){
    if (Input.GetMouseButtonDown(0) && (!radioScreen.GetComponent<Canvas>().enabled || !radioScreen.activeSelf)
-        && !mapScreen.activeSelf && !pauseScreen.activeSelf){ 
+        && (!mapScreen.GetComponent<Canvas>().enabled || !mapScreen.activeSelf) && !pauseScreen.activeSelf){ 
       // if left button pressed AND gui disabled
      Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
      RaycastHit hit;
@@ -36,7 +34,7 @@ public class OfficeBehavior : MonoBehaviour
      if (Physics.Raycast(ray, out hit)){
         string colliderHit = hit.collider.gameObject.name;
         if(this.radiosNames.Contains(colliderHit)){ // if clicked on the radio 
-            int selectedRadio = (int.Parse(colliderHit[colliderHit.Length-1].ToString()) - 1);
+            int selectedRadio = int.Parse(colliderHit[colliderHit.Length-1].ToString());
             radioScreen.SetActive(true);
             radioStatic.Play();
             radioScreen.GetComponent<Canvas>().enabled = true;
@@ -44,6 +42,7 @@ public class OfficeBehavior : MonoBehaviour
         }
 
         else if(colliderHit == mapObjectName){
+            mapScreen.GetComponent<Canvas>().enabled = true;
             mapScreen.SetActive(true);
         }
         else{

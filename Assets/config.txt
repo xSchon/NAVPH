@@ -41,16 +41,15 @@ ENDINGY
 
 JSONy conversations:			
 {    "<DAYNO>" : { 
-        "<HOURNO>" : {
-            "Radio": [1-3],
-            "Name" : text,
-            "HourShow" : hh:mm,
-            "HourTill" : hh:mm,  
-            "Text" : array_of_string,  
-            "StoryLine" : int,           
-            "Sector" : [1-9],
-            "WhenDeffendSector" : hh:mm,
-            "SusMeterPenalisation" : int
+            <hh:mm HOURSHOW>: {
+              "Author" : text,
+              "HourShow" : hh:mm,
+              "HourTill" : hh:mm,  
+              "Text" : array_of_string,  
+              "StoryLine" : int,           
+              "Sector" : [1-9],
+              "WhenDeffendSector" : hh:mm,
+              "SusMeterPenalisation" : int
             },
         "2" :  {
 
@@ -71,7 +70,7 @@ SusMeterPenalisation  - optional, ak explicitne nie je urcena hodnota strhnutia,
 
 Vysvetlivky:
 Radio - Cislo radia, na ktorom sa ma sprava zobrazit. POZOR NA TO, ABY BOLO V DANY DEN DOSTUPNE!!!
-Name - Meno pisaca
+Author - Meno pisaca
 Day - Den, kedy ma sprava prist
 HourShow - Kedy sa ma ukazat sprava
 HourTill - Dokedy ma hrac sancu na policko kliknut, kedy zmizne

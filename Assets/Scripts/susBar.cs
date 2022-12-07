@@ -8,24 +8,17 @@ public class susBar : MonoBehaviour
     private Slider slider;
     private float standardChangeValue; 
     private GameObject sliderFilling;
-    // Start is called before the first frame update
+
     void Start()
     {
         standardChangeValue = 5.0f;
         slider = gameObject.GetComponent<Slider>();
         sliderFilling = GameObject.Find("susBarFill");
+        controlSus();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-               
-    }
 
     private void controlSus(){
-        Debug.Log(slider.value);
-        increaseSus(0.5f);
-
         Color newBarColor = new Color(1, 1, 1);
         if(slider.value == 0){
             newBarColor = new Color(0, 0, 0);

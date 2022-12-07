@@ -13,12 +13,6 @@ public class moveArmy : MonoBehaviour
         sectors = GameObject.Find("selectedSectors");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void selectSector()
     {
         sectors.GetComponent<sectorsDeffence>().noteSector(this.name);

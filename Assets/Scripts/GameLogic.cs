@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
-class Day
-{
-    public string StartingTime;
-    public string EndingTime;
-    public string StartingMessage;
+class Day{
+    public string StartingTime = "8:00";
+    public string EndingTime = "16:00";
+    public string StartingMessage = "Welcome to another day in your work"; 
     public string Scene;
     public int[] Minigames;
 }
@@ -45,30 +44,39 @@ class Status
 
 public class GameLogic : MonoBehaviour
 {
-    public TextAsset jsonFile;
+    public TextAsset daysJson;
+    public TextAsset conversationsJson;
     private JObject getResult;
-    private int[] playerSectors;
+    private string currentDay;
     private Dictionary<string, Day> days;
+	private Dictionary<string, Dictionary<string, Conversation>> conversations;
+    private Dictionary<int, string> messagesTimes;
+	private WaveClicked waveClicked;
+    private sectorsDeffence sectrsDeff;
     private Save savedData;
     public string dayIndex;// = "1";
     public int endingTime;// = 480; // ending time after 480 minutes (8 hours) pass 
-    //private WaveClicked waveClicked;
     private Timer timer;
 
     void Start()
     {
+		// TODO ADD LOADING CURRENT DAY VIA SAVES.JSON
+        currentDay = "1";
         Debug.Log(Application.persistentDataPath);
-        /*JObject getResult = JObject.Parse(jsonFile.text);
-        Debug.Log(getResult.GetType());
-        Debug.Log(getResult["1"]);
-        Debug.Log(getResult);*/
 
-        //waveClicked = FindObjectOfType<WaveClicked>();
         timer = FindObjectOfType<Timer>();
         //saveGame();
         loadDay(days);
         Debug.Log(days);
         //endDay();
+		
+		days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
+        conversations = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Conversation>>>(conversationsJson.text);
+        loadDayMessages(currentDay);
+
+        waveClicked = FindObjectOfType<WaveClicked>();
+        sectrsDeff = FindObjectOfType<sectorsDeffence>();
+        waveClicked.setMinigames(days[currentDay].Minigames);
     }
 
     // Update is called once per frame
@@ -83,10 +91,26 @@ public class GameLogic : MonoBehaviour
             endDay();
         }
 
+    }   
+
+    private void loadDayMessages(string dayNum){
+        Debug.Log("DAY MESSAGES LOADED");
+        // Create dictionary for easy search between current time, keys and message time
+        string [] messageStrings = conversations[dayNum].Keys.ToArray();
+        this.messagesTimes = new Dictionary<int, string>();
+
+        for (int i = 0; i < messageStrings.Length; i++){
+            this.messagesTimes.Add(timer.mmHHtoMinutes(messageStrings[i]), messageStrings[i]);
+        }
     }
     
-    public void setSectors(int[] sectors){
-        this.playerSectors = sectors;
+    public void checkMessages(int currentMinutes){
+        if (this.messagesTimes.ContainsKey(currentMinutes)){ 
+            // if there is message at given time
+            waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMinutes]]);
+        }
+        waveClicked.checkStopped(currentMinutes);
+        sectrsDeff.CheckSectors(currentMinutes);
     }
 
     private void loadDay(Dictionary<string, Day> days){
@@ -118,7 +142,7 @@ public class GameLogic : MonoBehaviour
        //     SceneManager.LoadScene(savedData.Scene);
         }
 
-        Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(jsonFile.text);
+        Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         timer.setStartingTime(day[dayIndex].StartingTime);
         timer.setEndingTime(day[dayIndex].EndingTime);
         //endingTime = int.Parse(day[dayIndex].EndingTime); TO DO
