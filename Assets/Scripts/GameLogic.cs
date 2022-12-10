@@ -52,7 +52,7 @@ public class GameLogic : MonoBehaviour
 	private Dictionary<string, Dictionary<string, Conversation>> conversations;
     private Dictionary<int, string> messagesTimes;
 	private WaveClicked waveClicked;
-    private sectorsDeffence sectrsDeff;
+    private SectorsDeffence sectrsDeff;
     private Save savedData;
     public string dayIndex;// = "1";
     public int endingTime;// = 480; // ending time after 480 minutes (8 hours) pass 
@@ -75,7 +75,7 @@ public class GameLogic : MonoBehaviour
         loadDayMessages(currentDay);
 
         waveClicked = FindObjectOfType<WaveClicked>();
-        sectrsDeff = FindObjectOfType<sectorsDeffence>();
+        sectrsDeff = FindObjectOfType<SectorsDeffence>();
         waveClicked.setMinigames(days[currentDay].Minigames);
     }
 

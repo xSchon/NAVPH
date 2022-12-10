@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class susBar : MonoBehaviour
+public class SusBar : MonoBehaviour
 {
     private Slider slider;
     private float standardChangeValue; 
-    private GameObject sliderFilling;
+    public GameObject sliderFilling;
 
     void Start()
     {
         standardChangeValue = 5.0f;
         slider = gameObject.GetComponent<Slider>();
-        sliderFilling = GameObject.Find("susBarFill");
         controlSus();
     }
 

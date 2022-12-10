@@ -2577,6 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1923bddec016146a149f0abf03805d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderFilling: {fileID: 277032315}
 --- !u!1 &567413847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,7 +4604,7 @@ MonoBehaviour:
   daysJson: {fileID: 4900000, guid: 82515fcc8c3a8324680a718369f96863, type: 3}
   conversationsJson: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
   dayIndex: 1
-  endingTime: 10
+  endingTime: 400
 --- !u!4 &1287202082
 Transform:
   m_ObjectHideFlags: 0

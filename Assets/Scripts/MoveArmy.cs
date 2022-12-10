@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class moveArmy : MonoBehaviour
+public class MoveArmy : MonoBehaviour
 {
     private GameObject sectors;
     private TMP_Text subtitles;
@@ -15,6 +15,6 @@ public class moveArmy : MonoBehaviour
 
     public void selectSector()
     {
-        sectors.GetComponent<sectorsDeffence>().noteSector(this.name);
+        sectors.GetComponent<SectorsDeffence>().noteSector(this.name);
     }
 }

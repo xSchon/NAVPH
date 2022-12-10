@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;    
 
 
-public class sectorsDeffence : MonoBehaviour
+public class SectorsDeffence : MonoBehaviour
 {   
     public int sectorsAmount = 2; // set in Unity
     private int[] selectedSectors;
@@ -85,7 +85,7 @@ public class sectorsDeffence : MonoBehaviour
             foreach(DeffendableSector dS in this.toDeffend[currentTime]){
                 if (!this.selectedSectors.Contains(dS.sectorNum)){
                     wM.AddWarning(dS.sectorNum, dS.susPunish);
-                    FindObjectOfType<susBar>().increaseSus(dS.susPunish);
+                    FindObjectOfType<SusBar>().increaseSus(dS.susPunish);
 
                     passed = true;
                 } else {  // if protected

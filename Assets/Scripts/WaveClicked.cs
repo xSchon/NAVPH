@@ -14,7 +14,7 @@ public class WaveClicked : MonoBehaviour
     private GameObject[] clickable;
     private TMP_Text gameText;
     private RadioConfig[] radios;
-    private sectorsDeffence sectrsDeff;
+    private SectorsDeffence sectrsDeff;
     private int activeRadio = 0;
     private int[] minigamesIDs;
 
@@ -31,7 +31,7 @@ public class WaveClicked : MonoBehaviour
         radioScreen = GameObject.Find("RadioScreen");
         readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
-        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<sectorsDeffence>();
+        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDeffence>();
 
         gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
         timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
