@@ -2,76 +2,110 @@
     "1": {
         "08:30": {
             "Radio": 1,
-            "Author": "Adam Zak",
+            "Author": "Government",
             "HourShow": "08:30",
-            "HourTill": "10:00",
+            "HourTill": "09:00",
             "Text": [
                 "Hello and welcome to this game.",
-                "We will go throught this tutorial together"
-            ],
-            "StoryLine": 0,
-            "Sector": 3,
-            "WhenDeffendSector": "9:00",
-            "SusMeterPenalisation": 5
-        },
-        "08:40": {
-            "Radio": 2,
-            "Author": "Martin Zak",
-            "HourShow": "08:40",
-            "HourTill": "10:00",
-            "Text": [
-                "Hello and welcome to this game.",
-                "We will go throught this tutorial together"
+                "We will go throught this tutorial together", 
+                "This is the first radio message",
+                "Listen to the transmission carefully",
+                "You will receive instructions on how to protect sectors on the map",
+                "The map is right above the table",
+                "When you click on the map, click on the sector you want to protect",
+                "Now listen: the first sector you need to protect is sector 3",
+                "Make sure it is protected from 9:00"
             ],
             "StoryLine": 0,
             "Sector": 3,
             "WhenDeffendSector": "09:00",
             "SusMeterPenalisation": 5
         },
-        "10:30": {
+        "09:20": {
             "Radio": 1,
-            "Author": "Adam Zak",
-            "HourShow": "08:30",
-            "HourTill": "09:00",
+            "Author": "Government",
+            "HourShow": "09:20",
+            "HourTill": "10:00",
             "Text": [
-                "Hello and welcome to this game.",
-                "We will go throught this tutorial together"
+                "Urgent message",
+                "Tresspasing in sector 6",
+                "Make sure it is protected from 10:00"
             ],
             "StoryLine": 0,
-            "Sector": 3,
-            "WhenDeffendSector": "10:30",
+            "Sector": 6,
+            "WhenDeffendSector": "10:00",
+            "SusMeterPenalisation": 5
+        },
+        "11:00": {
+            "Radio": 1,
+            "Author": "Fero",
+            "HourShow": "11:00",
+            "HourTill": "12:00",
+            "Text": [
+                "Hey...",
+                "comrade...",
+                "it's me... Fero... it's been a while.",
+                "I hope you're doing well and your wife is as well. ",
+                "I'm in a bit of a trouble here.",
+                "You know... I heard somewhere you got that job... at the borders... you know... Could you do me a favor?",
+                "I'm in sector 1 and I need your help.",
+                "Could you do that for me? Comrade, I would be forever grateful. Please..."
+            ],
+            "StoryLine": 0,
+            "Sector": 6,
+            "WhenDeffendSector": "11:40",
             "SusMeterPenalisation": 5
         }
     },
     "2": {
-        "07:30": {
+        "08:30": {
             "Radio": 1,
-            "Author": "Lucia Zak",
+            "Author": "Governemnt",
             "HourShow": "08:30",
             "HourTill": "09:00",
             "Text": [
-                "Hello and welcome to this game.",
-                "We will go throught this tutorial together"
+                "We have to stop the unrest. Protect sector 4."
             ],
             "StoryLine": 0,
-            "Sector": 3,
-            "WhenDeffendSector": "9:30",
+            "Sector": 4,
+            "WhenDeffendSector": "9:00",
+            "SusMeterPenalisation": 5
+        },
+        "09:30": {
+            "Radio": 1,
+            "Author": "I.J.",
+            "HourShow": "09:30",
+            "HourTill": "10:00",
+            "Text": [
+                ".... The only solution is .... ",
+                "the troops must get out of here ..... ",
+                "Everyone knows they're not telling the truth",
+                 ".... the government ...... we need to fight for freedom",
+                 "..... All planned for sector 5 at 13:30 .... be careful ...."
+            ],
+            "StoryLine": 0,
+            "Sector": 5,
+            "WhenDeffendSector": "13:30",
             "SusMeterPenalisation": 5
         }
     },
     "3": {
-        "07:30": {
+        "09:00": {
             "Radio": 1,
-            "Author": "Martin Zak",
-            "HourShow": "08:30",
-            "HourTill": "09:00",
+            "Author": "Major Alexander F. ",
+            "HourShow": "09:00",
+            "HourTill": "09:30",
             "Text": [
-                "Hello and welcome to this game.",
-                "We will go throught this tutorial together"
+                "Dear comrade", 
+                "I really admire your work and everything you do to protect our socialist homeland.",
+                "I hope you will understand that I have to urgently travel abroad", 
+                "I request to pass the borders at 10:30 through sector 2", 
+                "With respect,",
+                "Major Alexander F."
             ],
             "StoryLine": 0,
-            "Sector": 3,
-            "WhenDeffendSector": "9:30",
+            "Sector": 2,
+            "WhenDeffendSector": "10:30",
             "SusMeterPenalisation": 5
         }
     }

@@ -24,6 +24,7 @@ public class WaveClicked : MonoBehaviour
     private EventSystem mainEventSystem;
     private Dictionary<int, List<int>> resetSearch  = new Dictionary<int, List<int>>();
     private Timer timer;
+    [SerializeField] private AudioSource radioStatic;
 
     
     void Start()
@@ -177,6 +178,8 @@ public class WaveClicked : MonoBehaviour
         ClickedRead();
     }
     public void ClickedRead(){
+        // pause radioStatic sound
+        radioStatic.Pause();
         string[] showText = radios[this.activeRadio].getRadioArray();
         string authr = radios[this.activeRadio].getAuthor();
 
@@ -188,6 +191,7 @@ public class WaveClicked : MonoBehaviour
     }
 
     public void FinishedRead(){
+        radioStatic.Play();
         timer.StartTimer();
         readingScreen.SetActive(false);
         radios[activeRadio].setActive(true);

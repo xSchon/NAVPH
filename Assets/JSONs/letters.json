@@ -1,27 +1,42 @@
 {
     "1": {
         "Morning": {
-            "Text1": "Good morning, comrade! This is your first day."
+            "Text1": "Good morning, comrade! This is your first day.  You will receive your first radio test message at 8:30. Make sure to click on the radio and listen carefully. We shall see how you can handle this job. Remember that it is strictly classified information. Your job is to protect the state. Any illegal movement between the borders must be reported immediately."
         },
         "Evening": {
-            "Text1": "Congratulations on completing your first day!"
+            "Text1": "The local bus collision with the military vehicles - 2 lives lost",
+            "Text2": "The only solution - the departure of the troops",
+            "Text3": "The president is negotiating with the Soviet Union.",
+            "Text4": "On Friday: One-hour general protest strike.",
+            "Text5": "Doctors and nurses on strike.",
+            "Text6": "Why?"
+ 
         }
 
     },
     "2": {
         "Morning": {
-            "Text1": "Good morning, comrade! This is your second day.",
-            "Text2": "Hey... comrade, it's me... Fero... it's been a while. I hope you're doing well and your wife is as well. You know... I heard somewhere you got that job... at the borders... you know... Could you do me a favor? Today, around 10 in the morning... Could you do that for me? Comrade, I would be forever grateful. Please... "
+            "Text1": "Welcome to your second day, comrade! Today, Some of the citizens are protesting against the government. You must be careful."
         },
         "Evening": {
-            "Text1": "Congratulations on completing your second day!"
+            "Text1": "To all people in Czechoslovakia: Keep calm and carry on.",
+            "Text2": "We refuse any collaboration with the occupying forces. Our weapons will be held in our hands.",
+            "Text3": "The president is negotiating with the Soviet Union.",
+            "Text4": "Counter-revolutionaries in CSSR?",
+            "Text5": "Strikes continue.",
+            "Text6": "Healthcare collapsing? The lack of nurses in the country is complicating healthcare operations."
         }
     },
     "3": {
         "Morning": {
-            "Text1": "Good morning, comrade! This is your third day."},
+            "Text1": "Comrade, Our spies gathered information about the potential enemies. DO NOT LET these people pass the border. UNDER NO CIRCUMSTANCES. Report them immediately. Protect the Czechoslovak Socialist Republic. DESCRIPTION: MEN 47 YEARS OLD, 52 YEARS OLD, AND 54 YEARS OLD, THEY WORK WITH THE AUTHORITIES."},
         "Evening": {
-            "Text1": "Congratulations on completing your third day!"
+            "Text1": "We are with you - We will be with you - We trust you.",
+            "Text2": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
+            "Text3": "Currently, missing goods are secured by all means. We urge all citizens to be responsible when making purchases. Help normalize life at workplaces, even during difficult situations.",
+            "Text4": "Do not let yourself be deceived by the traitors of the Slovak and Czech people.",
+            "Text5": "Nurses to hold another strike.",
+            "Text6": "Soviet exploitation by means of foreign trade?"
         }
     }
 }

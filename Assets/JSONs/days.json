@@ -40,5 +40,33 @@
         "StartingMessage": "Welcome to the very sixth day in your new work.",
         "Scene": "Day1",
         "Minigames": [1,4]
+    },
+    "7": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very seventh day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "8": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very eight day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "9": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very ninth day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
+    },
+    "10": {
+        "StartingTime": "08:45",
+        "EndingTime": "10:00",
+        "StartingMessage": "Welcome to the very tenth day in your new work.",
+        "Scene": "Day1",
+        "Minigames": [1,4]
     }
 }

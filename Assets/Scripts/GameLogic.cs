@@ -55,13 +55,13 @@ public class GameLogic : MonoBehaviour
     private SectorsDeffence sectrsDeff;
     private Save savedData;
     public string dayIndex;// = "1";
-    public int endingTime;// = 480; // ending time after 480 minutes (8 hours) pass 
+    public int endingTime = 270; // ending time after 480 minutes (8 hours) pass 
     private Timer timer;
 
     void Start()
     {
 		// TODO ADD LOADING CURRENT DAY VIA SAVES.JSON
-        currentDay = "1";
+        currentDay = "2";
         Debug.Log(Application.persistentDataPath);
 
         timer = FindObjectOfType<Timer>();
@@ -83,8 +83,8 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         //timer.setEndingTime(endingTime);
-        //Debug.Log(timer.getCurrentMinutes());
-        //Debug.Log(endingTime);
+        Debug.Log(timer.getCurrentMinutes());
+        Debug.Log(endingTime);
         if (endingTime == timer.getCurrentMinutes())
         {
             Debug.Log("End of day");
