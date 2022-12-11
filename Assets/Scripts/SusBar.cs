@@ -17,7 +17,8 @@ public class SusBar : MonoBehaviour
     }
 
 
-    private void controlSus(){
+    private void controlSus()
+    {
         Color newBarColor = new Color(1, 1, 1);
         if(slider.value == 0){
             newBarColor = new Color(0, 0, 0);
@@ -54,5 +55,16 @@ public class SusBar : MonoBehaviour
     public void decreaseSus(float customChangeValue){
         slider.value -= customChangeValue;
         controlSus(); 
+    }
+
+    public float getSusValue()
+    {
+        return slider.value;
+    }
+
+    public void setSusValue(float newValue)
+    {
+        slider.value = newValue;
+        controlSus();
     }
 }

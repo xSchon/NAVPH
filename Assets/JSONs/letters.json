@@ -1,7 +1,7 @@
 {
     "1": {
         "Morning": {
-            "Text1": "Good morning, comrade! This is your first day.  You will receive your first radio test message at 8:30. Make sure to click on the radio and listen carefully. We shall see how you can handle this job. Remember that it is strictly classified information. Your job is to protect the state. Any illegal movement between the borders must be reported immediately."
+            "Text1": "Good morning, comrade! This is your first day. You will receive your first radio test message at 8:30. Make sure to click on the radio and listen carefully. When the message arrives, you need to click on the radio wave. Remember that it is strictly classified information. Your job is to protect the state. Any illegal movement between the borders must be reported immediately."
         },
         "Evening": {
             "Text1": "The local bus collision with the military vehicles - 2 lives lost",
@@ -29,7 +29,8 @@
     },
     "3": {
         "Morning": {
-            "Text1": "Comrade, Our spies gathered information about the potential enemies. DO NOT LET these people pass the border. UNDER NO CIRCUMSTANCES. Report them immediately. Protect the Czechoslovak Socialist Republic. DESCRIPTION: MEN 47 YEARS OLD, 52 YEARS OLD, AND 54 YEARS OLD, THEY WORK WITH THE AUTHORITIES."},
+            "Text1": "Comrade, Our spies gathered information about the potential enemies. DO NOT LET these people pass the border. UNDER NO CIRCUMSTANCES. Report them immediately. Protect the Czechoslovak Socialist Republic. DESCRIPTION: MEN 47 YEARS OLD, 52 YEARS OLD, AND 54 YEARS OLD, THEY WORK WITH THE AUTHORITIES."
+        },
         "Evening": {
             "Text1": "We are with you - We will be with you - We trust you.",
             "Text2": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
@@ -37,6 +38,32 @@
             "Text4": "Do not let yourself be deceived by the traitors of the Slovak and Czech people.",
             "Text5": "Nurses to hold another strike.",
             "Text6": "Soviet exploitation by means of foreign trade?"
+        }
+    },
+    "4": {
+        "Morning": {
+            "Text1": "All units be advised: the enemy may try to infiltrate our borders using disguises or false documents. Stay alert and verify the identities of all individuals."
+        },
+        "Evening": {
+            "Text1": "Government increases border security in response to increased enemy activity.",
+            "Text2": "On the road between Trencin and Bratislava, civil workers take away transistor receivers from citizens to prevent them from listening to free stations.",
+            "Text3": "Government's heavy-handed national security measures spark public outrage.",        
+            "Text4": "Families forced to ration food and make difficult choices as shortages continue",
+            "Text5": "President's visit to foreign nation sparks protests and controversy",
+            "Text6": "Local library to host book sale and fundraiser to support literacy programs"
+        }
+    },
+    "5": {
+        "Morning": {
+            "Text1": "This is a reminder to all guards: your duty is to protect the borders and keep our nation safe. Do not engage in unauthorized activities or take any unnecessary risks."
+        },
+        "Evening": {
+            "Text1": "Nation remains on high alert as intelligence suggests potential terrorist activity.",
+            "Text2": "Security forces work around the clock to protect the nation's safety and security",
+            "Text3": "Doctors and nurses go on strike, leaving hospitals in chaos and patients at risk",        
+            "Text4": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
+            "Text5": "Revolutionary group's attempted coup is foiled by government forces",
+            "Text6": "Government suspends controversial local library book sale"
         }
     }
 }

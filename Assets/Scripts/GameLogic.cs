@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-class Day{
+class Day
+{
     public string StartingTime = "8:00";
     public string EndingTime = "16:00";
     public string StartingMessage = "Welcome to another day in your work"; 
@@ -57,19 +58,17 @@ public class GameLogic : MonoBehaviour
     public string dayIndex;// = "1";
     public int endingTime = 270; // ending time after 480 minutes (8 hours) pass 
     private Timer timer;
+    private float susValue;
+    private float susMeterValue;
 
     void Start()
     {
-		// TODO ADD LOADING CURRENT DAY VIA SAVES.JSON
-        currentDay = "2";
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
 
         timer = FindObjectOfType<Timer>();
-        //saveGame();
+        // loads the current day, the dayIndex will be updated 
         loadDay(days);
-        Debug.Log(days);
-        //endDay();
-		
+        currentDay = dayIndex;
 		days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         conversations = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Conversation>>>(conversationsJson.text);
         loadDayMessages(currentDay);
@@ -79,33 +78,42 @@ public class GameLogic : MonoBehaviour
         waveClicked.setMinigames(days[currentDay].Minigames);
     }
 
-    // Update is called once per frame
     void Update()
     {
         //timer.setEndingTime(endingTime);
-        Debug.Log(timer.getCurrentMinutes());
-        Debug.Log(endingTime);
+        //Debug.Log(timer.getCurrentMinutes());
+        //Debug.Log(endingTime);
+        if (dayIndex == "5")
+        {
+            Debug.Log("Ending");
+            SceneManager.LoadScene("Ending");
+            // return 
+       }
         if (endingTime == timer.getCurrentMinutes())
         {
-            Debug.Log("End of day");
+            //Debug.Log("End of day");
             endDay();
         }
 
     }   
 
-    private void loadDayMessages(string dayNum){
+    private void loadDayMessages(string dayNum)
+    {
         Debug.Log("DAY MESSAGES LOADED");
         // Create dictionary for easy search between current time, keys and message time
         string [] messageStrings = conversations[dayNum].Keys.ToArray();
         this.messagesTimes = new Dictionary<int, string>();
 
-        for (int i = 0; i < messageStrings.Length; i++){
+        for (int i = 0; i < messageStrings.Length; i++)
+        {
             this.messagesTimes.Add(timer.mmHHtoMinutes(messageStrings[i]), messageStrings[i]);
         }
     }
     
-    public void checkMessages(int currentMinutes){
-        if (this.messagesTimes.ContainsKey(currentMinutes)){ 
+    public void checkMessages(int currentMinutes)
+    {
+        if (this.messagesTimes.ContainsKey(currentMinutes))
+        { 
             // if there is message at given time
             waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMinutes]]);
         }
@@ -113,11 +121,15 @@ public class GameLogic : MonoBehaviour
         sectrsDeff.CheckSectors(currentMinutes);
     }
 
-    private void loadDay(Dictionary<string, Day> days){
+
+
+    private void loadDay(Dictionary<string, Day> days)
+    {
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
         
-        if (!files.Any()){          // no save was found
+        if (!files.Any())
+        {  // no save was found
             firstTimeRun();
             return;
         }
@@ -126,16 +138,17 @@ public class GameLogic : MonoBehaviour
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
         dayIndex = savedData.Day;    
+        susMeterValue = savedData.SusMeterValue;
         //increase day 
         int dayIndexInt = int.Parse(dayIndex);
         dayIndexInt++;
         dayIndex = dayIndexInt.ToString();
         Debug.Log(dayIndex);
         //testovacie, nebude to tu hardcoded 
-        if (dayIndex == "5")
+        if (dayIndex == "6")
         {
             Debug.Log("Ending");
-            //SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("Ending");
             // return 
        }
        else {
@@ -147,10 +160,12 @@ public class GameLogic : MonoBehaviour
         timer.setEndingTime(day[dayIndex].EndingTime);
         //endingTime = int.Parse(day[dayIndex].EndingTime); TO DO
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].Minigames);
+        FindObjectOfType<SusBar>().setSusValue(susMeterValue);
     }
 
 
-    private void saveGame(){
+    private void saveGame()
+    {
         NestedStatus statusData = new NestedStatus();
         statusData.Vehicle = 1;
         statusData.Health = 1;
@@ -159,7 +174,8 @@ public class GameLogic : MonoBehaviour
         
         Save storeData = new Save();
         storeData.Day = dayIndex;
-        storeData.SusMeterValue = 0.45f;
+        susValue = FindObjectOfType<SusBar>().getSusValue();
+        storeData.SusMeterValue = susValue;
         storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
         storeData.Scene = "SampleScene";
         storeData.Status = statusData;
@@ -179,9 +195,10 @@ public class GameLogic : MonoBehaviour
         // 3. prepni dalsi den (current day + 1) 
         //    ak je to posledny den, ukaz endgame 
         // 4. loadDays(days) zacni novy den
-
         saveGame();
         SceneManager.LoadScene("Summary");
+        
+        
         //loadDay(days);
     }
 

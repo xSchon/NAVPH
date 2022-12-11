@@ -52,7 +52,7 @@
                 "Could you do that for me? Comrade, I would be forever grateful. Please..."
             ],
             "StoryLine": 0,
-            "Sector": 6,
+            "Sector": 1,
             "WhenDeffendSector": "11:40",
             "SusMeterPenalisation": 5
         }
@@ -64,11 +64,11 @@
             "HourShow": "08:30",
             "HourTill": "09:00",
             "Text": [
-                "We have to stop the unrest. Protect sector 4."
+                "We have to stop the unrest. Protect sector 4 from 13:00."
             ],
             "StoryLine": 0,
             "Sector": 4,
-            "WhenDeffendSector": "9:00",
+            "WhenDeffendSector": "13:00",
             "SusMeterPenalisation": 5
         },
         "09:30": {
@@ -87,7 +87,38 @@
             "Sector": 5,
             "WhenDeffendSector": "13:30",
             "SusMeterPenalisation": 5
+        },
+        "10:00": {
+            "Radio": 1,
+            "Author": "Captain J.",
+            "HourShow": "10:00",
+            "HourTill": "10:30",
+            "Text": [
+                "We captured a spy in sector 5",
+                "He said that the rebels are planning a big attack",
+                "We need to protect sector 5 from 10:30"
+            ],
+            "StoryLine": 0,
+            "Sector": 5,
+            "WhenDeffendSector": "10:30",
+            "SusMeterPenalisation": 5
+        },
+        "11:00": {
+            "Radio": 1,
+            "Author": "Jano",
+            "HourShow": "11:00",
+            "HourTill": "11:30",
+            "Text": [
+                "Yes comrade, I know you're busy, but I need your help...",
+                "...Yes, got it. I'll be there..."
+            ],
+            "StoryLine": 0,
+            "Sector": 1,
+            "WhenDeffendSector": "23:59",
+            "SusMeterPenalisation": 0
         }
+
+
     },
     "3": {
         "09:00": {
@@ -107,6 +138,193 @@
             "Sector": 2,
             "WhenDeffendSector": "10:30",
             "SusMeterPenalisation": 5
+        },
+        "10:00": {
+            "Radio": 1,
+            "Author": "Foreign Transmitter",
+            "HourShow": "10:00",
+            "HourTill": "10:30",
+            "Text": [
+                "The situation is getting out of control",
+                "........",
+                " * static * ",
+                "the Warsaw pact is ....... * static *"
+            ],
+            "StoryLine": 0,
+            "Sector": 1,
+            "WhenDeffendSector": "23:59",
+            "SusMeterPenalisation": 0
+        },
+        "10:45": {
+            "Radio": 1,
+            "Author": "Oleg P.",
+            "HourShow": "10:45",
+            "HourTill": "11:00",
+            "Text": [
+                "Comrade, My name is Oleg P., and I work as a trader.",
+                "I am passing through for business matters. The Captain has been aware of me, and we have met before.",
+                "And you know, he doesn't mind... the situation only benefits him... Do you understand?", 
+                "If you let me pass the borders today at 14:00, I can promise you will benefit too, and we could start a long-term partnership.",
+                "What do you think? -Oleg P. "
+            ],
+            "StoryLine": 0,
+            "Sector": 2,
+            "WhenDeffendSector": "14:00",
+            "SusMeterPenalisation": 10
+        },
+        "11:30": {
+            "Radio": 1,
+            "Author": "Governemnt",
+            "HourShow": "11:30",
+            "HourTill": "12:00",
+            "Text": [
+                "Moving troops to sector 4",
+                "Protect the sector from 12:30"
+            ],
+            "StoryLine": 0,
+            "Sector": 4,
+            "WhenDeffendSector": "12:30",
+            "SusMeterPenalisation": 5
+        }
+
+    },
+    "4": {
+        "09:00": {
+            "Radio": 1,
+            "Author": "Lieutenant Vladimir B.",
+            "HourShow": "09:00",
+            "HourTill": "09:30",
+            "Text": [
+                "Dear comrade!", 
+                "I was called today at 12:20 to pass the border for undisclosed classified reasons.",
+                "I have the confirmation from the Foreman.", 
+                "Lieutenant Vladimir B. "
+            ],
+            "StoryLine": 0,
+            "Sector": 6,
+            "WhenDeffendSector": "12:20",
+            "SusMeterPenalisation": 10
+        },
+        "10:20": {
+            "Radio": 1,
+            "Author": "Governemnt",
+            "HourShow": "10:20",
+            "HourTill": "11:00",
+            "Text": [
+                "Comrade! The president will be passing through sector 5 at 14:00.",
+                "This is very important, and we need to protect him at all costs."
+            ],
+            "StoryLine": 0,
+            "Sector": 5,
+            "WhenDeffendSector": "14:00",
+            "SusMeterPenalisation": 30
+        },
+        "11:20": {
+            "Radio": 1,
+            "Author": "I.J.",
+            "HourShow": "11:20",
+            "HourTill": "12:00",
+            "Text": [
+                ".... better to die for freedom .... than be a prisoner all the days of your life .... don't forget... exactly at noon at sector 4"
+            ],
+            "StoryLine": 0,
+            "Sector": 4,
+            "WhenDeffendSector": "12:00",
+            "SusMeterPenalisation": 10
+        },
+        "12:20": {
+            "Radio": 1,
+            "Author": "Governemnt",
+            "HourShow": "12:20",
+            "HourTill": "13:00",
+            "Text": [
+                "Attention all border patrol teams: increased enemy activity has been reported in sector 3. Be prepared for potential threats and take necessary precautions."
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "13:00",
+            "SusMeterPenalisation": 5
+        }
+
+    },
+    "5": {
+        "09:00": {
+            "Radio": 1,
+            "Author": "Unknown Transmitter",
+            "HourShow": "09:00",
+            "HourTill": "09:30",
+            "Text": [
+                "It is time for communism to fall... ",
+                "I will kill every single red bastard if I have to - ",
+                "- Focus on the plan, Andrei - ",
+                "- I know Mihai, but I can't .... ",
+                "We fight to set us free! - ",
+                "- Remember the plan. It was confirmed for sector 1 at 10 in the morning. "
+            ],
+            "StoryLine": 0,
+            "Sector": 1,
+            "WhenDeffendSector": "10:00",
+            "SusMeterPenalisation": 5
+        },
+        "10:00": {
+            "Radio": 1,
+            "Author": "Ivana R.",
+            "HourShow": "10:00",
+            "HourTill": "10:30",
+            "Text": [
+                "Good morning, dear comrade,", 
+                "I am a nurse in the Surgical department. I have a call to provide my help to the Soviet forces.",
+                "I have a confirmation from the General and my supervisor. I need to pass sector 2 today at 12:00.",
+                "Ivana R. "
+            ],
+            "StoryLine": 0,
+            "Sector": 2,
+            "WhenDeffendSector": "12:00",
+            "SusMeterPenalisation": 5 
+        },
+        "10:40": {
+            "Radio": 1,
+            "Author": "Governemnt",
+            "HourShow": "10:40",
+            "HourTill": "11:00",
+            "Text": [
+                "Reported activities in sector 9. Be prepared for potential threats and take necessary precautions."
+            ],
+            "StoryLine": 0,
+            "Sector": 9,
+            "WhenDeffendSector": "12:00",
+            "SusMeterPenalisation": 5 
+        },
+        "11:30": {
+            "Radio": 1,
+            "Author": "H. P.",
+            "HourShow": "11:30",
+            "HourTill": "12:00",
+            "Text": [
+                "Comrade, ",
+                "By order of the Captain, I have to attend to urgent matters...",
+                "and pass the borders today together with a few of my men at 12:40. I hope you 'understand.", 
+                "H. P."
+            ],
+            "StoryLine": 0,
+            "Sector": 9,
+            "WhenDeffendSector": "12:40",
+            "SusMeterPenalisation": 25 
+        },
+        "12:10": {
+            "Radio": 1,
+            "Author": "Unknown Transmitter",
+            "HourShow": "12:10",
+            "HourTill": "12:30",
+            "Text": [
+                "Die deutsche Wehrmacht rückte tiefer in das Gebiet der Sowjetunion vor... ",
+                "Die Militäroperationen am Dnjestr.......",
+                "* static *"
+            ],
+            "StoryLine": 0,
+            "Sector": 1,
+            "WhenDeffendSector": "23:59",
+            "SusMeterPenalisation": 0 
         }
     }
 }

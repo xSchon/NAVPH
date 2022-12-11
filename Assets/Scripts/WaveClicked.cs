@@ -83,7 +83,8 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    public void loadScene(int radioNumber){
+    public void loadScene(int radioNumber)
+    {
         radioNumber = radioNumber - 1;
 
         GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].getColor();
@@ -101,7 +102,8 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    private void returnScene(Scene arg0, Scene arg1){
+    private void returnScene(Scene arg0, Scene arg1)
+    {
         if (arg0.name != "Summary" || arg1.name != "Summary") return;
         if (arg1.name == main_scene.name && arg0.name != "Summary")
             SceneManager.UnloadSceneAsync(arg0.name);
@@ -113,11 +115,13 @@ public class WaveClicked : MonoBehaviour
             }
     }
 
-    public void setMinigames(int[] minigamesIndexes){
+    public void setMinigames(int[] minigamesIndexes)
+    {
         minigamesIDs = minigamesIndexes;
     }
 
-    public void radioActivation(Conversation activeConvo){
+    public void radioActivation(Conversation activeConvo)
+    {
         int radioNumber = activeConvo.Radio - 1;
         radios[radioNumber].setActive(false);
         try{
@@ -150,7 +154,8 @@ public class WaveClicked : MonoBehaviour
         radios[radioNumber].setAuthor(activeConvo.Author);
     }
 
-    public void checkStopped(int currentTime){
+    public void checkStopped(int currentTime)
+    {
         if (this.resetSearch.ContainsKey(currentTime)){
             foreach(int timeRen in this.resetSearch[currentTime]){
                 this.radios[timeRen].setActive(true);
@@ -166,7 +171,8 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    public void StartVoice(){
+    public void StartVoice()
+    {
         float probability = UnityEngine.Random.Range(0.0f, 1.0f);
         Debug.Log(probability);
 
@@ -177,7 +183,8 @@ public class WaveClicked : MonoBehaviour
 
         ClickedRead();
     }
-    public void ClickedRead(){
+    public void ClickedRead()
+    {
         // pause radioStatic sound
         radioStatic.Pause();
         string[] showText = radios[this.activeRadio].getRadioArray();
@@ -190,7 +197,8 @@ public class WaveClicked : MonoBehaviour
         readingScreen.GetComponent<ReadingStory>().DisplayConversation(authr, showText, gameText);
     }
 
-    public void FinishedRead(){
+    public void FinishedRead()
+    {
         radioStatic.Play();
         timer.StartTimer();
         readingScreen.SetActive(false);
