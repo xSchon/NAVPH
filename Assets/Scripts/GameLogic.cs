@@ -83,6 +83,12 @@ public class GameLogic : MonoBehaviour
         //timer.setEndingTime(endingTime);
         //Debug.Log(timer.getCurrentMinutes());
         //Debug.Log(endingTime);
+        if (dayIndex == "5")
+        {
+            Debug.Log("Ending");
+            SceneManager.LoadScene("Ending");
+            // return 
+       }
         if (endingTime == timer.getCurrentMinutes())
         {
             //Debug.Log("End of day");
@@ -117,7 +123,8 @@ public class GameLogic : MonoBehaviour
 
 
 
-    private void loadDay(Dictionary<string, Day> days){
+    private void loadDay(Dictionary<string, Day> days)
+    {
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
         
@@ -138,10 +145,10 @@ public class GameLogic : MonoBehaviour
         dayIndex = dayIndexInt.ToString();
         Debug.Log(dayIndex);
         //testovacie, nebude to tu hardcoded 
-        if (dayIndex == "11")
+        if (dayIndex == "6")
         {
             Debug.Log("Ending");
-            //SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("Ending");
             // return 
        }
        else {
