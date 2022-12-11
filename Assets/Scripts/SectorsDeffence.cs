@@ -45,9 +45,9 @@ public class SectorsDeffence : MonoBehaviour
 
         changeText(string.Join(", ", selectedSectors));
         if (dropSector != 0){
-            visibleSector("sector"+dropSector, false);
+            VisibleSector("sector"+dropSector, false);
         }
-        visibleSector(sectorName, true);
+        VisibleSector(sectorName, true);
 
     }
 
@@ -55,7 +55,7 @@ public class SectorsDeffence : MonoBehaviour
         GameObject.Find("selectedSectors").GetComponent<TextMeshProUGUI>().text = "Defending sectors: "+sectorsNumbers;
     }
 
-    private void visibleSector(string sectorName, bool setVisible){
+    private void VisibleSector(string sectorName, bool setVisible){
         // if decolor is false, then set to invisible (A = 0), otherwise set to visible (A = 0.33)
         Color objColor;
         objColor = GameObject.Find(sectorName).GetComponent<Image>().color;
@@ -105,7 +105,7 @@ public class SectorsDeffence : MonoBehaviour
         }
     }
 
-    public Dictionary<int, List<bool>> getStoryLines(){
+    public Dictionary<int, List<bool>> GetStoryLines(){
         return this.storyLines;
     }
 

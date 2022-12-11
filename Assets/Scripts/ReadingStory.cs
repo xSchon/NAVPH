@@ -29,13 +29,13 @@ public class ReadingStory : MonoBehaviour
             sinceLast += Time.deltaTime;
 
             if (sinceLast > secondsForText){
-                sinceLast = 0.0f;
                 readNext();
             }
         }
     }
 
     public void readNext(){
+        sinceLast = 0.0f;
         if(currentChunk < this.messageText.Length){
             this.textField.text = this.messageText[currentChunk]; 
             currentChunk++;

@@ -164,7 +164,7 @@ public class GameLogic : MonoBehaviour
     }
 
 
-    private void saveGame()
+    private void SaveGame()
     {
         NestedStatus statusData = new NestedStatus();
         statusData.Vehicle = 1;
@@ -195,7 +195,7 @@ public class GameLogic : MonoBehaviour
         // 3. prepni dalsi den (current day + 1) 
         //    ak je to posledny den, ukaz endgame 
         // 4. loadDays(days) zacni novy den
-        saveGame();
+        SaveGame();
         SceneManager.LoadScene("Summary");
         
         
