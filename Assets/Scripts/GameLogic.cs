@@ -180,12 +180,6 @@ public class GameLogic : MonoBehaviour
         statusData.Health = EvaluateHealthStatus(susDiff);
         statusData.SocialStatus = EvaluateSocialStatus(susDiff);
         statusData.Living = EvaluateLivingStatus(susDiff);
-
-        /*NestedStatus statusData = new NestedStatus();
-        statusData.Vehicle = 1;
-        statusData.Health = 1;
-        statusData.SocialStatus = 1;
-        statusData.Living = 1;*/
         
         Save storeData = new Save();
         storeData.Day = dayIndex;
@@ -197,7 +191,7 @@ public class GameLogic : MonoBehaviour
         string output = JsonConvert.SerializeObject(storeData);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
-        Debug.Log("Game succesfully saved - day"+dayIndex);
+        Debug.Log("Game succesfully saved - day" + dayIndex);
     }
 
     public void endDay()
