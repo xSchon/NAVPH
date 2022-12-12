@@ -55,10 +55,10 @@ public class StoryLinesLogic : MonoBehaviour
 
     public void CheckStoryLines(Dictionary<string, List<bool>> storyLinesEval)
     {
-        foreach(string newKey in newResults.Keys.ToArray())
+        foreach(string newKey in storyLinesEval.Keys.ToArray())
         {
             Debug.Log(newKey);
-            Debug.Log(newResults[newKey]);
+            Debug.Log(storyLinesEval[newKey]);
         }
     }
 
