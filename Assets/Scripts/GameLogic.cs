@@ -20,7 +20,7 @@ class Save
 {
     public string Day;
     public float SusMeterValue;
-    public string[] StoryLines;
+    public Dictionary<string, List<bool>> StoryLines = new Dictionary<string, List<bool>>();
     public string Scene;
     public NestedStatus Status;
 }
@@ -50,6 +50,7 @@ public class GameLogic : MonoBehaviour
     public SusBar susBar;
     public float healthStatusStep = 10f;
     private string currentDay;
+    private Dictionary<string, List<bool>> currentStoryLines;
     private Dictionary<string, Day> days;
 	private Dictionary<string, Dictionary<string, Conversation>> conversations;
     private Dictionary<int, string> messagesTimes;
@@ -140,6 +141,8 @@ public class GameLogic : MonoBehaviour
 
         dayIndex = savedData.Day;    
         susMeterValue = savedData.SusMeterValue;
+        currentStoryLines = savedData.StoryLines;
+
         //increase day 
         int dayIndexInt = int.Parse(dayIndex);
         dayIndexInt++;
@@ -187,14 +190,11 @@ public class GameLogic : MonoBehaviour
         Save storeData = new Save();
         storeData.Day = dayIndex;
         storeData.SusMeterValue = susValue;
-        storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
+        storeData.StoryLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
         storeData.Scene = "SampleScene";
         storeData.Status = statusData;
 
         string output = JsonConvert.SerializeObject(storeData);
-
-        Debug.Log(sectrsDeff.GetStoryLines());
-        gameObject.GetComponent<StoryLinesLogic>();
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Game succesfully saved - day"+dayIndex);
@@ -216,6 +216,7 @@ public class GameLogic : MonoBehaviour
     }
 
     private void firstTimeRun(){
+        currentStoryLines = new Dictionary<string, List<bool>>();
         // some additional setup when it is first run?
         // TODO: add reset after game is done
         dayIndex = "1";
