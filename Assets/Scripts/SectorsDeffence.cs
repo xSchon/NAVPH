@@ -11,7 +11,7 @@ public class SectorsDeffence : MonoBehaviour
     public int sectorsAmount = 2; // set in Unity
     private int[] selectedSectors;
     public Dictionary<int, List<DeffendableSector>> toDeffend = new Dictionary<int, List<DeffendableSector>>();
-    public Dictionary<int, List<bool>> storyLines = new Dictionary<int, List<bool>>();
+    public Dictionary<string, List<bool>> storyLines = new Dictionary<string, List<bool>>();
     
 
     void Start()
@@ -70,9 +70,9 @@ public class SectorsDeffence : MonoBehaviour
 
     public void NewToDeffend(int deffendAt, DeffendableSector defSect){
         if (this.toDeffend.ContainsKey(deffendAt)){
-            List<DeffendableSector> tmp = this.toDeffend[deffendAt];
-            tmp.Add(defSect);
-            this.toDeffend[deffendAt] = tmp; 
+            List<DeffendableSector> addable = this.toDeffend[deffendAt];
+            addable.Add(defSect);
+            this.toDeffend[deffendAt] = addable; 
         } else {
             this.toDeffend.Add(deffendAt, (new List<DeffendableSector>{defSect}));
         }
@@ -81,32 +81,36 @@ public class SectorsDeffence : MonoBehaviour
     public void CheckSectors(int currentTime){
         bool passed; 
         if (this.toDeffend.ContainsKey(currentTime)){
-            WarningMessage wM = FindObjectOfType<WarningMessage>();
-            
-            foreach(DeffendableSector dS in this.toDeffend[currentTime]){
-                if (!this.selectedSectors.Contains(dS.sectorNum)){
-                    wM.AddWarning(dS.sectorNum, dS.susPunish);
-                    FindObjectOfType<SusBar>().increaseSus(dS.susPunish);
+            WarningMessage messagePop = FindObjectOfType<WarningMessage>();
+
+            foreach(DeffendableSector deffSec in this.toDeffend[currentTime]){
+                if (!this.selectedSectors.Contains(deffSec.sectorNum)){
+                    messagePop.AddWarning(deffSec.sectorNum, deffSec.susPunish);
+                    FindObjectOfType<SusBar>().increaseSus(deffSec.susPunish);
 
                     passed = true;
                 } else {  // if protected
-                    wM.AddApproval(dS.sectorNum);
+                    messagePop.AddApproval(deffSec.sectorNum);
                     passed = false;
                 }
 
-                
-                if(this.storyLines.ContainsKey(dS.storyNum)){
-                    List<bool> tmp = this.storyLines[dS.storyNum];
-                    tmp.Add(passed);
-                    this.storyLines[dS.storyNum] = tmp;
-                } else {
-                    this.storyLines.Add(dS.storyNum, (new List<bool>{passed}));
+
+                string storyStringNum = deffSec.storyNum.ToString();                
+                if(this.storyLines.ContainsKey(storyStringNum))
+                {
+                    List<bool> toAdd = this.storyLines[storyStringNum];
+                    toAdd.Add(passed);
+                    this.storyLines[storyStringNum] = toAdd;
+                } 
+                else 
+                {
+                    this.storyLines.Add(storyStringNum, (new List<bool>{passed}));
                 }
             }
         }
     }
 
-    public Dictionary<int, List<bool>> GetStoryLines(){
+    public Dictionary<string, List<bool>> GetStoryLines(){
         return this.storyLines;
     }
 
