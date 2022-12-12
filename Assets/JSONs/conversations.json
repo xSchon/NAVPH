@@ -88,10 +88,10 @@
             "WhenDeffendSector": "13:30",
             "SusMeterPenalisation": 5
         },
-        "10:00": {
+        "10:10": {
             "Radio": 1,
             "Author": "Captain J.",
-            "HourShow": "10:00",
+            "HourShow": "10:10",
             "HourTill": "10:30",
             "Text": [
                 "We captured a spy in sector 5",

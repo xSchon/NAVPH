@@ -37,6 +37,8 @@ public class ST_PuzzleDisplay : MonoBehaviour
 	// has the puzzle been completed?
 	public bool Complete = false;
 
+	public GameObject popup;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -232,6 +234,8 @@ public class ST_PuzzleDisplay : MonoBehaviour
 		// if we are still complete then all the tiles are correct.
 		if(Complete)
 		{
+			Debug.Log("POMEEEEEEEEESEEEEEEEEEEE");
+			popup.SetActive(true);
 			Debug.Log("Puzzle Complete!");
 		}
 

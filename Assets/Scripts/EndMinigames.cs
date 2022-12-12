@@ -23,4 +23,8 @@ public class EndMinigames : MonoBehaviour
         minigameCamera.enabled = false;
 
     }
+
+    public void LoadMainScene(){
+        SceneManager.LoadScene("SampleScene");
+    }
 }
