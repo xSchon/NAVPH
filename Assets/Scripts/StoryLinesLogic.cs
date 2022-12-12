@@ -28,8 +28,13 @@ public class StoryLinesLogic : MonoBehaviour
     {
         storyLines = JsonConvert.DeserializeObject<Dictionary<string, StoryLine>>(storylinesJson.text);
     }
-    public void CheckStoryLines(){
-        Debug.Log("XDD STORY LINES");
+    public void CheckStoryLines(Dictionary<int, List<bool>> newResults)
+    {
+        foreach(int newKey in newResults.Keys.ToArray())
+        {
+            Debug.Log(newKey);
+            Debug.Log(newResults[newKey]);
+        }
     }
 
 }

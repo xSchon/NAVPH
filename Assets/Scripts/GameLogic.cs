@@ -20,7 +20,7 @@ class Save
 {
     public string Day;
     public float SusMeterValue;
-    public string[] StoryLines;
+    public Dictionary<string, bool[]> StoryLines;
     public string Scene;
     public NestedStatus Status;
 }
@@ -176,14 +176,13 @@ public class GameLogic : MonoBehaviour
         storeData.Day = dayIndex;
         susValue = FindObjectOfType<SusBar>().getSusValue();
         storeData.SusMeterValue = susValue;
-        storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
+        storeData.StoryLines = new Dictionary<string, bool[]>() {{"1", new bool[]{false, true}}};
         storeData.Scene = "SampleScene";
         storeData.Status = statusData;
 
         string output = JsonConvert.SerializeObject(storeData);
 
-        Debug.Log(sectrsDeff.GetStoryLines());
-        gameObject.GetComponent<StoryLinesLogic>().CheckStoryLines();
+        gameObject.GetComponent<StoryLinesLogic>().CheckStoryLines(sectrsDeff.GetStoryLines());
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Game succesfully saved - day"+dayIndex);

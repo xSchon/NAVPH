@@ -82,6 +82,7 @@ public class SectorsDeffence : MonoBehaviour
         bool passed; 
         if (this.toDeffend.ContainsKey(currentTime)){
             WarningMessage wM = FindObjectOfType<WarningMessage>();
+            
             foreach(DeffendableSector dS in this.toDeffend[currentTime]){
                 if (!this.selectedSectors.Contains(dS.sectorNum)){
                     wM.AddWarning(dS.sectorNum, dS.susPunish);
