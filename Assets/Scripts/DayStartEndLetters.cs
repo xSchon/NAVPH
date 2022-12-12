@@ -22,7 +22,7 @@ public class DayStartEndLetters : MonoBehaviour
     {
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
-        if (!files.Any())
+        if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
         {      
                dayIndex = "1"; // no save was found
         }
