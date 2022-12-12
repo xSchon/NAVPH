@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using UnityEngine;
 using TMPro;
@@ -10,7 +11,9 @@ using TMPro;
 public class SummaryEvaluation : MonoBehaviour
 {
     public TextAsset jsonFile;
+    public TextAsset statusFile;
     public TextAsset saveJsonFile;
+    public TMP_Text news;
     private Save savedData;
     private Dictionary <string, Dictionary<string, Dictionary<string, string>>> dailyMessages;
     public string dayIndex;
@@ -20,6 +23,7 @@ public class SummaryEvaluation : MonoBehaviour
 
     void Start()
     {
+        loadDay();
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
         if (!files.Any())
@@ -66,5 +70,41 @@ public class SummaryEvaluation : MonoBehaviour
 
         //newspaperText1 = dailyMessages[dayIndex]["Evening"]["Text1"];
         //newspaperText1Mesh.text = newspaperText1;
+    }
+
+    private void loadDay(){
+        var directory = new DirectoryInfo(Application.persistentDataPath);
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
+        
+        Status newStatus = JsonConvert.DeserializeObject<Status>(statusFile.text);
+
+        if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
+        {
+            news.text = "";
+            news.text = newStatus.Vehicle[newStatus.Vehicle.Length - 1] + "\n" 
+                    + newStatus.Health[newStatus.Health.Length - 1] + "\n"
+                    + newStatus.SocialStatus[newStatus.SocialStatus.Length - 1] + "\n"
+                    + newStatus.Living[newStatus.Living.Length - 1];
+            return;
+        }
+
+        string savedDataText = File.ReadAllText(directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
+        Save savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
+        NestedStatus nestedStatus = savedData.Status;
+
+        news.text = "";
+        news.text = "Vehicle: " + newStatus.Vehicle[nestedStatus.Vehicle] + "\n" +
+                    "Health: " + newStatus.Health[nestedStatus.Health] + "\n" +
+                    "Social Status: " + newStatus.SocialStatus[nestedStatus.SocialStatus] + "\n" +
+                    "Living: " + newStatus.Living[nestedStatus.Living];
+        
+        Debug.Log(newStatus.Vehicle[nestedStatus.Vehicle]);
+        Debug.Log(newStatus.Health[nestedStatus.Health]);
+        Debug.Log(newStatus.SocialStatus[nestedStatus.SocialStatus]);
+        Debug.Log(newStatus.Living[nestedStatus.Living]);
+    }
+
+    public void LoadMainScene(){
+        SceneManager.LoadScene("SampleScene");
     }
 }

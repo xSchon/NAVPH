@@ -47,7 +47,8 @@ public class GameLogic : MonoBehaviour
 {
     public TextAsset daysJson;
     public TextAsset conversationsJson;
-    private JObject getResult;
+    public SusBar susBar;
+    public float healthStatusStep = 10f;
     private string currentDay;
     private Dictionary<string, Day> days;
 	private Dictionary<string, Dictionary<string, Conversation>> conversations;
@@ -166,15 +167,25 @@ public class GameLogic : MonoBehaviour
 
     private void SaveGame()
     {
+        susValue = FindObjectOfType<SusBar>().getSusValue();
+        Debug.Log("susValue: " + susValue);
+        Debug.Log("susMeterValue: " + susMeterValue);
+        float susDiff = susValue - susMeterValue;
+
         NestedStatus statusData = new NestedStatus();
+        statusData.Vehicle = EvaluateVehicleStatus(susDiff);
+        statusData.Health = EvaluateHealthStatus(susDiff);
+        statusData.SocialStatus = EvaluateSocialStatus(susDiff);
+        statusData.Living = EvaluateLivingStatus(susDiff);
+
+        /*NestedStatus statusData = new NestedStatus();
         statusData.Vehicle = 1;
         statusData.Health = 1;
         statusData.SocialStatus = 1;
-        statusData.Living = 1;
+        statusData.Living = 1;*/
         
         Save storeData = new Save();
         storeData.Day = dayIndex;
-        susValue = FindObjectOfType<SusBar>().getSusValue();
         storeData.SusMeterValue = susValue;
         storeData.StoryLines = new string[] {"lalala", "xdxdxdxd", "more", "gadzo"};
         storeData.Scene = "SampleScene";
@@ -208,5 +219,69 @@ public class GameLogic : MonoBehaviour
         // some additional setup when it is first run?
         // TODO: add reset after game is done
         dayIndex = "1";
+    }
+
+    private int EvaluateHealthStatus(float susDiff)
+    {
+        Debug.Log("SusDiff: " + susDiff);
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.Status.Health;
+        
+        if ((susDiff >= healthStatusStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < healthStatusStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateVehicleStatus(float susDiff)
+    {
+        float vehicleStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.Status.Vehicle;
+        
+        if ((susDiff >= vehicleStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < vehicleStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateSocialStatus(float susDiff)
+    {
+        float socialStatusStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.Status.SocialStatus;
+        
+        if ((susDiff >= socialStatusStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < socialStatusStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateLivingStatus(float susDiff)
+    {
+        float socialLivingStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.Status.Living;
+        
+        if ((susDiff >= socialLivingStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < socialLivingStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
     }
 }
