@@ -183,7 +183,7 @@ public class GameLogic : MonoBehaviour
         string output = JsonConvert.SerializeObject(storeData);
 
         Debug.Log(sectrsDeff.GetStoryLines());
-        gameObject.GetComponent<StoryLinesLogic>();
+        gameObject.GetComponent<StoryLinesLogic>().CheckStoryLines();
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Game succesfully saved - day"+dayIndex);
