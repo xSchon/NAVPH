@@ -21,8 +21,8 @@ public class DayStartEndLetters : MonoBehaviour
     void Start()
     {
         var directory = new DirectoryInfo(Application.persistentDataPath);
-        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
-        if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
+        if (!files.Any())
         {      
                dayIndex = "1"; // no save was found
         }

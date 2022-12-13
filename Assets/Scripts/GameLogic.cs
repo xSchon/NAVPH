@@ -25,6 +25,7 @@ public class GameLogic : MonoBehaviour
     public int endingTime = 270; // ending time after 480 minutes (8 hours) pass 
     private Timer timer;
     private float susValue;
+    public float healthStatusStep = 10f;
     private float susMeterValue;
     public GameObject[] sceneRadios;
 
@@ -103,15 +104,17 @@ public class GameLogic : MonoBehaviour
     private void loadDay(Dictionary<string, Day> days)
     {
         var directory = new DirectoryInfo(Application.persistentDataPath);
-        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         
-        if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
+        //if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
+        if (!files.Any())
         {  // no save was found
             firstTimeRun();
             return;
         }
         
         string savedDataText = File.ReadAllText(files.First().FullName);
+        Debug.Log("savedDataText --> " + savedDataText);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
         dayIndex = savedData.day;    
@@ -145,17 +148,19 @@ public class GameLogic : MonoBehaviour
 
     private void SaveGame()
     {
+        susValue = FindObjectOfType<SusBar>().getSusValue();
+        float susDiff = susValue - susMeterValue;
+        
         NestedStatus statusData = new NestedStatus();
 
         // TODO rework to loading from current status
-        statusData.vehicle = 1;
-        statusData.health = 1;
-        statusData.socialStatus = 1;
-        statusData.living = 1;
+        statusData.vehicle = EvaluateVehicleStatus(susDiff);
+        statusData.health = EvaluateHealthStatus(susDiff);
+        statusData.socialStatus = EvaluateSocialStatus(susDiff);
+        statusData.living = EvaluateLivingStatus(susDiff);
         
         Save storeData = new Save();
         storeData.day = dayIndex;
-        susValue = FindObjectOfType<SusBar>().getSusValue();
         storeData.susMeterValue = susValue;
         storeData.storyLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
         storeData.status = statusData;
@@ -192,5 +197,69 @@ public class GameLogic : MonoBehaviour
         // some additional setup when it is first run?
         // TODO: add reset after game is done
         dayIndex = "1";
+    }
+
+    private int EvaluateHealthStatus(float susDiff)
+    {
+        Debug.Log("SusDiff: " + susDiff);
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.status.health;
+
+        if ((susDiff >= healthStatusStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < healthStatusStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateVehicleStatus(float susDiff)
+    {
+        float vehicleStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.status.vehicle;
+
+        if ((susDiff >= vehicleStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < vehicleStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateSocialStatus(float susDiff)
+    {
+        float socialStatusStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.status.socialStatus;
+
+        if ((susDiff >= socialStatusStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < socialStatusStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
+    }
+
+    private int EvaluateLivingStatus(float susDiff)
+    {
+        float socialLivingStep = 10f;
+        int currentStatus = 3;
+
+        if (savedData != null)
+            currentStatus = savedData.status.living;
+
+        if ((susDiff >= socialLivingStep) & (currentStatus != 0))
+            return currentStatus - 1;
+        else if ((susDiff < socialLivingStep) && (currentStatus != 3))
+            return currentStatus + 1;
+        else    
+            return currentStatus;
     }
 }

@@ -25,7 +25,7 @@ public class SummaryEvaluation : MonoBehaviour
     {
         loadDay();
         var directory = new DirectoryInfo(Application.persistentDataPath);
-        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         if (!files.Any())
         {      
                dayIndex = "1"; // no save was found
@@ -74,11 +74,11 @@ public class SummaryEvaluation : MonoBehaviour
 
     private void loadDay(){
         var directory = new DirectoryInfo(Application.persistentDataPath);
-        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
+        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         
         Status newStatus = JsonConvert.DeserializeObject<Status>(statusFile.text);
 
-        if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
+        if (!files.Any())
         {
             news.text = "";
             news.text = newStatus.vehicle[newStatus.vehicle.Length - 1] + "\n" 
