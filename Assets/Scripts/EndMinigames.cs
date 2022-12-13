@@ -8,7 +8,7 @@ public class EndMinigames : MonoBehaviour
     public Camera minigameCamera;
     public string minigameName;
 
-    public void endMinigame(){
+    public void EndMinigame(){
         int countLoaded = SceneManager.sceneCount;
         int parent_scene_id = -1;
         for (int i = 0; i < countLoaded; i++)

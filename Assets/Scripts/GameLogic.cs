@@ -7,21 +7,11 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-class Day
-{
-    public string StartingTime = "8:00";
-    public string EndingTime = "16:00";
-    public string StartingMessage = "Welcome to another day in your work"; 
-    public string Scene;
-    public int[] Minigames;
-}
-
 class Save
 {
     public string Day;
     public float SusMeterValue;
     public Dictionary<string, List<bool>> StoryLines = new Dictionary<string, List<bool>>();
-    public string Scene;
     public NestedStatus Status;
 }
 
@@ -47,8 +37,7 @@ public class GameLogic : MonoBehaviour
 {
     public TextAsset daysJson;
     public TextAsset conversationsJson;
-    public SusBar susBar;
-    public float healthStatusStep = 10f;
+    private JObject getResult;
     private string currentDay;
     private Dictionary<string, List<bool>> currentStoryLines;
     private Dictionary<string, Day> days;
@@ -62,6 +51,7 @@ public class GameLogic : MonoBehaviour
     private Timer timer;
     private float susValue;
     private float susMeterValue;
+    public GameObject[] sceneRadios;
 
     void Start()
     {
@@ -77,7 +67,7 @@ public class GameLogic : MonoBehaviour
 
         waveClicked = FindObjectOfType<WaveClicked>();
         sectrsDeff = FindObjectOfType<SectorsDeffence>();
-        waveClicked.setMinigames(days[currentDay].Minigames);
+        waveClicked.setMinigames(days[currentDay].minigames);
     }
 
     void Update()
@@ -160,38 +150,33 @@ public class GameLogic : MonoBehaviour
         }
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
-        timer.setStartingTime(day[dayIndex].StartingTime);
-        timer.setEndingTime(day[dayIndex].EndingTime);
+        timer.setStartingTime(day[dayIndex].startingTime);
+        timer.setEndingTime(day[dayIndex].endingTime);
         //endingTime = int.Parse(day[dayIndex].EndingTime); TO DO
-        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].Minigames);
+        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
         FindObjectOfType<SusBar>().setSusValue(susMeterValue);
     }
 
 
     private void SaveGame()
     {
-        susValue = FindObjectOfType<SusBar>().getSusValue();
-        Debug.Log("susValue: " + susValue);
-        Debug.Log("susMeterValue: " + susMeterValue);
-        float susDiff = susValue - susMeterValue;
-
         NestedStatus statusData = new NestedStatus();
-        statusData.Vehicle = EvaluateVehicleStatus(susDiff);
-        statusData.Health = EvaluateHealthStatus(susDiff);
-        statusData.SocialStatus = EvaluateSocialStatus(susDiff);
-        statusData.Living = EvaluateLivingStatus(susDiff);
+        statusData.Vehicle = 1;
+        statusData.Health = 1;
+        statusData.SocialStatus = 1;
+        statusData.Living = 1;
         
         Save storeData = new Save();
         storeData.Day = dayIndex;
+        susValue = FindObjectOfType<SusBar>().getSusValue();
         storeData.SusMeterValue = susValue;
         storeData.StoryLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
-        storeData.Scene = "SampleScene";
         storeData.Status = statusData;
 
         string output = JsonConvert.SerializeObject(storeData);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
-        Debug.Log("Game succesfully saved - day" + dayIndex);
+        Debug.Log("Game succesfully saved - day"+dayIndex);
     }
 
     public void endDay()
@@ -214,69 +199,5 @@ public class GameLogic : MonoBehaviour
         // some additional setup when it is first run?
         // TODO: add reset after game is done
         dayIndex = "1";
-    }
-
-    private int EvaluateHealthStatus(float susDiff)
-    {
-        Debug.Log("SusDiff: " + susDiff);
-        int currentStatus = 3;
-
-        if (savedData != null)
-            currentStatus = savedData.Status.Health;
-        
-        if ((susDiff >= healthStatusStep) & (currentStatus != 0))
-            return currentStatus - 1;
-        else if ((susDiff < healthStatusStep) && (currentStatus != 3))
-            return currentStatus + 1;
-        else    
-            return currentStatus;
-    }
-
-    private int EvaluateVehicleStatus(float susDiff)
-    {
-        float vehicleStep = 10f;
-        int currentStatus = 3;
-
-        if (savedData != null)
-            currentStatus = savedData.Status.Vehicle;
-        
-        if ((susDiff >= vehicleStep) & (currentStatus != 0))
-            return currentStatus - 1;
-        else if ((susDiff < vehicleStep) && (currentStatus != 3))
-            return currentStatus + 1;
-        else    
-            return currentStatus;
-    }
-
-    private int EvaluateSocialStatus(float susDiff)
-    {
-        float socialStatusStep = 10f;
-        int currentStatus = 3;
-
-        if (savedData != null)
-            currentStatus = savedData.Status.SocialStatus;
-        
-        if ((susDiff >= socialStatusStep) & (currentStatus != 0))
-            return currentStatus - 1;
-        else if ((susDiff < socialStatusStep) && (currentStatus != 3))
-            return currentStatus + 1;
-        else    
-            return currentStatus;
-    }
-
-    private int EvaluateLivingStatus(float susDiff)
-    {
-        float socialLivingStep = 10f;
-        int currentStatus = 3;
-
-        if (savedData != null)
-            currentStatus = savedData.Status.Living;
-        
-        if ((susDiff >= socialLivingStep) & (currentStatus != 0))
-            return currentStatus - 1;
-        else if ((susDiff < socialLivingStep) && (currentStatus != 3))
-            return currentStatus + 1;
-        else    
-            return currentStatus;
     }
 }

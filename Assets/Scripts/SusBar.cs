@@ -28,7 +28,7 @@ public class SusBar : MonoBehaviour
             newBarColor = new Color(1, 0.64f, 0);
         } else if (slider.value <= 100){
             newBarColor = new Color(1, 0, 0);
-            if (slider.value == 100){
+            if (slider.value >= 100){
                 Debug.Log("You have lost the game");
             } 
         } else{
