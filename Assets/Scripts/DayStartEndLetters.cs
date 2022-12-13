@@ -30,7 +30,7 @@ public class DayStartEndLetters : MonoBehaviour
         {
             string savedDataText = File.ReadAllText(files.First().FullName);
             savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
-            dayIndex = savedData.Day;
+            dayIndex = savedData.day;
             // prejdi na dalsi den 
             int dayIndexInt = int.Parse(dayIndex);
             dayIndexInt++;

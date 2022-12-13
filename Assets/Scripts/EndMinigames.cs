@@ -7,15 +7,18 @@ public class EndMinigames : MonoBehaviour
 {
     public Camera minigameCamera;
     public string minigameName;
+    public string mainSceneName = "SampleScene";
 
-    public void endMinigame(){
+    public void EndMinigame()
+    {
         int countLoaded = SceneManager.sceneCount;
         int parent_scene_id = -1;
         for (int i = 0; i < countLoaded; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
             Debug.Log(scene.name);
-            if (scene.name != minigameName){
+            if (scene.name != minigameName)
+            {
                 parent_scene_id = i;
             }
         }
@@ -24,7 +27,8 @@ public class EndMinigames : MonoBehaviour
 
     }
 
-    public void LoadMainScene(){
-        SceneManager.LoadScene("SampleScene");
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene(mainSceneName);
     }
 }

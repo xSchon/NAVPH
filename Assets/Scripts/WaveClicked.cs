@@ -136,7 +136,7 @@ public class WaveClicked : MonoBehaviour
 
     public void radioActivation(Conversation activeConvo)
     {
-        int radioNumber = activeConvo.Radio - 1;
+        int radioNumber = activeConvo.radio - 1;
         radios[radioNumber].setActive(false);
         try{
             if (this.activeRadio == radioNumber){
@@ -146,7 +146,7 @@ public class WaveClicked : MonoBehaviour
             // Expected exception for the time when radio is closed
         };
 
-        int renewSearch = timer.mmHHtoMinutes(activeConvo.HourTill);
+        int renewSearch = timer.mmHHtoMinutes(activeConvo.hourTill);
         if (this.resetSearch.ContainsKey(renewSearch)){
             List<int> tmp = this.resetSearch[renewSearch];
             tmp.Add(radioNumber);
@@ -157,15 +157,15 @@ public class WaveClicked : MonoBehaviour
 
         // Add new information to map, information obtained from radio text
         DeffendableSector deff = new DeffendableSector();
-        deff.sectorNum = activeConvo.Sector;
-        deff.storyNum = activeConvo.StoryLine;
-        deff.susPunish = activeConvo.SusMeterPenalisation;
+        deff.sectorNum = activeConvo.sector;
+        deff.storyNum = activeConvo.storyLine;
+        deff.susPunish = activeConvo.susMeterPenalisation;
         sectrsDeff.NewToDeffend(
-            timer.mmHHtoMinutes(activeConvo.WhenDeffendSector), deff
+            timer.mmHHtoMinutes(activeConvo.whenDeffendSector), deff
         );
 
-        radios[radioNumber].setRadioArray(activeConvo.Text);     
-        radios[radioNumber].setAuthor(activeConvo.Author);
+        radios[radioNumber].setRadioArray(activeConvo.text);     
+        radios[radioNumber].setAuthor(activeConvo.author);
     }
 
     public void checkStopped(int currentTime)
