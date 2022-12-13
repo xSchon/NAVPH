@@ -23,7 +23,7 @@ public class SummaryEvaluation : MonoBehaviour
 
     void Start()
     {
-        loadDay();
+        LoadDay();
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         if (!files.Any())
@@ -72,7 +72,7 @@ public class SummaryEvaluation : MonoBehaviour
         //newspaperText1Mesh.text = newspaperText1;
     }
 
-    private void loadDay(){
+    private void LoadDay(){
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         

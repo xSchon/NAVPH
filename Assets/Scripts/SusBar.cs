@@ -30,6 +30,7 @@ public class SusBar : MonoBehaviour
             newBarColor = new Color(1, 0, 0);
             if (slider.value >= 100){
                 Debug.Log("You have lost the game");
+                SceneManager.LoadScene("Ending");
             } 
         } else{
             Debug.Log("Something went wrong and slider value is "+slider.value);

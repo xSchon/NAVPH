@@ -28,7 +28,7 @@
         "succesful_storyline" : [true, true],
         "minimum_passed" : 2,
         "ending": {"type" : "end_day_message",
-            "messages" : ["Nurses are escaping the Czechoslovakia. Overall quality of health care decreases."]
+            "messages" : ["Nurses are escaping the Czechoslovakia via borders. Overall quality of health care decreases."]
 
         }
     }
