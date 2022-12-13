@@ -123,10 +123,8 @@ public class WaveClicked : MonoBehaviour
             clickObject.SetActive(true);
         }
 
-        Debug.Log("AKTIVNE RADIO: " + activeRadio);
         loadAfterMinigame = false;
         radioScreen.SetActive(true);
-        //loadScene(activeRadio + 1);
     }
 
     public void setMinigames(int[] minigamesIndexes)
@@ -233,5 +231,4 @@ public class WaveClicked : MonoBehaviour
             minigameChance += 0.1f;
         }
     }
-
 }
