@@ -45,15 +45,7 @@ public class GameLogic : MonoBehaviour
         sectrsDeff = FindObjectOfType<SectorsDeffence>();
         waveClicked.setMinigames(days[currentDay].minigames);
 
-        for (int i = 0; i < 3; i++)
-        {
-            sceneRadios[i].SetActive(false);
-        }
-        foreach(int activateRadio in days[currentDay].radiosEnabled)
-        {
-            sceneRadios[activateRadio-1].SetActive(true);
-        }
-        
+        EnableRadios();        
     }
 
     void Update()
@@ -77,7 +69,6 @@ public class GameLogic : MonoBehaviour
 
     private void loadDayMessages(string dayNum)
     {
-        Debug.Log("DAY MESSAGES LOADED");
         // Create dictionary for easy search between current time, keys and message time
         string [] messageStrings = conversations[dayNum].Keys.ToArray();
         this.messagesTimes = new Dictionary<int, string>();
@@ -114,7 +105,6 @@ public class GameLogic : MonoBehaviour
         }
         
         string savedDataText = File.ReadAllText(files.First().FullName);
-        Debug.Log("savedDataText --> " + savedDataText);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
         dayIndex = savedData.day;    
@@ -186,6 +176,19 @@ public class GameLogic : MonoBehaviour
         //loadDay(days);
     }
 
+    public void EnableRadios()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            sceneRadios[i].SetActive(false);
+        }
+        foreach(int activateRadio in days[currentDay].radiosEnabled)
+        {
+            sceneRadios[activateRadio-1].tag = "Clickable";
+            sceneRadios[activateRadio-1].SetActive(true);
+        }
+    }
+
     public int[] GetDayMinigames()
     {
         //return dayMinigames;
@@ -201,7 +204,6 @@ public class GameLogic : MonoBehaviour
 
     private int EvaluateHealthStatus(float susDiff)
     {
-        Debug.Log("SusDiff: " + susDiff);
         int currentStatus = 3;
 
         if (savedData != null)
