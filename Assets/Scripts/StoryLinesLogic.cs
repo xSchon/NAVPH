@@ -37,12 +37,6 @@ public class StoryLinesLogic : MonoBehaviour
             {
                 //List<bool> joinedLists;
                 existingValues[checkKey].AddRange(newValues[checkKey]);
-
-                Debug.Log("NEW EXISTING VALUES");
-                for(int i=0;i<existingValues[checkKey].Count;i++)
-                {
-                    Debug.Log(existingValues[checkKey][i]);
-                }
             }
             else
             {
