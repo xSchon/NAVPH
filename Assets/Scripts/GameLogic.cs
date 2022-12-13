@@ -7,31 +7,6 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-class Save
-{
-    public string Day;
-    public float SusMeterValue;
-    public Dictionary<string, List<bool>> StoryLines = new Dictionary<string, List<bool>>();
-    public NestedStatus Status;
-}
-
-class NestedStatus
-{
-    public int Vehicle;
-    public int Health;
-    public int SocialStatus;
-    public int Living;
-    
-}
-
-class Status
-{
-    public string[] Vehicle;
-    public string[] Health;
-    public string[] SocialStatus;
-    public string[] Living;
-    
-}
 
 public class GameLogic : MonoBehaviour
 {
@@ -68,6 +43,16 @@ public class GameLogic : MonoBehaviour
         waveClicked = FindObjectOfType<WaveClicked>();
         sectrsDeff = FindObjectOfType<SectorsDeffence>();
         waveClicked.setMinigames(days[currentDay].minigames);
+
+        for (int i = 0; i < 3; i++)
+        {
+            sceneRadios[i].SetActive(false);
+        }
+        foreach(int activateRadio in days[currentDay].radiosEnabled)
+        {
+            sceneRadios[activateRadio-1].SetActive(true);
+        }
+        
     }
 
     void Update()
@@ -129,9 +114,9 @@ public class GameLogic : MonoBehaviour
         string savedDataText = File.ReadAllText(files.First().FullName);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
-        dayIndex = savedData.Day;    
-        susMeterValue = savedData.SusMeterValue;
-        currentStoryLines = savedData.StoryLines;
+        dayIndex = savedData.day;    
+        susMeterValue = savedData.susMeterValue;
+        currentStoryLines = savedData.storyLines;
 
         //increase day 
         int dayIndexInt = int.Parse(dayIndex);
@@ -161,17 +146,19 @@ public class GameLogic : MonoBehaviour
     private void SaveGame()
     {
         NestedStatus statusData = new NestedStatus();
-        statusData.Vehicle = 1;
-        statusData.Health = 1;
-        statusData.SocialStatus = 1;
-        statusData.Living = 1;
+
+        // TODO rework to loading from current status
+        statusData.vehicle = 1;
+        statusData.health = 1;
+        statusData.socialStatus = 1;
+        statusData.living = 1;
         
         Save storeData = new Save();
-        storeData.Day = dayIndex;
+        storeData.day = dayIndex;
         susValue = FindObjectOfType<SusBar>().getSusValue();
-        storeData.SusMeterValue = susValue;
-        storeData.StoryLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
-        storeData.Status = statusData;
+        storeData.susMeterValue = susValue;
+        storeData.storyLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
+        storeData.status = statusData;
 
         string output = JsonConvert.SerializeObject(storeData);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);

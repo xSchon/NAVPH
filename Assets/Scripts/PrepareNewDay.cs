@@ -34,13 +34,8 @@ public class PrepareNewDay : MonoBehaviour
         
         string savedDataText = File.ReadAllText(directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
         Save savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
-        NestedStatus nestedStatus = savedData.Status;
+        NestedStatus nestedStatus = savedData.status;
 
         Status newStatus = JsonConvert.DeserializeObject<Status>(statusFile.text);
-
-        Debug.Log(newStatus.Vehicle[nestedStatus.Vehicle]);
-        Debug.Log(newStatus.Health[nestedStatus.Health]);
-        Debug.Log(newStatus.SocialStatus[nestedStatus.SocialStatus]);
-        Debug.Log(newStatus.Living[nestedStatus.Living]);
     }
 }

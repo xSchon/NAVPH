@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Conversation{
-    public int radio = 1; 
+public class Conversation
+{
+    public int radio = 1;
     public string author = "Anonymous";
     public string hourShow;
     public string hourTill;

@@ -34,7 +34,7 @@ public class SummaryEvaluation : MonoBehaviour
         {
             string savedDataText = File.ReadAllText(files.First().FullName);
             savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
-            dayIndex = savedData.Day;
+            dayIndex = savedData.day;
             // prejdi na dalsi den 
             int dayIndexInt = int.Parse(dayIndex);
 //             dayIndexInt++;
@@ -81,27 +81,22 @@ public class SummaryEvaluation : MonoBehaviour
         if (!files.Any() || ((files.Count() == 1) && (files.First().Name == "prefs")))
         {
             news.text = "";
-            news.text = newStatus.Vehicle[newStatus.Vehicle.Length - 1] + "\n" 
-                    + newStatus.Health[newStatus.Health.Length - 1] + "\n"
-                    + newStatus.SocialStatus[newStatus.SocialStatus.Length - 1] + "\n"
-                    + newStatus.Living[newStatus.Living.Length - 1];
+            news.text = newStatus.vehicle[newStatus.vehicle.Length - 1] + "\n" 
+                    + newStatus.health[newStatus.health.Length - 1] + "\n"
+                    + newStatus.socialStatus[newStatus.socialStatus.Length - 1] + "\n"
+                    + newStatus.living[newStatus.living.Length - 1];
             return;
         }
 
         string savedDataText = File.ReadAllText(directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
         Save savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
-        NestedStatus nestedStatus = savedData.Status;
+        NestedStatus nestedStatus = savedData.status;
 
         news.text = "";
-        news.text = "Vehicle: " + newStatus.Vehicle[nestedStatus.Vehicle] + "\n" +
-                    "Health: " + newStatus.Health[nestedStatus.Health] + "\n" +
-                    "Social Status: " + newStatus.SocialStatus[nestedStatus.SocialStatus] + "\n" +
-                    "Living: " + newStatus.Living[nestedStatus.Living];
-        
-        Debug.Log(newStatus.Vehicle[nestedStatus.Vehicle]);
-        Debug.Log(newStatus.Health[nestedStatus.Health]);
-        Debug.Log(newStatus.SocialStatus[nestedStatus.SocialStatus]);
-        Debug.Log(newStatus.Living[nestedStatus.Living]);
+        news.text = "Vehicle: " + newStatus.vehicle[nestedStatus.vehicle] + "\n" +
+                    "Health: " + newStatus.health[nestedStatus.health] + "\n" +
+                    "Social Status: " + newStatus.socialStatus[nestedStatus.socialStatus] + "\n" +
+                    "Living: " + newStatus.living[nestedStatus.living];
     }
 
     public void LoadMainScene(){
