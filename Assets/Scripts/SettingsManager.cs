@@ -16,7 +16,6 @@ public class SettingsManager : MonoBehaviour
         {
             soundTextMesh.text = "ON";
         }
-
     }
 
     public void MuteAllSounds()
