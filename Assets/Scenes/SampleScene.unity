@@ -4607,6 +4607,10 @@ MonoBehaviour:
   conversationsJson: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
   dayIndex: 
   endingTime: 270
+  sceneRadios:
+  - {fileID: 994038678}
+  - {fileID: 1936988129}
+  - {fileID: 1907711562}
 --- !u!4 &1287202082
 Transform:
   m_ObjectHideFlags: 0
