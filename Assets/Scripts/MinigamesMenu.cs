@@ -23,6 +23,6 @@ public class MinigamesMenu : MonoBehaviour
 
     public void PlayMinigame4()
     {
-        SceneManager.LoadScene("Minigame4");
+        SceneManager.LoadScene("minigame-4");
     }
 }
