@@ -9,17 +9,18 @@ using TMPro;
 
 public class WaveClicked : MonoBehaviour
 {
-    private GameObject radioScreen;
+    public GameObject radioScreen;
     private GameObject readingScreen;
     private GameObject[] clickable;
     private TMP_Text gameText;
     private RadioConfig[] radios;
     private SectorsDeffence sectrsDeff;
     private int activeRadio = 0;
+    float minigameChance = 0.2f;
     private int[] minigamesIDs;
-
+    private bool loadAfterMinigame = false;
     private Scene main_scene;
-    private Camera main_camera;
+    public Camera mainCamera;
     private Camera minigame_camera;
     private EventSystem mainEventSystem;
     private Dictionary<int, List<int>> resetSearch  = new Dictionary<int, List<int>>();
@@ -29,7 +30,7 @@ public class WaveClicked : MonoBehaviour
     
     void Start()
     {
-        radioScreen = GameObject.Find("RadioScreen");
+        //radioScreen = GameObject.Find("RadioScreen");
         readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
         sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDeffence>();
@@ -43,7 +44,7 @@ public class WaveClicked : MonoBehaviour
         new RadioConfig(3, new Color (0.3f, 0.3f, 0.27f))};
 
         main_scene = SceneManager.GetActiveScene();
-        main_camera = (Camera) FindObjectOfType(typeof(Camera));
+        //mainCamera = (Camera) FindObjectOfType(typeof(Camera));
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
@@ -74,7 +75,7 @@ public class WaveClicked : MonoBehaviour
 
         minigame_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
-        main_camera.enabled = false;
+        mainCamera.enabled = false;
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
 
@@ -104,15 +105,28 @@ public class WaveClicked : MonoBehaviour
 
     private void returnScene(Scene arg0, Scene arg1)
     {
-        if (arg0.name != "Summary" || arg1.name != "Summary") return;
+        Debug.Log("arg0: " + arg0.name + " arg1: " + arg1.name);
+        //if (arg0.name != "Summary" || arg1.name != "Summary") return;
         if (arg1.name == main_scene.name && arg0.name != "Summary")
-            SceneManager.UnloadSceneAsync(arg0.name);
-            main_camera.enabled = true;
-            mainEventSystem.enabled = true;
+        {
+            AsyncOperation async = SceneManager.UnloadSceneAsync(arg0.name);
+            async.completed += OpenRadioScreen;
+        }
+    }
 
-            foreach(GameObject clickObject in clickable){
-                clickObject.SetActive(true);
-            }
+    private void OpenRadioScreen(AsyncOperation async)
+    {
+        mainCamera.enabled = true;
+        mainEventSystem.enabled = true;
+
+        foreach(GameObject clickObject in clickable){
+            clickObject.SetActive(true);
+        }
+
+        Debug.Log("AKTIVNE RADIO: " + activeRadio);
+        loadAfterMinigame = false;
+        radioScreen.SetActive(true);
+        //loadScene(activeRadio + 1);
     }
 
     public void setMinigames(int[] minigamesIndexes)
@@ -173,15 +187,9 @@ public class WaveClicked : MonoBehaviour
 
     public void StartVoice()
     {
-        float probability = UnityEngine.Random.Range(0.0f, 1.0f);
-        Debug.Log(probability);
-
-        if (probability <= 0.0f){
-            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            StartCoroutine(LoadMinigame(minigamesIDs[index]));
-        }
-
-        ClickedRead();
+        CheckMinigame();
+        if (!loadAfterMinigame)
+            ClickedRead();
     }
     public void ClickedRead()
     {
@@ -204,6 +212,26 @@ public class WaveClicked : MonoBehaviour
         readingScreen.SetActive(false);
         radios[activeRadio].setActive(true);
         loadScene(activeRadio + 1);
+    }
+
+    private void CheckMinigame()
+    {
+        float probability = UnityEngine.Random.Range(0.0f, 1.0f);
+        Debug.Log("minigameChance: " + minigameChance);
+        Debug.Log(probability);
+
+        if (probability <= minigameChance){
+            loadAfterMinigame = true;
+            minigameChance = minigameChance / 2;
+            timer.StopTimer();
+
+            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
+            //int index = 0;          // remove!!!!!!!!!!
+            StartCoroutine(LoadMinigame(minigamesIDs[index]));
+        }
+        else {
+            minigameChance += 0.1f;
+        }
     }
 
 }

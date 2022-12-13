@@ -49,6 +49,7 @@ public class GameLogic : MonoBehaviour
     public TextAsset conversationsJson;
     public SusBar susBar;
     public float healthStatusStep = 10f;
+    private int[] dayMinigames;
     private string currentDay;
     private Dictionary<string, List<bool>> currentStoryLines;
     private Dictionary<string, Day> days;
@@ -207,6 +208,11 @@ public class GameLogic : MonoBehaviour
         
         
         //loadDay(days);
+    }
+
+    public int[] GetDayMinigames()
+    {
+        return dayMinigames;
     }
 
     private void firstTimeRun(){

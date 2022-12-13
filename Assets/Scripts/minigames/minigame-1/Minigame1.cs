@@ -53,9 +53,7 @@ public class Minigame1 : MonoBehaviour
     }
 
     public void incremenmtScore(float height){
-        Debug.Log("Aktivna scena je: " +  SceneManager.GetActiveScene().name);      // ZMAZ!!!!
         if (height > score) score = height;
-        Debug.Log(score);
     }
 
     private void checkScore(){
