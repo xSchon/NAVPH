@@ -903,6 +903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ad941ed4d9bd583bf296958b398ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radioScreen: {fileID: 1849400422}
+  mainCamera: {fileID: 106259164}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075
 GameObject:

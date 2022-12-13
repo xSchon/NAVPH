@@ -42,7 +42,7 @@
     },
     "4": {
         "Morning": {
-            "Text1": "All units be advised: the enemy may try to infiltrate our borders using disguises or false documents. Stay alert and verify the identities of all individuals."
+            "Text1": "All units be advised: the enemy may try to infiltrate our borders using disguises or false documents. Stay alert and verify the identities of all individuals. We provided you with second radio to operate."
         },
         "Evening": {
             "Text1": "Government increases border security in response to increased enemy activity.",
@@ -64,6 +64,72 @@
             "Text4": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
             "Text5": "Revolutionary group's attempted coup is foiled by government forces",
             "Text6": "Government suspends controversial local library book sale"
+        }
+    },
+    "6": {
+        "Morning": {
+            "Text1": "As part of our ongoing efforts to secure our borders, we will be implementing new surveillance systems in the coming weeks. We ask for your understanding and cooperation during this time."
+        },
+        "Evening": {
+            "Text1": "International community condemns Soviet invasion of Czechoslovakia and calls for a peaceful resolution",
+            "Text2": "Betrayed by those who we trusted the most.",
+            "Text3": "Counter-revolutionaries in CSSR?",
+            "Text4": "Do not provoke the occupants. Stay at work, stay active, show support in legal ways, and continue working! After reading this, hand it to the next person!",
+            "Text5": "A rich source of oil, but of very poor quality, gushed out in eastern Slovakia. The government plans to use this deposit and build a plant for oil processing on the site.",
+            "Text6": "Healthcare crisis continues"
+
+        }
+    }, 
+    "7": {
+        "Morning": {
+            "Text1": "Due to increased illegal activities at the border, you will now be operating a new radio. You will now be ablet to communicate using three radios. Use them wisely. Good luck."
+        },
+        "Evening": {
+            "Text1": "Citizens mobilize to provide aid and support to those affected by the invasion",
+            "Text2": "We deny everything about the oil source. It was about damage to the 'Družba' oil pipeline.",
+            "Text3": "Do not provoke the occupants: Stay calm and avoid confrontations",
+            "Text4": "Revolution coming?",
+            "Text5": "Words for the members of the armed forces of the Warsaw Pact",
+            "Text6": "Truth will always prevail"
+        }
+    },
+    "8": {
+        "Morning": {
+            "Text1": "A work strike is planned for today. We urge you to remain vigilant and report any suspicious activity. Stop any attempts to cross the border. Be careful about protesters. On top of that, football fans are expected to gather. Match between CSSR and USSR is happening tonight."
+        },
+        "Evening": {
+            "Text1": "The government is trying to suppress the strike",
+            "Text2": "Show support for your community: Continue working and contributing to society", 
+            "Text3": "Who can we trust?",
+            "Text4": "Limited supplies of essential items",
+            "Text5": "Healthcare workers demand better conditions and support",
+            "Text6": "Czechoslovakians reject collaboration with occupying forces"
+        }
+    },
+    "9": {
+        "Morning": {
+            "Text1": "Good morning, comrade. Same as usual. Protect the borders. By the way, The CSSR team managed to win the match against the USSR. The fans are celebrating, people are too ...jubilant... Be careful about protests and demonstrations."
+        },
+        "Evening": {
+            "Text1": "Football: CSSR pulled a stunning victory against the USSR.",
+            "Text2": "Victory - sparking a new sense of hope and desire for freedom",
+            "Text3": "Demonstrations calling for an end",
+            "Text4": "Work strike continues",
+            "Text5": "Stay strong and stay united", 
+            "Text6": "What does the future hold for Czechoslovakia?"
+        }
+    },
+    "10": {
+        "Morning": {
+            "Text1": "We are implementing additional security measures at the border. These measures are intended to prevent individuals or groups from entering o formet revolution or participate in mass demonstrations against the government. Report any potential threats immediately."
+        },
+        "Evening": {
+            "Text1": "", 
+            "Text2": "", 
+            "Text3": "",
+            "Text4": "",
+            "Text5": "",
+            "Text6": ""
         }
     }
 }

@@ -181,6 +181,12 @@ public class GameLogic : MonoBehaviour
         //loadDay(days);
     }
 
+    public int[] GetDayMinigames()
+    {
+        //return dayMinigames;
+        return days[dayIndex].minigames;
+    }
+
     private void firstTimeRun(){
         currentStoryLines = new Dictionary<string, List<bool>>();
         // some additional setup when it is first run?
