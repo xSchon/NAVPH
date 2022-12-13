@@ -12,9 +12,7 @@ public class Ending{
 }
 
 public class StoryLine{
-    public bool displayed = false;
     public List<bool> succesful_storyline = new List<bool>();
-    public int minimum_passed = 0;
     public Ending ending; 
 }
 
@@ -35,7 +33,6 @@ public class StoryLinesLogic : MonoBehaviour
         {
             if (existingValues.ContainsKey(checkKey))
             {
-                //List<bool> joinedLists;
                 existingValues[checkKey].AddRange(newValues[checkKey]);
             }
             else
@@ -43,17 +40,53 @@ public class StoryLinesLogic : MonoBehaviour
                 existingValues.Add(checkKey, newValues[checkKey]);
             }
         }
-        CheckStoryLines(existingValues);
+        existingValues = CheckStoryLines(existingValues);
         return existingValues; 
     }
 
-    public void CheckStoryLines(Dictionary<string, List<bool>> storyLinesEval)
+    public Dictionary<string, List<bool>> CheckStoryLines(Dictionary<string, List<bool>> storyLinesEval)
+    // Check for game - ending lines.
     {
-        foreach(string newKey in storyLinesEval.Keys.ToArray())
-        {
-            Debug.Log(newKey);
-            Debug.Log(storyLinesEval[newKey]);
-        }
-    }
+        string storyText1 = "";
+        string storyText2 = "";
 
+        foreach(string checkKey in storyLinesEval.Keys.ToArray())
+        {
+            if (storyLines.ContainsKey(checkKey))
+            {
+                if (storyLines[checkKey].succesful_storyline.SequenceEqual(storyLinesEval[checkKey]))
+                // if the storyline was completed succesfully
+                {
+                    if(storyLines[checkKey].ending.type == "full_ending"){
+                        Debug.Log("It's time to end the game");
+
+                        PlayerPrefs.SetInt("storyLinesEnd", 1);
+
+                        PlayerPrefs.Save();
+                        return storyLinesEval;
+                    } 
+                    else if (storyLines[checkKey].ending.type == "end_day_message")
+                    {
+                        for(int i = 0; i < storyLines[checkKey].ending.messages.Length; i++){
+                            if (storyText1 == ""){
+                                storyText1 = storyLines[checkKey].ending.messages[i];
+                            }
+                            else if (storyText2 == "")
+                            {
+                                storyText2 = storyLines[checkKey].ending.messages[i];
+                            }
+                            storyLinesEval[checkKey].Add(false);
+                        }
+                    }
+                }
+            }
+
+        }
+        
+        PlayerPrefs.SetInt("storyLinesEnd", 0);
+        PlayerPrefs.SetString("storyText1", storyText1);
+        PlayerPrefs.SetString("storyText2", storyText2);
+        PlayerPrefs.Save();
+        return storyLinesEval;
+    }
 }

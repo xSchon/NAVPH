@@ -105,8 +105,6 @@ public class WaveClicked : MonoBehaviour
 
     private void returnScene(Scene arg0, Scene arg1)
     {
-        Debug.Log("arg0: " + arg0.name + " arg1: " + arg1.name);
-        //if (arg0.name != "Summary" || arg1.name != "Summary") return;
         if (arg1.name == main_scene.name && arg0.name != "Summary")
         {
             AsyncOperation async = SceneManager.UnloadSceneAsync(arg0.name);

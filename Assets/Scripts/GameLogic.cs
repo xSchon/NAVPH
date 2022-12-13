@@ -146,7 +146,7 @@ public class GameLogic : MonoBehaviour
     }
 
 
-    private void SaveGame()
+    private bool SaveGame()
     {
         susValue = FindObjectOfType<SusBar>().getSusValue();
         float susDiff = susValue - susMeterValue;
@@ -165,10 +165,16 @@ public class GameLogic : MonoBehaviour
         storeData.storyLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
         storeData.status = statusData;
 
+        if (PlayerPrefs.GetInt("storyLinesEnd", 0) == 1){
+            return false;
+        }
+
         string output = JsonConvert.SerializeObject(storeData);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Game succesfully saved - day"+dayIndex);
+        return true;
+        
     }
 
     public void endDay()
@@ -179,10 +185,12 @@ public class GameLogic : MonoBehaviour
         // 3. prepni dalsi den (current day + 1) 
         //    ak je to posledny den, ukaz endgame 
         // 4. loadDays(days) zacni novy den
-        SaveGame();
-        SceneManager.LoadScene("Summary");
-        
-        
+        if (SaveGame())
+        {
+            SceneManager.LoadScene("Summary");
+        } else {
+            SceneManager.LoadScene("Ending");
+        }
         //loadDay(days);
     }
 

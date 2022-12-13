@@ -1,32 +1,30 @@
 {
+    "0":{
+        "succesful_storyline" : [false, true, true],
+        "ending" : {"type" : "end_day_message",
+                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state."]
+    }
+    },
     "1" : {
-        "displayed": false,
         "succesful_storyline" : [true, true, true],
-        "minimum_passed" : 3,
         "ending" : {"type" : "full_ending",
                     "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state."]
     }},
     "2" : {
-        "displayed" : false,
         "succesful_storyline" : [true, true, true],
-        "minimum_passed" : 3,
         "ending" : {"type" : "full_ending",
                     "messages" : ["There was a bloody revolution in CSSR, thanks to escaping revolutionalists. The country is free from comunists, but many people died in the process."]
         }
     },
     "3" : {
-        "displayed" : false,
         "succesful_storyline" : [true, true, true],
-        "minimum_passed" : 3,
         "ending": {"type" : "full_ending",
             "messages" : ["Important informatos have escaped the CSSR country. They shared internal information, which lead to dissolution of Soviet Union. All countries are now free, many politicians are facing trials."]
 
         }
     },
     "4" : {
-        "displayed" : false,
         "succesful_storyline" : [true, true],
-        "minimum_passed" : 2,
         "ending": {"type" : "end_day_message",
             "messages" : ["Nurses are escaping the Czechoslovakia via borders. Overall quality of health care decreases."]
 

@@ -62,10 +62,21 @@ public class SummaryEvaluation : MonoBehaviour
             newspaperTexts.Add(newspaperText);
         }
 
+        if(PlayerPrefs.GetString("storyText1", "") != "")
+        {
+            newspaperTexts[1] = PlayerPrefs.GetString("storyText1", "");
+        }
+        if(PlayerPrefs.GetString("storyText2", "") != "")
+        {
+            newspaperTexts[2] = PlayerPrefs.GetString("storyText2", "");
+        }
+
         for (int i = 0; i < newspaperTexts.Count; i++)
         {
             newspaperTextMeshes[i].text = newspaperTexts[i];
         }
+
+        
 
 
         //newspaperText1 = dailyMessages[dayIndex]["Evening"]["Text1"];
