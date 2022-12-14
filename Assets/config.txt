@@ -132,3 +132,23 @@ JSON days:
     "Scene" : str,
     "Minigames" : list
 }
+
+
+STORYLINES JSON
+"<STORYLINENO>" : {
+        "succesful_storyline" : bool[],
+        "ending" : {"type" : "end_day_message" / "full_ending"
+                  "messages" : string [],
+                  "field" : "vehicle" / "health" / "socialStatus"/  "living",
+                  "influence" : int, range <-4,4>}    
+  }
+
+HELP 
+storyline_no - should be refferenced in conversations.json as well
+succesful_storyline - array about how passing / catching in storyline should be done to be completed
+                      i.e. [true, true, true] - means three people in storyline passed the borders, [false, true] means catched, passed people in given order
+
+type - currently supported "end_day_message" or "full_ending". End day message influences newspaper at the end of the day, full ending ends game at the spot.
+messages - messages shown in newspaper (maximum 2 per day) or at the end game screen (maximum 1, longer message)
+field - OPTIONAL, what field does succesfully completed storyline affect - for example increasing living value because of getting external help
+influence - OPTIONAL, how is the field influenced. Negative numbers (-2) decrease quality of given field and positive increase it

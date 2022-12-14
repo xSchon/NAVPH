@@ -2,7 +2,9 @@
     "0":{
         "succesful_storyline" : [false, true, true],
         "ending" : {"type" : "end_day_message",
-                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state."]
+                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state.", "HEHE"],
+                    "field" : "vehicle",
+                    "influence" : -4                     
     }
     },
     "1" : {
@@ -26,8 +28,17 @@
     "4" : {
         "succesful_storyline" : [true, true],
         "ending": {"type" : "end_day_message",
-            "messages" : ["Nurses are escaping the Czechoslovakia via borders. Overall quality of health care decreases."]
+            "messages" : ["Nurses are escaping the Czechoslovakia via borders. Overall quality of health care decreases."],
+            "field" : "health",
+            "influence" : -2
 
         }
+    },
+    "5" : {
+        "succesful_storyline" : [true],
+        "ending" : {"type" : "end_day_message",
+        "messages" : ["Smuggler escaped the country, he got through borders. Someone is rumoured to be bribed by new car."],
+        "field" : "vehicle",
+        "influence" : 1}
     }
 }

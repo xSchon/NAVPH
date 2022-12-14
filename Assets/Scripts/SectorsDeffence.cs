@@ -86,7 +86,7 @@ public class SectorsDeffence : MonoBehaviour
             foreach(DeffendableSector deffSec in this.toDeffend[currentTime]){
                 if (!this.selectedSectors.Contains(deffSec.sectorNum)){
                     messagePop.AddWarning(deffSec.sectorNum, deffSec.susPunish);
-                    FindObjectOfType<SusBar>().increaseSus(deffSec.susPunish);
+                    FindObjectOfType<SusBar>().InfluenceSus(deffSec.susPunish);
 
                     passed = true;
                 } else {  // if protected

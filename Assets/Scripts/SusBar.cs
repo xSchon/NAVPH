@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class SusBar : MonoBehaviour
 {
     private Slider slider;
-    private float standardChangeValue; 
+    private float standardChangeValue = 5.0f; 
     public GameObject sliderFilling;
 
     void Start()
     {
-        standardChangeValue = 5.0f;
         slider = gameObject.GetComponent<Slider>();
         controlSus();
     }
@@ -39,32 +38,26 @@ public class SusBar : MonoBehaviour
         sliderFilling.GetComponent<Image>().color = newBarColor;
     }
 
-    public void increaseSus(){
+    public void IncreaseSus(){
         slider.value += standardChangeValue;
         controlSus(); 
     }
-
-    public void increaseSus(float customChangeValue){
-        slider.value += customChangeValue;
-        controlSus(); 
-    }
-
-    public void decreaseSus(){
+    public void DecreaseSus(){
         slider.value -= standardChangeValue;
         controlSus(); 
     }
 
-    public void decreaseSus(float customChangeValue){
-        slider.value -= customChangeValue;
+    public void InfluenceSus(float customChangeValue){
+        slider.value += customChangeValue;
         controlSus(); 
     }
 
-    public float getSusValue()
+    public float GetSusValue()
     {
         return slider.value;
     }
 
-    public void setSusValue(float newValue)
+    public void SetSusValue(float newValue)
     {
         slider.value = newValue;
         controlSus();
