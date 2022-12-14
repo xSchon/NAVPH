@@ -51,9 +51,6 @@ public class GameLogic : MonoBehaviour
 
     void Update()
     {
-        //timer.setEndingTime(endingTime);
-        //Debug.Log(timer.getCurrentMinutes());
-        //Debug.Log(endingTime);
         if (dayIndex == "5")
         {
             Debug.Log("Ending");
@@ -62,8 +59,7 @@ public class GameLogic : MonoBehaviour
         }
         if (endingTime == timer.getCurrentMinutes())
         {
-            //Debug.Log("End of day");
-            endDay();
+            EndDay();
         }
 
     }
@@ -91,8 +87,6 @@ public class GameLogic : MonoBehaviour
         sectrsDeff.CheckSectors(currentMinutes);
     }
 
-
-
     private void LoadDay(Dictionary<string, Day> days)
     {
         var directory = new DirectoryInfo(Application.persistentDataPath);
@@ -100,7 +94,7 @@ public class GameLogic : MonoBehaviour
 
         if (!files.Any())
         {  // no save was found
-            firstTimeRun();
+            FirstTimeRun();
             return;
         }
 
@@ -129,13 +123,28 @@ public class GameLogic : MonoBehaviour
         }
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
-        timer.setStartingTime(day[dayIndex].startingTime);
-        timer.setEndingTime(day[dayIndex].endingTime);
-        //endingTime = int.Parse(day[dayIndex].EndingTime); TO DO
+        timer.SetStartingHour(day[dayIndex].startingTime);
+        timer.SetEndingHour(day[dayIndex].endingTime);
+        
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
         FindObjectOfType<SusBar>().SetSusValue(susMeterValue);
     }
 
+    private void FirstTimeRun()
+    {
+        dayIndex = "1";
+        currentStoryLines = new Dictionary<string, List<bool>>();
+        
+        Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
+        timer.SetStartingHour(day[dayIndex].startingTime);
+        timer.SetEndingHour(day[dayIndex].endingTime);
+        
+        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
+        
+        // some additional setup when it is first run?
+        // TODO: add reset after game is done
+        
+    }
 
     public void StatusFromStoryLines(string field, int amount)
     {
@@ -165,6 +174,7 @@ public class GameLogic : MonoBehaviour
                 break;
         }
     }
+
     private bool SaveGame()
     {
         susValue = FindObjectOfType<SusBar>().GetSusValue();
@@ -195,7 +205,7 @@ public class GameLogic : MonoBehaviour
 
     }
 
-    public void endDay()
+    public void EndDay()
     {
         // 1. Uloz hru 
         // 2. Prepni scenu na summary, ukaz summary
@@ -231,14 +241,6 @@ public class GameLogic : MonoBehaviour
     {
         //return dayMinigames;
         return days[dayIndex].minigames;
-    }
-
-    private void firstTimeRun()
-    {
-        currentStoryLines = new Dictionary<string, List<bool>>();
-        // some additional setup when it is first run?
-        // TODO: add reset after game is done
-        dayIndex = "1";
     }
 
     private int EvaluateHealthStatus(float susDiff)

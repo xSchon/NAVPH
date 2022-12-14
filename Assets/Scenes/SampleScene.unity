@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 231307078}
   - component: {fileID: 231307077}
   m_Layer: 5
-  m_Name: timeText
+  m_Name: TimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6514,8 +6514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab72c8a91f1a89419eac101bb17c098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLogicObject: {fileID: 1287202080}
+  timeTextObject: {fileID: 231307075}
   secondsInTenMinutes: 2
   startingHour: 8
+  endingHour: 15
 --- !u!4 &1845140556
 Transform:
   m_ObjectHideFlags: 0
