@@ -15,8 +15,10 @@ public class WaveClicked : MonoBehaviour
     private TMP_Text gameText;
     private RadioConfig[] radios;
     private SectorsDeffence sectrsDeff;
+    public GameObject susBarObject;
+    private SusBar susBar;
     private int activeRadio = 0;
-    float minigameChance = 0.2f;
+    public float minigameChance = 0.2f;
     private int[] minigamesIDs;
     private bool loadAfterMinigame = false;
     private Scene main_scene;
@@ -30,10 +32,10 @@ public class WaveClicked : MonoBehaviour
     
     void Start()
     {
-        //radioScreen = GameObject.Find("RadioScreen");
         readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
         sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDeffence>();
+        susBar = susBarObject.GetComponent<SusBar>();
 
         gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
         timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
@@ -122,6 +124,17 @@ public class WaveClicked : MonoBehaviour
         }
 
         loadAfterMinigame = false;
+
+        Debug.Log("Pred: " + susBar.GetSusValue());
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("WonMinigame")))
+        {
+            susBar.DecreaseSus();
+        } 
+        else 
+        {
+            susBar.IncreaseSus();
+        }
+        Debug.Log("Po: " + susBar.GetSusValue());
         radioScreen.SetActive(true);
     }
 
@@ -213,8 +226,6 @@ public class WaveClicked : MonoBehaviour
     private void CheckMinigame()
     {
         float probability = UnityEngine.Random.Range(0.0f, 1.0f);
-        Debug.Log("minigameChance: " + minigameChance);
-        Debug.Log(probability);
 
         if (probability <= minigameChance){
             loadAfterMinigame = true;
@@ -222,7 +233,7 @@ public class WaveClicked : MonoBehaviour
             timer.StopTimer();
 
             int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            //int index = 0;          // remove!!!!!!!!!!
+            //int index = 1;          // remove!!!!!!!!!!
             StartCoroutine(LoadMinigame(minigamesIDs[index]));
         }
         else {
