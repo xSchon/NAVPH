@@ -11,7 +11,9 @@ public class Minigame1 : MonoBehaviour
     private GameObject active_brick;
     private List<GameObject> placedBricks = new List<GameObject>();
     private float[] lastScore = new float[10]; 
-    public float endScore = 6;
+    public float endScore = 7.0f;
+    public string lostText;
+    public string winText;
     private float score = 0f;
     public float number_of_bricks = 10f;
 
@@ -44,6 +46,7 @@ public class Minigame1 : MonoBehaviour
         UpdateUI();
 
         IncrementScore();
+        
     }
 
     public void SpawNewBrick(){
@@ -78,17 +81,18 @@ public class Minigame1 : MonoBehaviour
         if (score > endScore){
             popup.enabled = true;
             button.SetActive(true);
-            popup.text = "Vyhrali ste :) Vas SUS bar sa znizil. Socialisticky lud si vazi vasej pomoci pri obrane statnej hranice! o7";
-            Debug.Log("Vyhrali ste :)");
+            popup.text = winText;
             end_game = true;
+            PlayerPrefs.SetInt("WonMinigame", 1);
         }
 
         if(number_of_bricks <= 0){
+            number_of_bricks--;
             popup.enabled = true;
             button.SetActive(true);
-            popup.text = "Prehrali ste :( Vas SUS bar sa zvysil. Socialisticky lud je sklamany z vasej prace pri obrane statnej hranice!";
-            Debug.Log("Prehrali ste :(");
+            popup.text = lostText;
             end_game = true;
+            PlayerPrefs.SetInt("WonMinigame", 0);
         }
     }
 

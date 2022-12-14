@@ -22,6 +22,12 @@ public class EndMinigames : MonoBehaviour
                 parent_scene_id = i;
             }
         }
+
+        if (parent_scene_id == -1)
+        {
+            SceneManager.LoadScene("Menu");
+            return;
+        }
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(parent_scene_id));
         minigameCamera.enabled = false;
 
@@ -30,5 +36,11 @@ public class EndMinigames : MonoBehaviour
     public void LoadMainScene()
     {
         SceneManager.LoadScene(mainSceneName);
+    }
+
+    public void EndMinigameSusDecrease()
+    {
+        PlayerPrefs.SetInt("WonMinigame", 0);
+        EndMinigame();
     }
 }
