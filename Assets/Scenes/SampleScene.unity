@@ -905,7 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioScreen: {fileID: 1849400422}
   susBarObject: {fileID: 546358026}
-  minigameChance: 1
+  minigameChance: 0.2
   mainCamera: {fileID: 106259164}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075
@@ -2479,7 +2479,7 @@ GameObject:
   - component: {fileID: 546358029}
   m_Layer: 5
   m_Name: susBar
-  m_TagString: Untagged
+  m_TagString: Clickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

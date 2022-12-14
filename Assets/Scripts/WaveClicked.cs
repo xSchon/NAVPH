@@ -232,8 +232,8 @@ public class WaveClicked : MonoBehaviour
             minigameChance = minigameChance / 2;
             timer.StopTimer();
 
-            //int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            int index = 0;          // remove!!!!!!!!!!
+            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
+            //int index = 1;          // remove!!!!!!!!!!
             StartCoroutine(LoadMinigame(minigamesIDs[index]));
         }
         else {
