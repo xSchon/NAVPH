@@ -9,17 +9,23 @@ public class Timer : MonoBehaviour
     private float timePassed;
     private float sinceLast = 0.0f;
     private bool timerActive;
+    public GameObject gameLogicObject;
+    private GameLogic gameLogicScript;
+    public GameObject timeTextObject;
     private TMP_Text mainTimer;
     // time granularity of program is in 10 minutes
     // select how many seconds represent one window of 10 minutes
     public float secondsInTenMinutes = 8.0f;  
     // first hour of a working day. 24 hour format. 8.5 represents 8:30
     public float startingHour = 7.0f;
+    public float endingHour = 15.0f;
+    
     
 
     void Start()
     {
         // 7 seconds per 10 minutes makes in game 8 hours == 5.5 minutes irl
+        Debug.Log(startingHour);
         if (secondsInTenMinutes <= 0){
         secondsInTenMinutes = 7.0f; 
         }
@@ -29,7 +35,8 @@ public class Timer : MonoBehaviour
         timerActive = true;
         timePassed = 0;
     
-        mainTimer = GameObject.Find("timeText").GetComponent<TextMeshProUGUI>();
+        mainTimer = timeTextObject.GetComponent<TextMeshProUGUI>();
+        gameLogicScript = gameLogicObject.GetComponent<GameLogic>();
         UpdateTime();
     }
 
@@ -52,14 +59,20 @@ public class Timer : MonoBehaviour
         int hours;
 
         minutes = ((int)(this.timePassed / secondsInTenMinutes)) * 10;
-        minutes +=(int) startingHour * 60;  
-
+        minutes += (int) (startingHour * 60);  
+        if (minutes > this.endingHour * 60)
+        {
+            Debug.Log("End of the day");
+            gameLogicScript.EndDay();
+            return;
+        }
+        
         hours = minutes / 60;
         minutes = minutes % 60;
         string newTime = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, "00");
         mainTimer.text = newTime;
 
-        GameObject.Find("GameLogic").GetComponent<GameLogic>().checkMessages(mmHHtoMinutes(newTime));
+        gameLogicScript.checkMessages(mmHHtoMinutes(newTime));
     }
 
     public void StartTimer(){
@@ -76,14 +89,12 @@ public class Timer : MonoBehaviour
         return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
     }
 
-    public void setStartingTime(string time){
-        string setStartingTime = time;
-        Debug.Log(setStartingTime);
+    public void SetStartingHour(string newStarting){
+        this.startingHour = mmHHtoMinutes(newStarting) / 60.0f;
     }
 
-    public void setEndingTime(string time){
-        string setEndingTime = time;
-        Debug.Log(setEndingTime);
+    public void SetEndingHour(string newEnding){
+        this.endingHour = mmHHtoMinutes(newEnding) / 60.0f;
     }
 
     public int mmHHtoMinutes(string timeHHMM){

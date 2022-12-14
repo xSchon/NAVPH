@@ -14,11 +14,7 @@ public class TheEnd : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI summaryTextMesh;
     [SerializeField] private TMPro.TextMeshProUGUI statusTextMesh;
     private string endingText;
-    // to do:
-    // load the status from save file 
-    // load the storyline evaluation json file
-    // load the ending text from the json file based on the status
-
+    
     void Start()
     {
         endingText = PlayerPrefs.GetString("endingText", "");
