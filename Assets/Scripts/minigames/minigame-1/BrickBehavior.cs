@@ -61,11 +61,16 @@ public class BrickBehavior : MonoBehaviour
     }
 
     void OnCollisionEnter (Collision other) {
+        Debug.Log(rb.velocity.magnitude);
+        Debug.Log(rb.IsSleeping());
+
+        //if (!rb.velocity) return;
         if (other.gameObject && !hasEntered) {
             hasEntered = true;
 
-            spawner.incremenmtScore(transform.position.y);
-            spawner.spawNewBrick();
+            //spawner.IncrementScore();
+            spawner.AddPlacedBrick(this.gameObject);
+            spawner.SpawNewBrick();
         }
    }
 }

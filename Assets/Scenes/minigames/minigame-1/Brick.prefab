@@ -114,7 +114,7 @@ MonoBehaviour:
   hasEntered: 0
   speed: 0.03
   mass: 0.005
-  rb: {fileID: 0}
+  rb: {fileID: 5047109386897211375}
 --- !u!54 &5047109386897211375
 Rigidbody:
   m_ObjectHideFlags: 0

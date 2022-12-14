@@ -9,6 +9,9 @@ public class Minigame1 : MonoBehaviour
 {
     public GameObject brick;
     private GameObject active_brick;
+    private List<GameObject> placedBricks = new List<GameObject>();
+    private float[] lastScore = new float[10]; 
+    public float endScore = 6;
     private float score = 0f;
     public float number_of_bricks = 10f;
 
@@ -22,7 +25,7 @@ public class Minigame1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawNewBrick();
+        SpawNewBrick();
         ui_score = GameObject.Find("score").GetComponent<TextMeshProUGUI>();
         ui_bricks = GameObject.Find("nm_bricks").GetComponent<TextMeshProUGUI>();
         popup = GameObject.Find("popup").GetComponent<TextMeshProUGUI>();
@@ -36,13 +39,15 @@ public class Minigame1 : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)){
-            spawNewBrick();
+            SpawNewBrick();
         }
-        updateUI();
+        UpdateUI();
+
+        IncrementScore();
     }
 
-    public void spawNewBrick(){
-        checkScore();
+    public void SpawNewBrick(){
+        CheckScore();
         if (!end_game) {
             active_brick = Instantiate(brick,
                         transform.position,
@@ -52,12 +57,25 @@ public class Minigame1 : MonoBehaviour
         }
     }
 
-    public void incremenmtScore(float height){
-        if (height > score) score = height;
+    public void IncrementScore(){
+        float newScore = 0f;
+
+        foreach(GameObject brickHeight in placedBricks)
+        {
+            if (brickHeight.transform.position.y > newScore) 
+                newScore = brickHeight.transform.position.y;
+        }
+
+        score = newScore;
     }
 
-    private void checkScore(){
-        if (score > 6){
+    public void AddPlacedBrick(GameObject brick)
+    {
+        placedBricks.Add(brick);
+    }
+
+    private void CheckScore(){
+        if (score > endScore){
             popup.enabled = true;
             button.SetActive(true);
             popup.text = "Vyhrali ste :) Vas SUS bar sa znizil. Socialisticky lud si vazi vasej pomoci pri obrane statnej hranice! o7";
@@ -74,12 +92,12 @@ public class Minigame1 : MonoBehaviour
         }
     }
 
-    void updateUI(){
-        ui_score.text = "Tvoje score je: " + score;
-        ui_bricks.text = "Zostavajuci pocet tehal: " + number_of_bricks;
+    void UpdateUI(){
+        ui_score.text = "Height: " + score.ToString("F2");
+        ui_bricks.text = "Bricks: " + (number_of_bricks + 1);
    }
 
-   public void backToMenu(){
+   public void BackToMenu(){
         int countLoaded = SceneManager.sceneCount;
         int parent_scene_id = -1;
         for (int i = 0; i < countLoaded; i++)

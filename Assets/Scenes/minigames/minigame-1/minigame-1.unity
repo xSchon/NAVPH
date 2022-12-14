@@ -673,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameCamera: {fileID: 1414697121}
   minigameName: minigame-1
+  mainSceneName: SampleScene
 --- !u!1 &1166811478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,8 +1211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.29999, y: -47.145996}
-  m_SizeDelta: {x: 364.13757, y: 50.708008}
+  m_AnchoredPosition: {x: -105.61, y: -47.6377}
+  m_SizeDelta: {x: 211.23, y: 49.7246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899581515
 MonoBehaviour:
@@ -1296,7 +1297,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.9834137, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1478,10 +1479,10 @@ RectTransform:
   m_Father: {fileID: 1166811482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 218.06879, y: -47.145996}
-  m_SizeDelta: {x: 364.1376, y: 50.708008}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -105.6137, y: -126.17}
+  m_SizeDelta: {x: 211.2374, y: 50.703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030322109
 MonoBehaviour:
