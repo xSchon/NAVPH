@@ -36,8 +36,6 @@ public class SusBar : MonoBehaviour
 
                 PlayerPrefs.SetString("endingText", endingText);
                 PlayerPrefs.Save();
-
-
                 SceneManager.LoadScene("Ending");
             } 
         } else{

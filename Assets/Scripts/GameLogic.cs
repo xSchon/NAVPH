@@ -32,13 +32,11 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(Application.persistentDataPath);
-
         timer = FindObjectOfType<Timer>();
         // loads the current day, the dayIndex will be updated 
-        LoadDay(days);
+        this.days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
+        LoadDay();
         currentDay = dayIndex;
-        days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         conversations = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Conversation>>>(conversationsJson.text);
         LoadDayMessages(currentDay);
 
@@ -87,7 +85,7 @@ public class GameLogic : MonoBehaviour
         sectrsDeff.CheckSectors(currentMinutes);
     }
 
-    private void LoadDay(Dictionary<string, Day> days)
+    private void LoadDay()
     {
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
@@ -102,30 +100,21 @@ public class GameLogic : MonoBehaviour
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
         dayIndex = savedData.day;
-        susMeterValue = savedData.susMeterValue;
-        currentStoryLines = savedData.storyLines;
-
         //increase day 
         int dayIndexInt = int.Parse(dayIndex);
         dayIndexInt++;
         dayIndex = dayIndexInt.ToString();
-        Debug.Log(dayIndex);
-        //testovacie, nebude to tu hardcoded 
-        if (dayIndex == "6")
-        {
-            Debug.Log("Ending");
-            SceneManager.LoadScene("Ending");
-            // return 
-        }
-        else
-        {
-            //     SceneManager.LoadScene(savedData.Scene);
-        }
+        Debug.Log("Today is the day number: " + dayIndex);
+
+
+        susMeterValue = savedData.susMeterValue;
+        susMeterValue -= days[dayIndex].SusDecrease;  // decrease sus value daily
+        currentStoryLines = savedData.storyLines;
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
-        
+
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
         FindObjectOfType<SusBar>().SetSusValue(susMeterValue);
     }
@@ -134,16 +123,16 @@ public class GameLogic : MonoBehaviour
     {
         dayIndex = "1";
         currentStoryLines = new Dictionary<string, List<bool>>();
-        
+
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
-        
+
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
-        
+
         // some additional setup when it is first run?
         // TODO: add reset after game is done
-        
+
     }
 
     public void StatusFromStoryLines(string field, int amount)
@@ -192,8 +181,14 @@ public class GameLogic : MonoBehaviour
         storeData.storyLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
         storeData.status = statusData;
 
-        if (PlayerPrefs.GetInt("storyLinesEnd", 0) == 1)
+        if (PlayerPrefs.GetInt("storyLinesEnd", 0) == 1)  // if there was a storyline leading to full ending
         {
+            return false;
+        }
+
+        if (days.Keys.Count.ToString() == dayIndex)   // if this was the last day of the gameplay
+        {
+            EvaluateGame(storeData);
             return false;
         }
 
@@ -222,6 +217,34 @@ public class GameLogic : MonoBehaviour
             SceneManager.LoadScene("Ending");
         }
         //loadDay(days);
+    }
+
+    private void EvaluateGame(Save storeData)
+    {
+        Debug.Log("You have finished the game!");
+        string endingText = "";
+        endingText += "Thank you for your service.\n\n";
+
+        int totalPassed = 0;
+        foreach (var eval in storeData.storyLines.Values.ToList())
+        {
+            totalPassed += eval.Where(c => c).Count();
+        }
+
+        if (totalPassed < 6 && storeData.susMeterValue < 30)
+        {
+            endingText += "You have defended your country well. Very few people escaped, there was no room for revolution. CSSR will be under the regime for long years to come, communists won't leave it and life will be hard. \n Was it really a good job?";
+        }
+        else if (totalPassed < 10 && storeData.susMeterValue < 50)
+        {
+            endingText += "You did well, but some people escaped regardless. The regime in ČSSR will last for few decades, but will be weaker and weaker. In the end, our country will be free.";
+        }
+        else
+        {
+            endingText += "You were close to being caught, but you helped many good people. You will be remembered for being on the good side of the history. More people will escape, occupation will not last very long. Well done.";
+        }
+        PlayerPrefs.SetString("endingText", endingText);
+        PlayerPrefs.Save();
     }
 
     public void EnableRadios()

@@ -1,7 +1,7 @@
 {
     "1": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "08:00",
+        "EndingTime": "13:00",
         "RadiosEnabled" : [1],
         "Minigames": [1,4]
     },
@@ -9,7 +9,8 @@
         "StartingTime": "08:45",
         "EndingTime": "10:00",
         "RadiosEnabled" : [1],
-        "Minigames": [1,4]
+        "Minigames": [1,4],
+        "SusDecrease" : 5
     },
     "3": {
         "StartingTime": "08:45",

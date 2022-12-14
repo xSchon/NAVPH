@@ -4,4 +4,5 @@ class Day
     public string endingTime = "16:00";
     public int[] radiosEnabled;
     public int[] minigames;
+    public int SusDecrease = 5;
 }

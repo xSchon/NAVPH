@@ -63,7 +63,7 @@ public class Timer : MonoBehaviour
         if (minutes > this.endingHour * 60)
         {
             Debug.Log("End of the day");
-            gameLogicScript.EndDay();
+            gameLogicScript.EndDay();   
             return;
         }
         
