@@ -29,7 +29,15 @@ public class SusBar : MonoBehaviour
         } else if (slider.value <= 100){
             newBarColor = new Color(1, 0, 0);
             if (slider.value >= 100){
+                string endingText = "";
                 Debug.Log("You have lost the game");
+                endingText += "That was not a good service, comrade... \n\n";
+                endingText += "You have failed at your job...to many people escaped our mighty country. You will be properly punished for that.";
+
+                PlayerPrefs.SetString("endingText", endingText);
+                PlayerPrefs.Save();
+
+
                 SceneManager.LoadScene("Ending");
             } 
         } else{

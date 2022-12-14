@@ -64,9 +64,12 @@ public class StoryLinesLogic : MonoBehaviour
                     if (storyLines[checkKey].ending.type == "full_ending")
                     {
                         Debug.Log("It's time to end the game");
+                        string endingText = "";
+                        endingText += "This is the end for now...\n\n";
+                        endingText += storyLines[checkKey].ending.messages[0];  
 
+                        PlayerPrefs.SetString("endingText", endingText);
                         PlayerPrefs.SetInt("storyLinesEnd", 1);
-
                         PlayerPrefs.Save();
                         return storyLinesEval;
                     }

@@ -15,10 +15,9 @@ public class SummaryEvaluation : MonoBehaviour
     public TextAsset saveJsonFile;
     public TMP_Text news;
     private Save savedData;
-    private Dictionary <string, Dictionary<string, Dictionary<string, string>>> dailyMessages;
+    private Dictionary<string, Dictionary<string, Dictionary<string, string>>> dailyMessages;
     public string dayIndex;
     private List<string> newspaperTexts = new List<string>();
-    //[SerializeField] private TMPro.TextMeshProUGUI newspaperText1Mesh;
     [SerializeField] private List<TMPro.TextMeshProUGUI> newspaperTextMeshes = new List<TMPro.TextMeshProUGUI>();
 
     void Start()
@@ -27,32 +26,16 @@ public class SummaryEvaluation : MonoBehaviour
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
         if (!files.Any())
-        {      
-               dayIndex = "1"; // no save was found
+        {
+            dayIndex = "1"; // no save was found
         }
-        else // ak uz existuje save, nacitaj ho 
+        else // if save exists, load it 
         {
             string savedDataText = File.ReadAllText(files.First().FullName);
             savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
             dayIndex = savedData.day;
             // prejdi na dalsi den 
             int dayIndexInt = int.Parse(dayIndex);
-//             dayIndexInt++;
-//             dayIndex = dayIndexInt.ToString();
-            
-//             Debug.Log(dayIndex);
-//         // testovacie, nebude to tu hardcoded 
-//             if (dayIndex == "5")
-//             {
-//                 Debug.Log("Ending");
-//                 //SceneManager.LoadScene("Ending");
-//                 return;
-//             }
-//             else 
-//             {
-// //
-//             }
-            //Debug.Log(dayIndex);
         }
 
         dailyMessages = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>(jsonFile.text);
@@ -62,11 +45,11 @@ public class SummaryEvaluation : MonoBehaviour
             newspaperTexts.Add(newspaperText);
         }
 
-        if(PlayerPrefs.GetString("storyText1", "") != "")
+        if (PlayerPrefs.GetString("storyText1", "") != "")
         {
             newspaperTexts[1] = PlayerPrefs.GetString("storyText1", "");
         }
-        if(PlayerPrefs.GetString("storyText2", "") != "")
+        if (PlayerPrefs.GetString("storyText2", "") != "")
         {
             newspaperTexts[2] = PlayerPrefs.GetString("storyText2", "");
         }
@@ -75,24 +58,19 @@ public class SummaryEvaluation : MonoBehaviour
         {
             newspaperTextMeshes[i].text = newspaperTexts[i];
         }
-
-        
-
-
-        //newspaperText1 = dailyMessages[dayIndex]["Evening"]["Text1"];
-        //newspaperText1Mesh.text = newspaperText1;
     }
 
-    private void LoadDay(){
+    private void LoadDay()
+    {
         var directory = new DirectoryInfo(Application.persistentDataPath);
         var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
-        
+
         Status newStatus = JsonConvert.DeserializeObject<Status>(statusFile.text);
 
         if (!files.Any())
         {
             news.text = "";
-            news.text = newStatus.vehicle[newStatus.vehicle.Length - 1] + "\n" 
+            news.text = newStatus.vehicle[newStatus.vehicle.Length - 1] + "\n"
                     + newStatus.health[newStatus.health.Length - 1] + "\n"
                     + newStatus.socialStatus[newStatus.socialStatus.Length - 1] + "\n"
                     + newStatus.living[newStatus.living.Length - 1];
@@ -110,7 +88,8 @@ public class SummaryEvaluation : MonoBehaviour
                     "Living: " + newStatus.living[nestedStatus.living];
     }
 
-    public void LoadMainScene(){
+    public void LoadMainScene()
+    {
         SceneManager.LoadScene("SampleScene");
     }
 }

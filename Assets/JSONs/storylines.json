@@ -1,8 +1,8 @@
 {
     "0":{
         "succesful_storyline" : [false, true, true],
-        "ending" : {"type" : "end_day_message",
-                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state.", "HEHE"],
+        "ending" : {"type" : "full_ending",
+                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state."],
                     "field" : "vehicle",
                     "influence" : -4                     
     }
