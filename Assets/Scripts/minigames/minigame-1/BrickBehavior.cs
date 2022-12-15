@@ -6,6 +6,7 @@ public class BrickBehavior : MonoBehaviour
 {
     private bool has_gravity = false;
     public bool hasEntered = false;
+    public bool tutorial = true;
     private bool movingLeft = true;
     public float speed = 0.03f;
     public float mass = 2f;
@@ -61,10 +62,6 @@ public class BrickBehavior : MonoBehaviour
     }
 
     void OnCollisionEnter (Collision other) {
-        Debug.Log(rb.velocity.magnitude);
-        Debug.Log(rb.IsSleeping());
-
-        //if (!rb.velocity) return;
         if (other.gameObject && !hasEntered) {
             hasEntered = true;
 

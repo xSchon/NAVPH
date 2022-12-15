@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground
   - Clickable
-  - Wire
   layers:
   - Default
   - TransparentFX

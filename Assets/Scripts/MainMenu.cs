@@ -33,8 +33,8 @@ public class MainMenu : MonoBehaviour
         try
             {
             string folderPath = Application.persistentDataPath;
-            var files = Directory.EnumerateFiles(folderPath);
-            foreach (var file in files)
+            IEnumerable<string> files = Directory.EnumerateFiles(folderPath);
+            foreach (string file in files)
             {
                 File.Delete(file);
             }
@@ -42,8 +42,7 @@ public class MainMenu : MonoBehaviour
         }
             catch (System.Exception)
         {
-            
-            //throw;
+            Debug.Log("System exception in deciding");
         }
 
         // 2. load game 
