@@ -2546,7 +2546,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 277032316}
   m_HandleRect: {fileID: 0}
@@ -4609,7 +4609,6 @@ MonoBehaviour:
   daysJson: {fileID: 4900000, guid: 82515fcc8c3a8324680a718369f96863, type: 3}
   conversationsJson: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
   dayIndex: 
-  endingTime: 270
   healthStatusStep: 10
   sceneRadios:
   - {fileID: 994038678}
@@ -7026,9 +7025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbba14a5d6fee4e42b37a2035a67f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: ca32d74cc8a330a4eb7523d980030c43, type: 3}
-  saveJsonFile: {fileID: 4900000, guid: d39c63bdbda6c0f448d548d7d3f1378f, type: 3}
   dayIndex: 1
+  jsonFile: {fileID: 4900000, guid: ca32d74cc8a330a4eb7523d980030c43, type: 3}
   letterTextMesh: {fileID: 1634259374}
 --- !u!224 &1938869266 stripped
 RectTransform:
