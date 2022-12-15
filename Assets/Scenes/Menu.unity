@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundTextMesh: {fileID: 577682445}
+  difficultyTextMesh: {fileID: 1830607861}
 --- !u!1 &145889030
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +566,6 @@ MonoBehaviour:
   daysJson: {fileID: 0}
   conversationsJson: {fileID: 0}
   dayIndex: 
-  endingTime: 0
   healthStatusStep: 10
   sceneRadios: []
 --- !u!1 &221440289
@@ -3613,7 +3613,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830607861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 75552436}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1497552096
 MonoBehaviour:
   m_ObjectHideFlags: 0
