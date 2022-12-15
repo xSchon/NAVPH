@@ -1,3 +1,4 @@
+/* Script ending minigames and evaluating them */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class EndMinigames : MonoBehaviour
 {
     public Camera minigameCamera;
     public string minigameName;
-    public string mainSceneName = "SampleScene";
+    public string mainSceneName = "OfficeScene";
 
     public void EndMinigame()
     {

@@ -1,3 +1,5 @@
+/* Classes serving for status saving status and it's values */
+
 class Status
 {
     public string[] vehicle;

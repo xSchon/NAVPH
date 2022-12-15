@@ -7,6 +7,6 @@ public class VideoManager : MonoBehaviour
 {
     public void SkipVideo()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("OfficeScene");
     }
 }

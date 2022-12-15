@@ -1,3 +1,4 @@
+/* Class used for saving game progress and its values */
 using System.Collections.Generic;
 
 class Save

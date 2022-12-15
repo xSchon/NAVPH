@@ -90,6 +90,6 @@ public class SummaryEvaluation : MonoBehaviour
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("OfficeScene");
     }
 }

@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameCamera: {fileID: 1829389568}
   minigameName: minigame-4
-  mainSceneName: SampleScene
+  mainSceneName: OfficeScene
 --- !u!1 &1021487956
 GameObject:
   m_ObjectHideFlags: 0

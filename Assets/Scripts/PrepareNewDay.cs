@@ -25,7 +25,7 @@ public class PrepareNewDay : MonoBehaviour
     }
 
     public void changeScene(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("OfficeScene");
     }
 
     private void loadDay(){

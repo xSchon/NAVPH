@@ -18,6 +18,6 @@ public class LoadScene : MonoBehaviour
     }
 
     public void endMinigame(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("OfficeScene");
     }
 }
