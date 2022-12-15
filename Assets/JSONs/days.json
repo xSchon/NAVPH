@@ -44,12 +44,12 @@
     },
     "8": {
         "StartingTime": "09:00",
-        "EndingTime": "18:30",
+        "EndingTime": "17:30",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,4]
     },
     "9": {
-        "StartingTime": "08:45",
+        "StartingTime": "08:40",
         "EndingTime": "16:30",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,3,4]

@@ -413,29 +413,30 @@
             "WhenDeffendSector": "12:00",
             "SusMeterPenalisation": 20
         },
-        "12:10": {
+        "11:40": {
             "Radio": 1,
-            "Author": "Martin F.",
-            "HourShow": "11:30",
-            "HourTill": "12:00",
+            "Author": "Tereza F.",
+            "HourShow": "11:40",
+            "HourTill": "12:10",
             "Text": [
-                "Hello, this is Martin F.",
-                "I am currently on the border near sector seven",
-                "and I need to cross over immediately.",
-                "I am not carrying any weapons and pose no threat.",
-                "I am willing to pay a fee for your assistance",
-                "Can you please let me pass?"
+                "Good day to you",
+                "My name is Tereza F.",
+                "My husband Martin F. is currently on the border near sector seven",
+                "We are kindly asking you to pass sector 7",
+                "We mean no harm", 
+                "We are just trying to get to our home",
+                "Thank you for your understanding"
             ],
             "StoryLine": 0,
             "Sector": 7,
-            "WhenDeffendSector": "12:00",
+            "WhenDeffendSector": "12:10",
             "SusMeterPenalisation": 20
         },
         "12:30": {
             "Radio": 2,
             "Author": "Jan",
-            "HourShow": "11:30",
-            "HourTill": "12:00",
+            "HourShow": "12:30",
+            "HourTill": "14:30",
             "Text": [
                 "Hey... this is Ivan...",
                 "We spoke yesterday...",
@@ -448,7 +449,7 @@
             ],
             "StoryLine": 0,
             "Sector": 2,
-            "WhenDeffendSector": "12:00",
+            "WhenDeffendSector": "14:30",
             "SusMeterPenalisation": 20
         },
 
@@ -505,10 +506,10 @@
 
     },
     "7": {
-        "08:45": {
+        "08:40": {
             "Radio": 1,
             "Author": "Unknown Transmitter",
-            "HourShow": "08:45",
+            "HourShow": "08:40",
             "HourTill": "09:30",
             "Text": [
                 "To the traitor serving as a border patrol: ",
@@ -627,11 +628,11 @@
             "WhenDeffendSector": "14:00",
             "SusMeterPenalisation": 10
         },
-        "14:00": {
+        "14:30": {
             "Radio": 3,
             "Author": "Unknown Transmitter",
-            "HourShow": "13:30",
-            "HourTill": "14:00",
+            "HourShow": "14:30",
+            "HourTill": "15:00",
             "Text": [
                 "I know I have no right to ask, but I am desperate.",
                 "I am fleeing from danger and need to reach safety as soon as possible.",
@@ -738,20 +739,20 @@
                 "I promise we will never bother you again.",
                 "My husband hasn't been doing great.",
                 "Ever since the accident with the Soviets, he hasn't really recovered.",
-                "The doctors here... and the healthcare... I donn't know what to do.",
+                "The doctors here... and the healthcare... I don't know what to do.",
                 "It's been very difficult. Every day is a fight for life.",
                 "I try to stay hopeful and believe it will improve, but when?",
                 "And hope? And how does that help us right now? Hope will not feed us and pay for us.",
                 "Peter, please, help us leave. Please be kind to us one more time, and help save two lives. And maybe more.",
                 "I know you are a good person.",
-                "We're ready if you can help us at the first sector today at 18:00",
+                "We're ready if you can help us at the first sector today at 17:00",
                 "We will be waiting there.",
                 "Thank you for your time.",
                 "Elena"
             ],
             "StoryLine": 0,
             "Sector": 1,
-            "WhenDeffendSector": "18:00",
+            "WhenDeffendSector": "17:00",
             "SusMeterPenalisation": 10
         },
         "14:30": {
@@ -761,11 +762,11 @@
             "HourTill": "15:30",
             "Text": [
                 "Comrade!",
-                "We have received reports of increased illegal border crossings in sector 3.",
+                "We have received reports of increased illegal border crossings in sector 1.",
                 "Move troops and protect the border."
             ],
             "StoryLine": 0,
-            "Sector": 3,
+            "Sector": 1,
             "WhenDeffendSector": "16:00",
             "SusMeterPenalisation": 10
         }
