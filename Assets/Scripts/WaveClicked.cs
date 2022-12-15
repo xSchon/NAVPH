@@ -227,6 +227,9 @@ public class WaveClicked : MonoBehaviour
     {
         float probability = UnityEngine.Random.Range(0.0f, 1.0f);
 
+        if (minigamesIDs == null)
+            return;
+
         if (probability <= minigameChance){
             loadAfterMinigame = true;
             minigameChance = minigameChance / 2;
