@@ -17,7 +17,6 @@ public class EndMinigames : MonoBehaviour
         for (int i = 0; i < countLoaded; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            Debug.Log(scene.name);
             if (scene.name != minigameName)
             {
                 parent_scene_id = i;

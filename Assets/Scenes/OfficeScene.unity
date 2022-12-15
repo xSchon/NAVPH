@@ -905,7 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioScreen: {fileID: 1849400422}
   susBarObject: {fileID: 546358026}
-  minigameChance: 0.2
+  minigameChance: 1
   mainCamera: {fileID: 106259164}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075

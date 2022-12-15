@@ -18,7 +18,6 @@ public class Wires : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Debug.Log("Dragging");
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0;
 
@@ -63,7 +62,6 @@ public class Wires : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log("Mouse Up");
         transform.position = startPosition;
         Vector3 direction = startPosition - startPoint;
         transform.right = direction * transform.lossyScale.x;

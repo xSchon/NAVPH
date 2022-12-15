@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameCamera: {fileID: 1829389568}
-  minigameName: minigame-4
+  minigameName: minigame-3
   mainSceneName: OfficeScene
 --- !u!1 &1021487956
 GameObject:
@@ -706,15 +706,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 606f05b6beb602944888957d76def45b, type: 2}
+  m_sharedMaterial: {fileID: 9192909536692414425, guid: 606f05b6beb602944888957d76def45b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.8490566, g: 0.020024916, b: 0.020024916, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1089,6 +1089,136 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &1288297030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_text
+      value: This is minigame 3. You recieved a message in morse code and you have
+        to decipher it quickly! Text in morse is in upper left corner, words are
+        separetted by /. Write decipher text to input field in lower left and press
+        ENTER. If the answer is correct, you will be notified. If not, try better.
+        Lower/Upper case doesn't matter. Be carefull, there is a time limit at the
+        top, be quick!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507545, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507550, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507550, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518439218064, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: script3
+      value: 
+      objectReference: {fileID: 2101041192}
+    - target: {fileID: 8608756518439218069, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndTutorialMinigame3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
 --- !u!1 &1351794570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0.98039216}
+  m_Color: {r: 0.9433962, g: 0.7032096, b: 0.29814878, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2171,9 +2301,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d97b96929323843b46a21dd8dcbc6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outputText: {fileID: 2101041189}
+  morseField: {fileID: 158787759}
+  timeField: {fileID: 1205539701}
+  popup: {fileID: 1177750384}
+  button: {fileID: 319720464}
+  popupCanvas: {fileID: 1021487960}
   timeRemaining: 10
   morse_code: 
   ascii_code: 
-  lostText: Prehrali ste, velmi nas to mrzi a snad vam to vyjde nabuduce :)
-  winText: Vylustili ste upsne spravu! Dakujeme za vasu obetavu pracu!
+  lostText: Message was not deciphered at time, game is lost, your Sus bar will be
+    increased. You have disappointed the socialist people!
+  winText: You got it right, your Sus bar will be decreased! Thank you for your dedicated
+    work!
   morseStatic: {fileID: 1208416157}
