@@ -1,63 +1,63 @@
 {
     "1": {
         "StartingTime": "08:00",
-        "EndingTime": "13:00",
+        "EndingTime": "12:00",
         "RadiosEnabled" : [1],
         "Minigames": [1,4]
     },
     "2": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "08:00",
+        "EndingTime": "12:00",
         "RadiosEnabled" : [1],
-        "Minigames": [1,4],
+        "Minigames": [1,2],
         "SusDecrease" : 5
     },
     "3": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "08:00",
+        "EndingTime": "13:00",
         "RadiosEnabled" : [1],
-        "Minigames": [1,4]
+        "Minigames": [1,2]
     },
     "4": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "08:30",
+        "EndingTime": "15:30",
         "RadiosEnabled" : [1,2],
-        "Minigames": [1,4]
+        "Minigames": [1,2,4]
     },
     "5": {
         "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "EndingTime": "15:00",
         "RadiosEnabled" : [1,2],
         "Minigames": [1,4]
     },
     "6": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "09:00",
+        "EndingTime": "17:30",
         "RadiosEnabled" : [1,2],
-        "Minigames": [1,4]
+        "Minigames": [1,2,4]
     },
     "7": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "08:30",
+        "EndingTime": "17:00",
         "RadiosEnabled" : [1,2,3],
-        "Minigames": [1,4]
+        "Minigames": [1,2,4]
     },
     "8": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "09:00",
+        "EndingTime": "18:30",
         "RadiosEnabled" : [1,2,3],
-        "Minigames": [1,4]
+        "Minigames": [1,2,4]
     },
     "9": {
         "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "EndingTime": "16:30",
         "RadiosEnabled" : [1,2,3],
-        "Minigames": [1,4]
+        "Minigames": [1,2,3,4]
     },
     "10": {
-        "StartingTime": "08:45",
-        "EndingTime": "10:00",
+        "StartingTime": "09:00",
+        "EndingTime": "16:30",
         "RadiosEnabled" : [1,2,3],
-        "Minigames": [1,4]
+        "Minigames": [1,2,3,4]
     }
 }

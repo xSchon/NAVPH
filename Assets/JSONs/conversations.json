@@ -753,7 +753,23 @@
             "Sector": 1,
             "WhenDeffendSector": "18:00",
             "SusMeterPenalisation": 10
+        },
+        "14:30": {
+            "Radio": 1,
+            "Author": "Governemnt",
+            "HourShow": "14:30",
+            "HourTill": "15:30",
+            "Text": [
+                "Comrade!",
+                "We have received reports of increased illegal border crossings in sector 3.",
+                "Move troops and protect the border."
+            ],
+            "StoryLine": 0,
+            "Sector": 3,
+            "WhenDeffendSector": "16:00",
+            "SusMeterPenalisation": 10
         }
+
 
     },
     "9": {
