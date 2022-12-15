@@ -19,6 +19,7 @@ public class TextEntered : MonoBehaviour
     public string ascii_code;
     public string lostText = "Prehrali ste, velmi nas to mrzi a snad vam to vyjde nabuduce :)";
     public string winText = "Vylustili ste upsne spravu! Dakujeme za vasu obetavu pracu!";
+    [SerializeField] private AudioSource morseStatic;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,7 @@ public class TextEntered : MonoBehaviour
             popup_canvas.enabled = true;
             popup.text = winText;
             game_end = true;
+            morseStatic.Pause();
         }
     }
 

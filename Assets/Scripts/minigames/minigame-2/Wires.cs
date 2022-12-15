@@ -10,17 +10,10 @@ public class Wires : MonoBehaviour
     Vector3 startPosition;
     public SpriteRenderer wireEnd;
   
-    // Start is called before the first frame update
     void Start()
     {
         startPoint = transform.parent.position;
         startPosition = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnMouseDrag()
