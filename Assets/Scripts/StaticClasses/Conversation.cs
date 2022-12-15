@@ -1,3 +1,4 @@
+/* Class containing data about conversations loaded from file conversations.json */
 public class Conversation
 {
     public int radio = 1;

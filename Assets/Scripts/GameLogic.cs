@@ -42,7 +42,7 @@ public class GameLogic : MonoBehaviour
 
         waveClicked = FindObjectOfType<WaveClicked>();
         sectrsDeff = FindObjectOfType<SectorsDeffence>();
-        waveClicked.setMinigames(days[currentDay].minigames);
+        waveClicked.setMinigames(days[currentDay].minigamesEnabled);
 
         EnableRadios();
     }
@@ -108,14 +108,14 @@ public class GameLogic : MonoBehaviour
 
 
         susMeterValue = savedData.susMeterValue;
-        susMeterValue -= days[dayIndex].SusDecrease;  // decrease sus value daily
+        susMeterValue -= days[dayIndex].susDecrease;  // decrease sus value daily
         currentStoryLines = savedData.storyLines;
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
 
-        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
+        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigamesEnabled);
         FindObjectOfType<SusBar>().SetSusValue(susMeterValue);
     }
 
@@ -128,7 +128,7 @@ public class GameLogic : MonoBehaviour
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
 
-        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigames);
+        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigamesEnabled);
 
         // some additional setup when it is first run?
         // TODO: add reset after game is done
@@ -259,13 +259,6 @@ public class GameLogic : MonoBehaviour
             sceneRadios[activateRadio - 1].SetActive(true);
         }
     }
-
-    public int[] GetDayMinigames()
-    {
-        //return dayMinigames;
-        return days[dayIndex].minigames;
-    }
-
     private int EvaluateHealthStatus(float susDiff)
     {
         int currentStatus = 3;

@@ -165,7 +165,7 @@ public class WaveClicked : MonoBehaviour
         }
 
         // Add new information to map, information obtained from radio text
-        DeffendableSector deff = new DeffendableSector();
+        DefendableSector deff = new DefendableSector();
         deff.sectorNum = activeConvo.sector;
         deff.storyNum = activeConvo.storyLine;
         deff.susPunish = activeConvo.susMeterPenalisation;

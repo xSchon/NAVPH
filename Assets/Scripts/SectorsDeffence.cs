@@ -10,7 +10,7 @@ public class SectorsDeffence : MonoBehaviour
 {   
     public int sectorsAmount = 2; // set in Unity
     private int[] selectedSectors;
-    public Dictionary<int, List<DeffendableSector>> toDeffend = new Dictionary<int, List<DeffendableSector>>();
+    public Dictionary<int, List<DefendableSector>> toDeffend = new Dictionary<int, List<DefendableSector>>();
     public Dictionary<string, List<bool>> storyLines = new Dictionary<string, List<bool>>();
     
 
@@ -68,13 +68,13 @@ public class SectorsDeffence : MonoBehaviour
     }
 
 
-    public void NewToDeffend(int deffendAt, DeffendableSector defSect){
+    public void NewToDeffend(int deffendAt, DefendableSector defSect){
         if (this.toDeffend.ContainsKey(deffendAt)){
-            List<DeffendableSector> addable = this.toDeffend[deffendAt];
+            List<DefendableSector> addable = this.toDeffend[deffendAt];
             addable.Add(defSect);
             this.toDeffend[deffendAt] = addable; 
         } else {
-            this.toDeffend.Add(deffendAt, (new List<DeffendableSector>{defSect}));
+            this.toDeffend.Add(deffendAt, (new List<DefendableSector>{defSect}));
         }
     }
 
@@ -83,7 +83,7 @@ public class SectorsDeffence : MonoBehaviour
         if (this.toDeffend.ContainsKey(currentTime)){
             WarningMessage messagePop = FindObjectOfType<WarningMessage>();
 
-            foreach(DeffendableSector deffSec in this.toDeffend[currentTime]){
+            foreach(DefendableSector deffSec in this.toDeffend[currentTime]){
                 if (!this.selectedSectors.Contains(deffSec.sectorNum)){
                     messagePop.AddWarning(deffSec.sectorNum, deffSec.susPunish);
                     FindObjectOfType<SusBar>().InfluenceSus(deffSec.susPunish);
