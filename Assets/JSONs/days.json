@@ -14,18 +14,18 @@
     },
     "3": {
         "StartingTime": "08:00",
-        "EndingTime": "13:00",
+        "EndingTime": "13:30",
         "RadiosEnabled" : [1],
         "Minigames": [1,2]
     },
     "4": {
         "StartingTime": "08:30",
-        "EndingTime": "15:30",
+        "EndingTime": "16:00",
         "RadiosEnabled" : [1,2],
         "Minigames": [1,2,4]
     },
     "5": {
-        "StartingTime": "08:45",
+        "StartingTime": "08:40",
         "EndingTime": "15:00",
         "RadiosEnabled" : [1,2],
         "Minigames": [1,4]

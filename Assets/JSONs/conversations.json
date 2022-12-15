@@ -164,12 +164,12 @@
                 "Comrade, My name is Oleg P., and I work as a trader.",
                 "I am passing through for business matters. The Captain has been aware of me, and we have met before.",
                 "And you know, he doesn't mind... the situation only benefits him... Do you understand?", 
-                "If you let me pass the sector 2 today at 14:00, I can promise you will benefit too, and we could start a long-term partnership.",
+                "If you let me pass the sector 2 today at 13:00, I can promise you will benefit too, and we could start a long-term partnership.",
                 "What do you think? -Oleg P. "
             ],
             "StoryLine": 5,
             "Sector": 2,
-            "WhenDeffendSector": "14:00",
+            "WhenDeffendSector": "13:00",
             "SusMeterPenalisation": 10
         },
         "11:30": {
