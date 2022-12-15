@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;    
 
 
-public class SectorsDeffence : MonoBehaviour
+public class SectorsDefence : MonoBehaviour
 {   
     public int sectorsAmount = 2; // set in Unity
     private int[] selectedSectors;
