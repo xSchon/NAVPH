@@ -8,36 +8,29 @@ using UnityEngine.UI;
 public class Minigame1 : MonoBehaviour
 {
     public GameObject brick;
-    private GameObject active_brick;
+    private GameObject activeBrick;
     private List<GameObject> placedBricks = new List<GameObject>();
-    private float[] lastScore = new float[10]; 
     public float endScore = 7.0f;
     public string lostText;
     public string winText;
     private float score = 0f;
-    public float number_of_bricks = 10f;
-
-    private TMP_Text ui_score;
-    private TMP_Text ui_bricks;
-    private bool end_game = false;
-    private TMP_Text popup;
-
-    private GameObject button;
-    private Camera minigame_camera;
-    // Start is called before the first frame update
+    public float numberOfBricks = 10f;
+    public TMP_Text UIscore;
+    public TMP_Text UIbricks;
+    private bool endGame = false;
+    public TMP_Text popup;
+    public GameObject button;
+    public Camera minigameCamera;
+    public Canvas tutorial;
+    
     void Start()
     {
-        SpawNewBrick();
-        ui_score = GameObject.Find("score").GetComponent<TextMeshProUGUI>();
-        ui_bricks = GameObject.Find("nm_bricks").GetComponent<TextMeshProUGUI>();
-        popup = GameObject.Find("popup").GetComponent<TextMeshProUGUI>();
-        button = GameObject.Find("button");
-        minigame_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //SpawNewBrick();
         popup.enabled = false;
         button.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)){
@@ -51,12 +44,12 @@ public class Minigame1 : MonoBehaviour
 
     public void SpawNewBrick(){
         CheckScore();
-        if (!end_game) {
-            active_brick = Instantiate(brick,
+        if (!endGame) {
+            activeBrick = Instantiate(brick,
                         transform.position,
                         Quaternion.identity);
         
-            number_of_bricks--;
+            numberOfBricks--;
         }
     }
 
@@ -65,16 +58,12 @@ public class Minigame1 : MonoBehaviour
 
         foreach(GameObject brickHeight in placedBricks)
         {
-            if (brickHeight.transform.position.y > newScore) 
+            if (brickHeight.transform.position.y > newScore){
                 newScore = brickHeight.transform.position.y;
+            }
         }
 
         score = newScore;
-    }
-
-    public void AddPlacedBrick(GameObject brick)
-    {
-        placedBricks.Add(brick);
     }
 
     private void CheckScore(){
@@ -82,26 +71,32 @@ public class Minigame1 : MonoBehaviour
             popup.enabled = true;
             button.SetActive(true);
             popup.text = winText;
-            end_game = true;
+            endGame = true;
             PlayerPrefs.SetInt("WonMinigame", 1);
+            Time.timeScale = 0.0f;
         }
 
-        if(number_of_bricks <= 0){
-            number_of_bricks--;
+        if(numberOfBricks <= 0){
+            numberOfBricks--;
             popup.enabled = true;
             button.SetActive(true);
             popup.text = lostText;
-            end_game = true;
+            endGame = true;
             PlayerPrefs.SetInt("WonMinigame", 0);
         }
     }
 
+    public void AddPlacedBrick(GameObject brick)
+    {
+        placedBricks.Add(brick);
+    }
+
     void UpdateUI(){
-        ui_score.text = "Height: " + score.ToString("F2");
-        ui_bricks.text = "Bricks: " + (number_of_bricks + 1);
+        UIscore.text = "Height: " + score.ToString("F2");
+        UIbricks.text = "Bricks: " + (numberOfBricks + 1);
    }
 
-   public void BackToMenu(){
+    public void BackToMenu(){
         int countLoaded = SceneManager.sceneCount;
         int parent_scene_id = -1;
         for (int i = 0; i < countLoaded; i++)
@@ -114,6 +109,11 @@ public class Minigame1 : MonoBehaviour
         }
 
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(parent_scene_id));
-        minigame_camera.enabled = false;
+        minigameCamera.enabled = false;
+    }
+
+   public void EndTutorial()
+   {
+        tutorial.enabled = false;
    }
 }
