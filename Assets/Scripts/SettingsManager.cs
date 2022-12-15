@@ -5,6 +5,7 @@ using UnityEngine;
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI soundTextMesh;
+    [SerializeField] private TMPro.TextMeshProUGUI difficultyTextMesh;
 
     void Start()
     {
@@ -32,5 +33,22 @@ public class SettingsManager : MonoBehaviour
             soundTextMesh.text = "ON";
             Debug.Log("Unmute");
         }
+    }
+
+    public void SetDifficulty()
+    {
+        if (difficultyTextMesh.text == "Easy")
+        {
+            difficultyTextMesh.text = "Medium";
+        }
+        else if (difficultyTextMesh.text == "Medium")
+        {
+            difficultyTextMesh.text = "Hard";
+        }
+        else if (difficultyTextMesh.text == "Hard")
+        {
+            difficultyTextMesh.text = "Easy";
+        }
+
     }
 }
