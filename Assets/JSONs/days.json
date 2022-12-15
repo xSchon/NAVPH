@@ -3,7 +3,7 @@
         "StartingTime": "08:00",
         "EndingTime": "12:00",
         "RadiosEnabled" : [1],
-        "MinigamesEnabled": [1,4]
+        "MinigamesEnabled": []
     },
     "2": {
         "StartingTime": "08:00",
