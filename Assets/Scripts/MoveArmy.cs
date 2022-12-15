@@ -15,6 +15,6 @@ public class MoveArmy : MonoBehaviour
 
     public void selectSector()
     {
-        sectors.GetComponent<SectorsDeffence>().noteSector(this.name);
+        sectors.GetComponent<SectorsDefence>().noteSector(this.name);
     }
 }

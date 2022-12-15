@@ -14,7 +14,7 @@ public class WaveClicked : MonoBehaviour
     private GameObject[] clickable;
     private TMP_Text gameText;
     private RadioConfig[] radios;
-    private SectorsDeffence sectrsDeff;
+    private SectorsDefence sectrsDeff;
     public GameObject susBarObject;
     private SusBar susBar;
     private int activeRadio = 0;
@@ -34,7 +34,7 @@ public class WaveClicked : MonoBehaviour
     {
         readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
-        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDeffence>();
+        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDefence>();
         susBar = susBarObject.GetComponent<SusBar>();
 
         gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();

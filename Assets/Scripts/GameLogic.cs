@@ -19,10 +19,9 @@ public class GameLogic : MonoBehaviour
     private Dictionary<string, Dictionary<string, Conversation>> conversations;
     private Dictionary<int, string> messagesTimes;
     private WaveClicked waveClicked;
-    private SectorsDeffence sectrsDeff;
+    private SectorsDefence sectrsDeff;
     private Save savedData;
     public string dayIndex;// = "1";
-    public int endingTime = 270; // ending time after 480 minutes (8 hours) pass 
     private Timer timer;
     private float susValue;
     public float healthStatusStep = 10f;
@@ -41,25 +40,10 @@ public class GameLogic : MonoBehaviour
         LoadDayMessages(currentDay);
 
         waveClicked = FindObjectOfType<WaveClicked>();
-        sectrsDeff = FindObjectOfType<SectorsDeffence>();
+        sectrsDeff = FindObjectOfType<SectorsDefence>();
         waveClicked.setMinigames(days[currentDay].minigamesEnabled);
 
         EnableRadios();
-    }
-
-    void Update()
-    {
-        if (dayIndex == "5")
-        {
-            Debug.Log("Ending");
-            SceneManager.LoadScene("Ending");
-            // return 
-        }
-        if (endingTime == timer.getCurrentMinutes())
-        {
-            EndDay();
-        }
-
     }
 
     private void LoadDayMessages(string dayNum)
@@ -216,7 +200,6 @@ public class GameLogic : MonoBehaviour
         {
             SceneManager.LoadScene("Ending");
         }
-        //loadDay(days);
     }
 
     private void EvaluateGame(Save storeData)
