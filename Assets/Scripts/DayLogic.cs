@@ -106,8 +106,8 @@ public class DayLogic : MonoBehaviour
 
         int decreaseAmount = days[dayIndex].susDecrease;  // decrease sus value daily, based on dificulty as well
         int difficulty = PlayerPrefs.GetInt("difficulty", 2);
-        if (difficulty == 1) { decreaseAmount = (int) (decreaseAmount * 1.5); } // easy
-        if (difficulty == 3) { decreaseAmount = (int) (decreaseAmount * 0.5); } // hard
+        if (difficulty == 1) { decreaseAmount = (int)(decreaseAmount * 1.5); } // easy
+        if (difficulty == 3) { decreaseAmount = (int)(decreaseAmount * 0.5); } // hard
         susMeterValue -= decreaseAmount;
 
         susBar.SetSusValue(susMeterValue);
@@ -203,7 +203,7 @@ public class DayLogic : MonoBehaviour
     }
 
     private void EvaluateGame(Save storeData)
-    {   
+    {
         // different endings based on how player performed during their journey
         Debug.Log("You have finished the game!");
         string endingText = "";

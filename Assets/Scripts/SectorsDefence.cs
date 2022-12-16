@@ -12,7 +12,7 @@ public class SectorsDefence : MonoBehaviour
     private int[] selectedSectors;
     public Dictionary<int, List<DefendableSector>> toDeffend = new Dictionary<int, List<DefendableSector>>();
     public Dictionary<string, List<bool>> storyLines = new Dictionary<string, List<bool>>();
-    
+    public TMP_Text defendingSectorsText;
 
     void Start()
     {
@@ -45,14 +45,14 @@ public class SectorsDefence : MonoBehaviour
 
         changeText(string.Join(", ", selectedSectors));
         if (dropSector != 0){
-            VisibleSector("sector"+dropSector, false);
+            VisibleSector("Sector"+dropSector, false);
         }
         VisibleSector(sectorName, true);
 
     }
 
     private void changeText(string sectorsNumbers){
-        GameObject.Find("selectedSectors").GetComponent<TextMeshProUGUI>().text = "Defending sectors: "+sectorsNumbers;
+        defendingSectorsText.text = "Defending sectors: "+sectorsNumbers;
     }
 
     private void VisibleSector(string sectorName, bool setVisible){

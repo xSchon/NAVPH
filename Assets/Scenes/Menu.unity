@@ -566,9 +566,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   daysJson: {fileID: 0}
   conversationsJson: {fileID: 0}
-  dayIndex: 
-  healthStatusStep: 10
   sceneRadios: []
+  timer: {fileID: 0}
+  waveClicked: {fileID: 0}
+  sectrsDeff: {fileID: 0}
+  susBar: {fileID: 0}
 --- !u!1 &221440289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,7 +3753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 49240019}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: newGame
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

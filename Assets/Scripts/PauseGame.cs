@@ -1,3 +1,4 @@
+/* Game pase after user's click on the button */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,19 +15,22 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
-    public void StartPause(){
+    public void StartPause()
+    {
         Debug.Log("Pause started");
         Time.timeScale = 0.0f;
         pauseScreen.SetActive(true);
-   }
+    }
 
-    public void EndPause(){
+    public void EndPause()
+    {
         Debug.Log("Pause ended, game continues");
-        Time.timeScale = 1.0f;    
+        Time.timeScale = 1.0f;
         pauseScreen.SetActive(false);
     }
 
-    public void backToMenu(){
+    public void BackToMenu()
+    {
         SceneManager.LoadScene("Menu");
-   }
+    }
 }

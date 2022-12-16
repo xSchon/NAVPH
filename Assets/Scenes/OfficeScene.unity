@@ -602,9 +602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a63afcca112a044b999f1b034ff258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radioScreen: {fileID: 0}
-  mapScreen: {fileID: 0}
-  pauseScreen: {fileID: 0}
+  radioScreen: {fileID: 1849400422}
+  mapScreen: {fileID: 1418183435}
+  pauseScreen: {fileID: 2078902928}
   radioStatic: {fileID: 1849400427}
 --- !u!1001 &119706005
 PrefabInstance:
@@ -615,7 +615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector6
+      value: Sector6
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -707,6 +707,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!1001 &135452313
@@ -1667,7 +1671,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector9
+      value: Sector9
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -1759,6 +1763,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!224 &397260241 stripped
@@ -1938,7 +1946,7 @@ GameObject:
   - component: {fileID: 466179458}
   - component: {fileID: 466179460}
   m_Layer: 5
-  m_Name: selectedSectors
+  m_Name: SelectedSectors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sectorsAmount: 2
+  defendingSectorsText: {fileID: 466179458}
 --- !u!1 &498402882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,7 +3454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector8
+      value: Sector8
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -3537,6 +3546,18 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 4749321505165571784, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectSector
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749321505165571784, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MoveArmy, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!224 &962994815 stripped
@@ -3796,7 +3817,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector1
+      value: Sector1
       objectReference: {fileID: 0}
     - target: {fileID: 1081103166311205502, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Color.a
@@ -3886,6 +3907,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!1001 &1036826098
@@ -3995,7 +4020,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector4
+      value: Sector4
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -4087,6 +4112,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!224 &1094730742 stripped
@@ -4992,7 +5021,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector3
+      value: Sector3
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -5084,6 +5113,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!1 &1418183435
@@ -5599,7 +5632,7 @@ GameObject:
   - component: {fileID: 1589353191}
   - component: {fileID: 1589353190}
   m_Layer: 5
-  m_Name: pauseButton
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6289,7 +6322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector2
+      value: Sector2
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -6379,6 +6412,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!224 &1777644185 stripped
@@ -6395,7 +6432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector7
+      value: Sector7
       objectReference: {fileID: 0}
     - target: {fileID: 3096400208314213215, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Pivot.x
@@ -6487,6 +6524,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!1 &1845140554
@@ -6789,7 +6830,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907855494006505245, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Name
-      value: sector5
+      value: Sector5
       objectReference: {fileID: 0}
     - target: {fileID: 1081103166311205502, guid: e38317e2e8867ad4baab27353b546320, type: 3}
       propertyPath: m_Color.a
@@ -6885,6 +6926,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7133091961317227043, guid: e38317e2e8867ad4baab27353b546320, type: 3}
+      propertyPath: sectors
+      value: 
+      objectReference: {fileID: 466179460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38317e2e8867ad4baab27353b546320, type: 3}
 --- !u!1 &1907711562 stripped
@@ -7235,7 +7280,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1589353190}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: backToMenu
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

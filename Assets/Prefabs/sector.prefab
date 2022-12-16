@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4749321505165571784}
   - component: {fileID: 7133091961317227043}
   m_Layer: 5
-  m_Name: sector
+  m_Name: Sector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,8 +124,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7133091961317227043}
-        m_TargetAssemblyTypeName: moveArmy, Assembly-CSharp
-        m_MethodName: selectSector
+        m_TargetAssemblyTypeName: MoveArmy, Assembly-CSharp
+        m_MethodName: SelectSector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

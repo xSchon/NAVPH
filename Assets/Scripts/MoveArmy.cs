@@ -1,3 +1,4 @@
+/* Script for informing sector it's been selected */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,10 @@ using TMPro;
 
 public class MoveArmy : MonoBehaviour
 {
-    private GameObject sectors;
-    private TMP_Text subtitles;
-    // Start is called before the first frame update
-    void Start()
-    {
-        sectors = GameObject.Find("selectedSectors");
-    }
+    public SectorsDefence sectors;
 
-    public void selectSector()
+    public void SelectSector()
     {
-        sectors.GetComponent<SectorsDefence>().noteSector(this.name);
+        sectors.noteSector(this.name);
     }
 }

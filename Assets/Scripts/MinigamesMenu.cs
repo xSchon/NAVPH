@@ -1,3 +1,4 @@
+/* Load chosen minigames based on button click on them */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
