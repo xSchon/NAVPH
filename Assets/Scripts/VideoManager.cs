@@ -15,6 +15,12 @@ public class VideoManager : MonoBehaviour
     public VideoPlayer introVideo;
     public TMPro.TextMeshProUGUI skipText;
 
+    void Start()
+    {
+        int volume = PlayerPrefs.GetInt("volume", 1);
+        introVideo.SetDirectAudioMute((ushort) volume, true);
+    }
+
     void Update()
     {
         //introVideo.SetDirectAudioMute(0, true);
