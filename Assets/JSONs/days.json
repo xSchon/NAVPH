@@ -13,7 +13,7 @@
         "SusDecrease" : 5
     },
     "3": {
-        "StartingTime": "08:00",
+        "StartingTime": "08:40",
         "EndingTime": "13:30",
         "RadiosEnabled" : [1],
         "MinigamesEnabled": [1,2]
@@ -26,37 +26,37 @@
     },
     "5": {
         "StartingTime": "08:40",
-        "EndingTime": "15:00",
+        "EndingTime": "14:00",
         "RadiosEnabled" : [1,2],
         "MinigamesEnabled": [1,3]
     },
     "6": {
         "StartingTime": "09:00",
-        "EndingTime": "17:30",
+        "EndingTime": "17:10",
         "RadiosEnabled" : [1,2],
         "MinigamesEnabled": [1,2,3]
     },
     "7": {
         "StartingTime": "08:30",
-        "EndingTime": "17:00",
+        "EndingTime": "16:00",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,3]
     },
     "8": {
         "StartingTime": "09:00",
-        "EndingTime": "17:30",
+        "EndingTime": "16:30",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,3]
     },
     "9": {
         "StartingTime": "08:40",
-        "EndingTime": "16:30",
+        "EndingTime": "16:00",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,3,4]
     },
     "10": {
         "StartingTime": "09:00",
-        "EndingTime": "16:30",
+        "EndingTime": "16:10",
         "RadiosEnabled" : [1,2,3],
         "MinigamesEnabled": [1,2,3,4]
     }

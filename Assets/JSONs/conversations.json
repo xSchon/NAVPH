@@ -346,7 +346,7 @@
             "Radio": 2,
             "Author": "Jan",
             "HourShow": "12:30",
-            "HourTill": "14:30",
+            "HourTill": "13:30",
             "Text": [
                 "Good day to you, comrade.",
                 "I have a special request for you.",
@@ -429,14 +429,14 @@
             ],
             "StoryLine": 0,
             "Sector": 7,
-            "WhenDeffendSector": "12:10",
+            "WhenDeffendSector": "12:20",
             "SusMeterPenalisation": 20
         },
         "12:30": {
             "Radio": 2,
             "Author": "Ivan",
             "HourShow": "12:30",
-            "HourTill": "14:30",
+            "HourTill": "14:20",
             "Text": [
                 "Hey... this is Ivan...",
                 "We spoke yesterday...",
@@ -449,7 +449,7 @@
             ],
             "StoryLine": 0,
             "Sector": 2,
-            "WhenDeffendSector": "14:30",
+            "WhenDeffendSector": "14:20",
             "SusMeterPenalisation": 20
         },
 
@@ -492,7 +492,7 @@
             "Radio": 1,
             "Author": "Foreign Transmitter",
             "HourShow": "15:30",
-            "HourTill": "17:00",
+            "HourTill": "16:30",
             "Text": [
                 "Yes, we are closely monitoring the situation...",
                 "and are prepared to take any necessary actions to protect our interests and those of our allies...",
@@ -540,7 +540,7 @@
             "StoryLine": 0,
             "Sector": 1,
             "WhenDeffendSector": "10:00",
-            "SusMeterPenalisation": 0
+            "SusMeterPenalisation": 20
         },
         "10:00": {
             "Radio": 1,
@@ -587,7 +587,9 @@
             "HourTill": "13:00",
             "Text": [
                 "Защита наших границ является главным приоритетом для нашего правительства",
-                "Мы не позволим нелегальной иммиграции поставить под угрозу безопасность нашей страны."
+                "....... не позволим нелегальной иммиграции поставить под .....",
+                "....... наше- ..... -страны.",
+                " * static *"
             ],
             "StoryLine": 0,
             "Sector": 1,
@@ -609,7 +611,7 @@
             "StoryLine": 0,
             "Sector": 2,
             "WhenDeffendSector": "13:00",
-            "SusMeterPenalisation": 5
+            "SusMeterPenalisation": 20
         },
         "13:30": {
             "Radio": 2,
@@ -626,7 +628,7 @@
             "StoryLine": 0,
             "Sector": 6,
             "WhenDeffendSector": "14:00",
-            "SusMeterPenalisation": 10
+            "SusMeterPenalisation": 20
         },
         "14:30": {
             "Radio": 3,
@@ -636,14 +638,14 @@
             "Text": [
                 "I know I have no right to ask, but I am desperate.",
                 "I am fleeing from danger and need to reach safety as soon as possible.",
-                "Can you please help me cross sector 2 at 16:00?",
+                "Can you please help me cross sector 2 at 15:00?",
                 "I am begging you",
                 "I trust in your kindness and loyalty and I am hoping you will grant me this one favor.",
                 "Please do not let me suffer any longer."
             ],
             "StoryLine": 0,
             "Sector": 2,
-            "WhenDeffendSector": "16:00",
+            "WhenDeffendSector": "15:00",
             "SusMeterPenalisation": 10
         }
     },
@@ -745,14 +747,14 @@
                 "And hope? And how does that help us right now? Hope will not feed us and pay for us.",
                 "Peter, please, help us leave. Please be kind to us one more time, and help save two lives. And maybe more.",
                 "I know you are a good person.",
-                "We're ready if you can help us at the first sector today at 17:00",
+                "We're ready if you can help us at the first sector today at 16:00",
                 "We will be waiting there.",
                 "Thank you for your time.",
                 "Elena"
             ],
             "StoryLine": 0,
             "Sector": 1,
-            "WhenDeffendSector": "17:00",
+            "WhenDeffendSector": "16:00",
             "SusMeterPenalisation": 10
         },
         "14:30": {
@@ -768,7 +770,7 @@
             "StoryLine": 0,
             "Sector": 1,
             "WhenDeffendSector": "16:00",
-            "SusMeterPenalisation": 10
+            "SusMeterPenalisation": 20
         }
 
 
@@ -901,7 +903,7 @@
             "StoryLine": 0,
             "Sector": 6,
             "WhenDeffendSector": "15:30",
-            "SusMeterPenalisation": 0
+            "SusMeterPenalisation": 20
         }
 
     },
@@ -919,7 +921,7 @@
             "StoryLine": 0,
             "Sector": 2,
             "WhenDeffendSector": "10:00",
-            "SusMeterPenalisation": 10
+            "SusMeterPenalisation": 20
         },
         "10:30": {
             "Radio": 1,
@@ -934,7 +936,7 @@
             "StoryLine": 0,
             "Sector": 3,
             "WhenDeffendSector": "11:00",
-            "SusMeterPenalisation": 10
+            "SusMeterPenalisation": 20
         },
         "10:00": {
             "Radio": 2,

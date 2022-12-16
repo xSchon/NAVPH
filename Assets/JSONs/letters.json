@@ -35,9 +35,9 @@
             "Text1": "We are with you - We will be with you - We trust you.",
             "Text2": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
             "Text3": "Currently, missing goods are secured by all means. We urge all citizens to be responsible when making purchases. Help normalize life at workplaces, even during difficult situations.",
-            "Text4": "Do not let yourself be deceived by the traitors of the Slovak and Czech people.",
+            "Text4": "Soviet exploitation by means of foreign trade?",
             "Text5": "Nurses to hold another strike.",
-            "Text6": "Soviet exploitation by means of foreign trade?"
+            "Text6": "Do not let yourself be deceived by the traitors of the Slovak and Czech people."
         }
     },
     "4": {
@@ -61,7 +61,7 @@
             "Text1": "Nation remains on high alert as intelligence suggests potential terrorist activity.",
             "Text2": "Security forces work around the clock to protect the nation's safety and security",
             "Text3": "Doctors and nurses go on strike, leaving hospitals in chaos and patients at risk",        
-            "Text4": "From the pharmacy: due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
+            "Text4": "Due to the lack of powdered milk Sunar, they introduced sales only upon confirmation by a pediatrician",
             "Text5": "Revolutionary group's attempted coup is foiled by government forces",
             "Text6": "Government suspends controversial local library book sale"
         }
@@ -73,9 +73,9 @@
         "Evening": {
             "Text1": "International community condemns Soviet invasion of Czechoslovakia and calls for a peaceful resolution",
             "Text2": "Betrayed by those who we trusted the most.",
-            "Text3": "Counter-revolutionaries in CSSR?",
-            "Text4": "Do not provoke the occupants. Stay at work, stay active, show support in legal ways, and continue working! After reading this, hand it to the next person!",
-            "Text5": "A rich source of oil, but of very poor quality, gushed out in eastern Slovakia. The government plans to use this deposit and build a plant for oil processing on the site.",
+            "Text3": "Do not provoke the occupants. Stay at work, stay active, show support in legal ways, and continue working! After reading this, hand it to the next person!",
+            "Text4": "Counter-revolutionaries in CSSR?",
+            "Text5": "A rich source of oil, but of very poor quality, gushed out in eastern Slovakia.",
             "Text6": "Healthcare crisis continues"
 
         }
@@ -86,7 +86,7 @@
         },
         "Evening": {
             "Text1": "Citizens mobilize to provide aid and support to those affected by the invasion",
-            "Text2": "We deny everything about the oil source. It was about damage to the 'Družba' oil pipeline.",
+            "Text2": "We deny everything about the oil source. It was about damage to the 'Druzba' oil pipeline.",
             "Text3": "Do not provoke the occupants: Stay calm and avoid confrontations",
             "Text4": "Revolution coming?",
             "Text5": "Words for the members of the armed forces of the Warsaw Pact",
