@@ -64,7 +64,8 @@ public class Wires : MonoBehaviour
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
     }
 
-    public void backToMenu(){
+    public void backToMenu()
+    {
         SceneManager.LoadScene("Menu");
        //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
         //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);

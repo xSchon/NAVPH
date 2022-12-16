@@ -44,26 +44,33 @@ public class MainMenu : MonoBehaviour
             "No" // Cancel button
         );
 
-        if (decision) {
-            try
+            if (decision) 
+            {
+                try
                 {
-                string folderPath = Application.persistentDataPath;
-                IEnumerable<string> files = Directory.EnumerateFiles(folderPath);
-                foreach (string file in files)
-                {
-                    File.Delete(file);
+                    string folderPath = Application.persistentDataPath;
+                    IEnumerable<string> files = Directory.EnumerateFiles(folderPath);
+                    foreach (string file in files)
+                    {
+                        File.Delete(file);
+                    }
+                    // 2. load new game 
+                    SceneManager.LoadScene("Video");
                 }
-
-            }
-                catch (System.Exception)
-                {
-                Debug.Log("System exception in deciding");
-                }
-            
+                    catch (System.Exception)
+                    {
+                        Debug.Log("System exception in deciding");
+                    }
+                
             }
             
         }
-        // 2. load new game 
-        SceneManager.LoadScene("Video");
+
+        else // no save file was found, we can start a new game 
+        {
+            // 2. load new game 
+            SceneManager.LoadScene("Video");
+        }
+
     }
 }
