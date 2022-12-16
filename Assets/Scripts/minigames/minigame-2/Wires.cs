@@ -36,12 +36,7 @@ public class Wires : MonoBehaviour
                 if (transform.parent.name.Equals(collider.transform.parent.name))
                 {
                     Main.Instance.AddScore();
-                    Debug.Log("Correct");
                     Destroy(this);
-                }
-                else
-                {
-                    Debug.Log("Wrong");
                 }
                 return;
             }

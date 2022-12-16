@@ -37,9 +37,11 @@ public class TextEntered : MonoBehaviour
         if (timeRemaining < 0){
             popupCanvas.enabled = true;
             popup.text = lostText;
+            PlayerPrefs.SetInt("WonMinigame", 0);
         } else if (!game_end) {
             timeRemaining -= Time.deltaTime;
             timeField.text = timeRemaining.ToString();
+            PlayerPrefs.SetInt("WonMinigame", 1);
         }
     }
 

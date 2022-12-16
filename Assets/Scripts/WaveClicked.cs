@@ -134,6 +134,8 @@ public class WaveClicked : MonoBehaviour
         {
             susBar.IncreaseSus();
         }
+
+        Time.timeScale = 1.0f;
         Debug.Log("Po: " + susBar.GetSusValue());
         radioScreen.SetActive(true);
     }

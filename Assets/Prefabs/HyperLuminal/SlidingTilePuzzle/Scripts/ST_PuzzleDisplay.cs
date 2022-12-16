@@ -234,6 +234,7 @@ public class ST_PuzzleDisplay : MonoBehaviour
 		if(Complete)
 		{
 			popup.SetActive(true);
+			PlayerPrefs.SetInt("WonMinigame", 1);
 			Debug.Log("Puzzle Complete!");
 			Time.timeScale = 0.0f;
 		}

@@ -191,6 +191,114 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &175432991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_text
+      value: This is minigame 4. You received damaged map and need to put it back
+        together. On the right side, there is example. Click on the tiles to move
+        them and get them to same position. There is no time in this minigame, but
+        it is challanging on its own!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507550, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518439218069, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndTutorialMinigame4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
 --- !u!1 &510838930
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,8 +1084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000091553, y: 18.5326}
-  m_SizeDelta: {x: 271.69, y: 243.2548}
+  m_AnchoredPosition: {x: -0.00036637, y: 32.1188}
+  m_SizeDelta: {x: 360.55, y: 308.3904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875285645
 MonoBehaviour:
@@ -999,7 +1107,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Won! Map was repaired and can be used again!
+  m_text: You Won! Map was repaired and can be used again! Your Sus bar will decrease
+    now. Our people are very happy with your work.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 606f05b6beb602944888957d76def45b, type: 2}
   m_sharedMaterial: {fileID: 9192909536692414425, guid: 606f05b6beb602944888957d76def45b, type: 2}
@@ -1008,8 +1117,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278387670
-  m_fontColor: {r: 0.8396226, g: 0.011881431, b: 0.011881431, a: 1}
+    rgba: 4278848113
+  m_fontColor: {r: 0.4433962, g: 0.039738327, b: 0.039738327, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1026,8 +1135,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1113,8 +1222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: 0.00000095367}
-  m_SizeDelta: {x: 271.6864, y: 280.3138}
+  m_AnchoredPosition: {x: -2.9804, y: 0.4235}
+  m_SizeDelta: {x: 360.5489, y: 372.6276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099498385
 MonoBehaviour:
