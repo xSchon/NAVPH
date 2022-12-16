@@ -1,4 +1,4 @@
-/* Class reposnsible for loading morse from JSON, picking one and sending to TextEntered script */
+/* Class responsible for loading morse from JSON, picking one and sending to TextEntered script */
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;

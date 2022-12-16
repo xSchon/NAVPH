@@ -52,7 +52,7 @@ public class WaveClicked : MonoBehaviour
     }
 
     private void updatePosX(){
-        this.radios[activeRadio].setPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
+        this.radios[activeRadio].SetPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
     }
 
     IEnumerator LoadMinigame(int index){
@@ -84,14 +84,14 @@ public class WaveClicked : MonoBehaviour
     {
         radioNumber = radioNumber - 1;
 
-        GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].getColor();
+        GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].GetColor();
         gameText.text = "";
         this.activeRadio = radioNumber;
         RectTransform tmp = GameObject.Find("FindingCursor").GetComponent<RectTransform>();
-        tmp.localPosition = new Vector3(this.radios[activeRadio].getPosX(), tmp.localPosition.y, tmp.localPosition.z);
+        tmp.localPosition = new Vector3(this.radios[activeRadio].GetPosX(), tmp.localPosition.y, tmp.localPosition.z);
 
-        GameObject.Find("FindingCursor").GetComponent<SearchMessage>().setSearch(radios[radioNumber].isActive());
-        if(!radios[radioNumber].isActive()){
+        GameObject.Find("FindingCursor").GetComponent<SearchMessage>().setSearch(radios[radioNumber].IsActive());
+        if(!radios[radioNumber].IsActive()){
             gameText.text = "...";
             GameObject.Find("WaveButton").GetComponent<Button>().enabled = true;
         } else {
@@ -142,7 +142,7 @@ public class WaveClicked : MonoBehaviour
     public void radioActivation(Conversation activeConvo)
     {
         int radioNumber = activeConvo.radio - 1;
-        radios[radioNumber].setActive(false);
+        radios[radioNumber].SetActive(false);
         try{
             if (this.activeRadio == radioNumber){
                 loadScene(radioNumber + 1);
@@ -169,17 +169,17 @@ public class WaveClicked : MonoBehaviour
             timer.HHMMtoMinutes(activeConvo.whenDeffendSector), deff
         );
 
-        radios[radioNumber].setRadioArray(activeConvo.text);     
-        radios[radioNumber].setAuthor(activeConvo.author);
+        radios[radioNumber].SetRadioArray(activeConvo.text);     
+        radios[radioNumber].SetAuthor(activeConvo.author);
     }
 
     public void checkStopped(int currentTime)
     {
         if (this.resetSearch.ContainsKey(currentTime)){
             foreach(int timeRen in this.resetSearch[currentTime]){
-                this.radios[timeRen].setActive(true);
-                this.radios[timeRen].setRadioArray(Array.Empty<string>());
-                this.radios[timeRen].setAuthor("");
+                this.radios[timeRen].SetActive(true);
+                this.radios[timeRen].SetRadioArray(Array.Empty<string>());
+                this.radios[timeRen].SetAuthor("");
                 try{
                     if (this.activeRadio == timeRen){
                         loadScene(timeRen + 1);
@@ -200,8 +200,8 @@ public class WaveClicked : MonoBehaviour
     {
         // pause radioStatic sound
         radioStatic.Pause();
-        string[] showText = radios[this.activeRadio].getRadioArray();
-        string authr = radios[this.activeRadio].getAuthor();
+        string[] showText = radios[this.activeRadio].GetRadioArray();
+        string authr = radios[this.activeRadio].GetAuthor();
 
         readingScreen.SetActive(true);
         timer.StopTimer();
@@ -215,7 +215,7 @@ public class WaveClicked : MonoBehaviour
         radioStatic.Play();
         timer.StartTimer();
         readingScreen.SetActive(false);
-        radios[activeRadio].setActive(true);
+        radios[activeRadio].SetActive(true);
         loadScene(activeRadio + 1);
     }
 

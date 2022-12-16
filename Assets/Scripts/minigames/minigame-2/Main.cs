@@ -1,4 +1,4 @@
-/* MKain script for minigame-2 */
+/* Main script for minigame-2 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

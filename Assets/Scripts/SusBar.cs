@@ -1,3 +1,4 @@
+/* Script managing suspicion bar - visualization of the value, storing it and overall susbar control */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,29 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class SusBar : MonoBehaviour
 {
-    private Slider slider;
-    private float standardChangeValue = 5.0f; 
+    public Slider slider;
+    private float standardChangeValue = 5.0f;
     public GameObject sliderFilling;
 
     void Start()
     {
-        slider = gameObject.GetComponent<Slider>();
-        controlSus();
+        ControlSus();
     }
 
-
-    private void controlSus()
+    private void ControlSus()
     {
         Color newBarColor = new Color(1, 1, 1);
-        if(slider.value == 0){
-            newBarColor = new Color(0, 0, 0);
-        } else if (slider.value < 30){
-            newBarColor = new Color(0, 1, 0);
-        } else if (slider.value < 70){
-            newBarColor = new Color(1, 0.64f, 0);
-        } else if (slider.value <= 100){
-            newBarColor = new Color(1, 0, 0);
-            if (slider.value >= 100){
+        switch (slider.value)
+        {
+            case 1:
+                newBarColor = new Color(0, 0, 0);
+                break;
+            case < 30:
+                newBarColor = new Color(0, 1, 0);
+                break;
+            case < 70:
+                newBarColor = new Color(1, 0.64f, 0);
+                break;
+            case < 100:
+                newBarColor = new Color(1, 0, 0);
+                break;
+            case >= 100:
                 string endingText = "";
                 Debug.Log("You have lost the game");
                 endingText += "That was not a good service, comrade... \n\n";
@@ -37,25 +42,26 @@ public class SusBar : MonoBehaviour
                 PlayerPrefs.SetString("endingText", endingText);
                 PlayerPrefs.Save();
                 SceneManager.LoadScene("Ending");
-            } 
-        } else{
-            Debug.Log("Something went wrong and slider value is "+slider.value);
+                break;
         }
         sliderFilling.GetComponent<Image>().color = newBarColor;
     }
 
-    public void IncreaseSus(){
+    public void IncreaseSus()
+    {
         slider.value += standardChangeValue;
-        controlSus(); 
+        ControlSus();
     }
-    public void DecreaseSus(){
+    public void DecreaseSus()
+    {
         slider.value -= standardChangeValue;
-        controlSus(); 
+        ControlSus();
     }
 
-    public void InfluenceSus(float customChangeValue){
+    public void InfluenceSus(float customChangeValue)
+    {
         slider.value += customChangeValue;
-        controlSus(); 
+        ControlSus();
     }
 
     public float GetSusValue()
@@ -66,6 +72,6 @@ public class SusBar : MonoBehaviour
     public void SetSusValue(float newValue)
     {
         slider.value = newValue;
-        controlSus();
+        ControlSus();
     }
 }
