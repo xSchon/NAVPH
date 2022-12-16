@@ -10,14 +10,14 @@ using TMPro;
 
 public class SectorsDefence : MonoBehaviour
 {
-    public int sectorsAmount = 2; // set in Unity
+    public int sectorsAmount = 2;
     private int[] selectedSectors;
     public Dictionary<int, List<DefendableSector>> toDefend = new Dictionary<int, List<DefendableSector>>();
     public Dictionary<string, List<bool>> storyLines = new Dictionary<string, List<bool>>();
     public TMP_Text defendingSectorsText;
     public List<Image> sectorsAll; // ORDERED sectors 1 to 9
     public SusBar susBar;
-    public WarningMessage messagePop;
+    public PopUpMessage messagePop;
 
     void Start()
     {

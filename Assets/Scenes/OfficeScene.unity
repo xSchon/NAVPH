@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 83598528}
   - component: {fileID: 83598527}
   m_Layer: 5
-  m_Name: WarningText
+  m_Name: PopUpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 99027485}
   - component: {fileID: 99027487}
   m_Layer: 5
-  m_Name: WarningMessage
+  m_Name: PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,6 +503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeRatio: 0.2
+  messageText: {fileID: 83598527}
+  messageEvaluation: {fileID: 522163163}
   warningMessages: {fileID: 4900000, guid: 7d42b6cb439d9e0448433c72ac80e687, type: 3}
   approvalMessages: {fileID: 4900000, guid: b9268bb18cc02704682214dec23ea108, type: 3}
 --- !u!1 &106259162
@@ -2144,7 +2146,7 @@ GameObject:
   - component: {fileID: 522163164}
   - component: {fileID: 522163163}
   m_Layer: 5
-  m_Name: WarningPenalisation
+  m_Name: PopUpPenalisation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

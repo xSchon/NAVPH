@@ -63,7 +63,7 @@ public class DayLogic : MonoBehaviour
 
         for (int i = 0; i < messageStrings.Length; i++)
         {
-            this.messagesTimes.Add(timer.mmHHtoMinutes(messageStrings[i]), messageStrings[i]);
+            this.messagesTimes.Add(timer.HHMMtoMinutes(messageStrings[i]), messageStrings[i]);
         }
     }
 

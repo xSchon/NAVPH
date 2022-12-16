@@ -1,3 +1,4 @@
+/* Scipt used to control day flow and measure in game time */
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -23,6 +24,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         // 4 seconds per 10 minutes makes in game 8 hours == 3 minutes irl
+        // Without reading, without minigames
         DifficultySectorsInMinutes();
         timerActive = true;
         timePassed = 0;
@@ -60,12 +62,13 @@ public class Timer : MonoBehaviour
             return;
         }
 
+        // convert and display formatted current time
         hours = minutes / 60;
         minutes = minutes % 60;
-        string newTime = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, "00");
+        string newTime = string.Format(format: "{0:00}:{1:00}:{2:00}", hours, minutes, "00");
         mainTimer.text = newTime;
 
-        dayLogicScript.CheckMessages(mmHHtoMinutes(newTime));
+        dayLogicScript.CheckMessages(HHMMtoMinutes(newTime));
     }
 
     public void StartTimer()
@@ -80,23 +83,24 @@ public class Timer : MonoBehaviour
         mainTimer.color = new Color(0.130f, 0.349f, 0.160f, 1.000f);
     }
 
-    public int getCurrentMinutes()
+    public int GetCurrentMinutes()
     {
         return ((int)(this.timePassed / secondsInTenMinutes)) * 10;
     }
 
     public void SetStartingHour(string newStarting)
     {
-        this.startingHour = mmHHtoMinutes(newStarting) / 60.0f;
+        this.startingHour = HHMMtoMinutes(newStarting) / 60.0f;
     }
 
     public void SetEndingHour(string newEnding)
     {
-        this.endingHour = mmHHtoMinutes(newEnding) / 60.0f;
+        this.endingHour = HHMMtoMinutes(newEnding) / 60.0f;
     }
 
-    public int mmHHtoMinutes(string timeHHMM)
+    public int HHMMtoMinutes(string timeHHMM)
     {
+        // Transform from string "HH:MM" to integer of minutes 
         int tmpMins;
         tmpMins = (int)TimeSpan.Parse(timeHHMM).TotalMinutes;
         return tmpMins;

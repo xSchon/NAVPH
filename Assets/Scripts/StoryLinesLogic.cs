@@ -1,3 +1,5 @@
+/* Check and evaluate storylines and players progression through them.
+   Storylines and endings are based on storylines.json file. */
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Collections;
@@ -5,20 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Ending
-{
-    public string type;
-    public string[] messages;
-    public string field = "none";
-    public int influence = 0;
-}
-
-public class StoryLine
-{
-    public List<bool> succesful_storyline = new List<bool>();
-    public Ending ending;
-}
 
 public class StoryLinesLogic : MonoBehaviour
 {
@@ -33,6 +21,7 @@ public class StoryLinesLogic : MonoBehaviour
 
     public Dictionary<string, List<bool>> UpdateStoryLines(Dictionary<string, List<bool>> newValues, Dictionary<string, List<bool>> existingValues)
     {
+        // merge save file and daily storylines progression together and evaluate those new storylines
         foreach (string checkKey in newValues.Keys.ToArray())
         {
             if (existingValues.ContainsKey(checkKey))
@@ -49,8 +38,8 @@ public class StoryLinesLogic : MonoBehaviour
     }
 
     public Dictionary<string, List<bool>> CheckStoryLines(Dictionary<string, List<bool>> storyLinesEval)
-    // Check for game - ending lines.
     {
+        // Evaluate storylines - compare storylines.json succesful with current state of lines
         string storyText1 = "";
         string storyText2 = "";
 
@@ -66,7 +55,7 @@ public class StoryLinesLogic : MonoBehaviour
                         Debug.Log("It's time to end the game");
                         string endingText = "";
                         endingText += "This is the end for now...\n\n";
-                        endingText += storyLines[checkKey].ending.messages[0];  
+                        endingText += storyLines[checkKey].ending.messages[0];
 
                         PlayerPrefs.SetString("endingText", endingText);
                         PlayerPrefs.SetInt("storyLinesEnd", 1);

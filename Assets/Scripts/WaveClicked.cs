@@ -151,7 +151,7 @@ public class WaveClicked : MonoBehaviour
             // Expected exception for the time when radio is closed
         };
 
-        int renewSearch = timer.mmHHtoMinutes(activeConvo.hourTill);
+        int renewSearch = timer.HHMMtoMinutes(activeConvo.hourTill);
         if (this.resetSearch.ContainsKey(renewSearch)){
             List<int> tmp = this.resetSearch[renewSearch];
             tmp.Add(radioNumber);
@@ -166,7 +166,7 @@ public class WaveClicked : MonoBehaviour
         deff.storyNum = activeConvo.storyLine;
         deff.susPunish = activeConvo.susMeterPenalisation;
         sectrsDeff.NewToDefend(
-            timer.mmHHtoMinutes(activeConvo.whenDeffendSector), deff
+            timer.HHMMtoMinutes(activeConvo.whenDeffendSector), deff
         );
 
         radios[radioNumber].setRadioArray(activeConvo.text);     

@@ -75,7 +75,7 @@ public class SearchMessage : MonoBehaviour
     }
 
     public int getTime(){
-        return GameObject.Find("DailyTimer").GetComponent<Timer>().getCurrentMinutes();
+        return GameObject.Find("DailyTimer").GetComponent<Timer>().GetCurrentMinutes();
     }
 
 }
