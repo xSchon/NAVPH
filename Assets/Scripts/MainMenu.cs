@@ -1,3 +1,4 @@
+/* Main menu of the game an it's buttons */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class MainMenu : MonoBehaviour
     {
         folderPath = Application.persistentDataPath;
         files = Directory.GetFiles(folderPath);
-        if (files.Length == 0) 
+        if (files.Length == 0)
         {
             continueButton.SetActive(false);
         }
@@ -32,9 +33,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void newGame()
+    public void NewGame()
     {
-        if (files.Length > 0) 
+        if (files.Length > 0)
         {
             // 1. delete save file
             bool decision = EditorUtility.DisplayDialog(
@@ -44,7 +45,7 @@ public class MainMenu : MonoBehaviour
             "No" // Cancel button
         );
 
-            if (decision) 
+            if (decision)
             {
                 try
                 {
@@ -57,18 +58,18 @@ public class MainMenu : MonoBehaviour
                     // 2. load new game 
                     SceneManager.LoadScene("Video");
                 }
-                    catch (System.Exception)
-                    {
-                        Debug.Log("System exception in deciding");
-                    }
-                
+                catch (System.Exception)
+                {
+                    Debug.Log("System exception in deciding");
+                }
+
             }
-            
+
         }
 
         else // no save file was found, we can start a new game 
         {
-            // 2. load new game 
+            // 2. load new game, starting from tutorial
             SceneManager.LoadScene("Video");
         }
 

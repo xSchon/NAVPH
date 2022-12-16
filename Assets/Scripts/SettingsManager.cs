@@ -9,6 +9,7 @@ public class SettingsManager : MonoBehaviour
 
     void Start()
     {
+        AudioListener.volume = PlayerPrefs.GetInt("volume", 1);
         if (AudioListener.volume == 0)
         {
             soundTextMesh.text = "OFF";
@@ -38,6 +39,8 @@ public class SettingsManager : MonoBehaviour
             soundTextMesh.text = "ON";
             Debug.Log("Unmute");
         }
+        PlayerPrefs.SetInt("volume", (int) AudioListener.volume);
+        PlayerPrefs.Save();
     }
 
     public void SetDifficulty()
