@@ -87,7 +87,7 @@ public class StoryLinesLogic : MonoBehaviour
                             }
                             storyLinesEval[checkKey].Add(false);
 
-                            gameObject.GetComponent<GameLogic>().StatusFromStoryLines(storyLines[checkKey].ending.field, storyLines[checkKey].ending.influence);
+                            gameObject.GetComponent<DayLogic>().StatusFromStoryLines(storyLines[checkKey].ending.field, storyLines[checkKey].ending.influence);
                         }
                     }
                 }

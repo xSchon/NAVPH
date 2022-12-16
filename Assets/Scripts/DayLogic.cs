@@ -1,3 +1,5 @@
+/* This is main script of the game. It takes care of the dayflow and gameflow
+   as in loading, saving days, evaluating the results and such */
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,48 +10,55 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GameLogic : MonoBehaviour
+public class DayLogic : MonoBehaviour
 {
     public TextAsset daysJson;
     public TextAsset conversationsJson;
-    private JObject getResult;
-    private string currentDay;
     private Dictionary<string, List<bool>> currentStoryLines;
     private Dictionary<string, Day> days;
     private Dictionary<string, Dictionary<string, Conversation>> conversations;
     private Dictionary<int, string> messagesTimes;
-    private WaveClicked waveClicked;
-    private SectorsDefence sectrsDeff;
     private Save savedData;
-    public string dayIndex;// = "1";
-    private Timer timer;
-    private float susValue;
-    public float healthStatusStep = 10f;
+    private string dayIndex;
     private float susMeterValue;
     public GameObject[] sceneRadios;
     private NestedStatus statusData = new NestedStatus();
+    public Timer timer;
+    public WaveClicked waveClicked;
+    public SectorsDefence sectrsDeff;
+    public SusBar susBar;
 
     void Start()
     {
-        timer = FindObjectOfType<Timer>();
         // loads the current day, the dayIndex will be updated 
         this.days = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         LoadDay();
-        currentDay = dayIndex;
+
+        // load conversations, minigames and radios of given day
         conversations = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Conversation>>>(conversationsJson.text);
-        LoadDayMessages(currentDay);
-
-        waveClicked = FindObjectOfType<WaveClicked>();
-        sectrsDeff = FindObjectOfType<SectorsDefence>();
-        waveClicked.setMinigames(days[currentDay].minigamesEnabled);
-
+        LoadDayMessages();
+        waveClicked.setMinigames(days[dayIndex].minigamesEnabled);
         EnableRadios();
     }
 
-    private void LoadDayMessages(string dayNum)
+    public void EnableRadios()
+    {
+        // enable only those radios that are supposed to be used on certain day
+        for (int i = 0; i < 3; i++)
+        {
+            sceneRadios[i].SetActive(false);
+        }
+        foreach (int activateRadio in days[dayIndex].radiosEnabled)
+        {
+            sceneRadios[activateRadio - 1].tag = "Clickable";
+            sceneRadios[activateRadio - 1].SetActive(true);
+        }
+    }
+
+    private void LoadDayMessages()
     {
         // Create dictionary for easy search between current time, keys and message time
-        string[] messageStrings = conversations[dayNum].Keys.ToArray();
+        string[] messageStrings = conversations[dayIndex].Keys.ToArray();
         this.messagesTimes = new Dictionary<int, string>();
 
         for (int i = 0; i < messageStrings.Length; i++)
@@ -58,12 +67,13 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    public void checkMessages(int currentMinutes)
+    public void CheckMessages(int currentMinutes)
     {
+        // check if there is a message for given time in loaded messsages
         if (this.messagesTimes.ContainsKey(currentMinutes))
         {
-            // if there is message at given time
-            waveClicked.radioActivation(conversations[currentDay][messagesTimes[currentMinutes]]);
+            // if yes, display this message
+            waveClicked.radioActivation(conversations[dayIndex][messagesTimes[currentMinutes]]);
         }
         waveClicked.checkStopped(currentMinutes);
         sectrsDeff.CheckSectors(currentMinutes);
@@ -71,12 +81,14 @@ public class GameLogic : MonoBehaviour
 
     private void LoadDay()
     {
-        var directory = new DirectoryInfo(Application.persistentDataPath);
-        var files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
+        DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
+        IEnumerable<FileInfo> files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
 
         if (!files.Any())
         {  // no save was found
-            FirstTimeRun();
+            dayIndex = "1";
+            currentStoryLines = new Dictionary<string, List<bool>>();
+            SetupDay();
             return;
         }
 
@@ -90,37 +102,32 @@ public class GameLogic : MonoBehaviour
         dayIndex = dayIndexInt.ToString();
         Debug.Log("Today is the day number: " + dayIndex);
 
-        susMeterValue = savedData.susMeterValue;
+        susMeterValue = savedData.susMeterValue;  // susMeter from save
 
         int decreaseAmount = days[dayIndex].susDecrease;  // decrease sus value daily, based on dificulty as well
         int difficulty = PlayerPrefs.GetInt("difficulty", 2);
         if (difficulty == 1) { decreaseAmount = (int) (decreaseAmount * 1.5); } // easy
         if (difficulty == 3) { decreaseAmount = (int) (decreaseAmount * 0.5); } // hard
         susMeterValue -= decreaseAmount;
+
+        susBar.SetSusValue(susMeterValue);
+        SetupDay();
         currentStoryLines = savedData.storyLines;
-
-        Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
-        timer.SetStartingHour(day[dayIndex].startingTime);
-        timer.SetEndingHour(day[dayIndex].endingTime);
-
-        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigamesEnabled);
-        FindObjectOfType<SusBar>().SetSusValue(susMeterValue);
     }
 
-    private void FirstTimeRun()
+    private void SetupDay()
     {
-        dayIndex = "1";
-        currentStoryLines = new Dictionary<string, List<bool>>();
-
+        // load information about current day and fill them into other scripts
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
 
-        FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigamesEnabled);
+        waveClicked.setMinigames(day[dayIndex].minigamesEnabled);
     }
 
     public void StatusFromStoryLines(string field, int amount)
     {
+        // If storylines influence the status before saving, do it here - with the check as well
         switch (field)
         {
             case "None":
@@ -150,10 +157,9 @@ public class GameLogic : MonoBehaviour
 
     private bool SaveGame()
     {
-        susValue = FindObjectOfType<SusBar>().GetSusValue();
-        float susDiff = susValue - susMeterValue;
+        float newSusValue = susBar.GetSusValue();
+        float susDiff = newSusValue - susMeterValue;
 
-        // TODO rework to loading from current status
         statusData.vehicle = EvaluateVehicleStatus(susDiff);
         statusData.health = EvaluateHealthStatus(susDiff);
         statusData.socialStatus = EvaluateSocialStatus(susDiff);
@@ -161,37 +167,31 @@ public class GameLogic : MonoBehaviour
 
         Save storeData = new Save();
         storeData.day = dayIndex;
-        storeData.susMeterValue = susValue;
+        storeData.susMeterValue = newSusValue;
         storeData.storyLines = gameObject.GetComponent<StoryLinesLogic>().UpdateStoryLines(sectrsDeff.GetStoryLines(), currentStoryLines);
         storeData.status = statusData;
 
-        if (PlayerPrefs.GetInt("storyLinesEnd", 0) == 1)  // if there was a storyline leading to full ending
+        if (PlayerPrefs.GetInt("storyLinesEnd", 0) == 1)  // if there was a storyline leading to full ending, end the game
         {
             return false;
         }
 
-        if (days.Keys.Count.ToString() == dayIndex)   // if this was the last day of the gameplay
+        if (days.Keys.Count.ToString() == dayIndex)   // if this was the last day of the gameplay, end the game
         {
             EvaluateGame(storeData);
             return false;
         }
 
+        // Save game file on disk
         string output = JsonConvert.SerializeObject(storeData);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/saved_day-{dayIndex}.json", output);
 
         Debug.Log("Game succesfully saved - day" + dayIndex);
         return true;
-
     }
 
     public void EndDay()
     {
-        // 1. Uloz hru 
-        // 2. Prepni scenu na summary, ukaz summary
-        // => V Summary je PrepareNewDay skript 
-        // 3. prepni dalsi den (current day + 1) 
-        //    ak je to posledny den, ukaz endgame 
-        // 4. loadDays(days) zacni novy den
         if (SaveGame())
         {
             SceneManager.LoadScene("Summary");
@@ -203,7 +203,8 @@ public class GameLogic : MonoBehaviour
     }
 
     private void EvaluateGame(Save storeData)
-    {
+    {   
+        // different endings based on how player performed during their journey
         Debug.Log("You have finished the game!");
         string endingText = "";
         endingText += "Thank you for your service.\n\n";
@@ -230,21 +231,9 @@ public class GameLogic : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void EnableRadios()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            sceneRadios[i].SetActive(false);
-        }
-        foreach (int activateRadio in days[currentDay].radiosEnabled)
-        {
-            sceneRadios[activateRadio - 1].tag = "Clickable";
-            sceneRadios[activateRadio - 1].SetActive(true);
-        }
-    }
-
     private int EvaluateHealthStatus(float susDiff)
     {
+        float healthStatusStep = 10f;
         int currentStatus = 3;
 
         if (savedData != null)

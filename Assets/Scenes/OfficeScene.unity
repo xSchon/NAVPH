@@ -905,7 +905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioScreen: {fileID: 1849400422}
   susBarObject: {fileID: 546358026}
-  minigameChance: 1
   mainCamera: {fileID: 106259164}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075
@@ -4608,12 +4607,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   daysJson: {fileID: 4900000, guid: 82515fcc8c3a8324680a718369f96863, type: 3}
   conversationsJson: {fileID: 4900000, guid: 55d6c3a64ebf1374c9934e74f163e421, type: 3}
-  dayIndex: 
-  healthStatusStep: 10
   sceneRadios:
   - {fileID: 994038678}
   - {fileID: 1936988129}
   - {fileID: 1907711562}
+  timer: {fileID: 1845140555}
+  waveClicked: {fileID: 167223024}
+  sectrsDeff: {fileID: 466179460}
+  susBar: {fileID: 546358029}
 --- !u!4 &1287202082
 Transform:
   m_ObjectHideFlags: 0
@@ -6513,9 +6514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab72c8a91f1a89419eac101bb17c098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLogicObject: {fileID: 1287202080}
-  timeTextObject: {fileID: 231307075}
-  secondsInTenMinutes: 2
+  dayLogicScript: {fileID: 1287202081}
+  mainTimer: {fileID: 231307077}
   startingHour: 8
   endingHour: 15
 --- !u!4 &1845140556

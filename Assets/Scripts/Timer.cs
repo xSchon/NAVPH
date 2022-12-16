@@ -9,10 +9,8 @@ public class Timer : MonoBehaviour
     private float timePassed;
     private float sinceLast = 0.0f;
     private bool timerActive;
-    public GameObject gameLogicObject;
-    private GameLogic gameLogicScript;
-    public GameObject timeTextObject;
-    private TMP_Text mainTimer;
+    public DayLogic dayLogicScript;
+    public TMP_Text mainTimer;
     // time granularity of program is in 10 minutes
     // select how many seconds represent one window of 10 minutes
     private float secondsInTenMinutes = 4.0f;
@@ -29,8 +27,6 @@ public class Timer : MonoBehaviour
         timerActive = true;
         timePassed = 0;
 
-        mainTimer = timeTextObject.GetComponent<TextMeshProUGUI>();
-        gameLogicScript = gameLogicObject.GetComponent<GameLogic>();
         UpdateTime();
     }
 
@@ -60,7 +56,7 @@ public class Timer : MonoBehaviour
         if (minutes > this.endingHour * 60)
         {
             Debug.Log("End of the day");
-            gameLogicScript.EndDay();
+            dayLogicScript.EndDay();
             return;
         }
 
@@ -69,7 +65,7 @@ public class Timer : MonoBehaviour
         string newTime = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, "00");
         mainTimer.text = newTime;
 
-        gameLogicScript.checkMessages(mmHHtoMinutes(newTime));
+        dayLogicScript.CheckMessages(mmHHtoMinutes(newTime));
     }
 
     public void StartTimer()
