@@ -123,6 +123,117 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &182536051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_text
+      value: This is minigame 2. Your Radio is broken and you need to fix it! Connect
+        correct cables by their color and repair your radio. Be careful, you have
+        limited time!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518282507550, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518439218064, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: script2
+      value: 
+      objectReference: {fileID: 651878568}
+    - target: {fileID: 8608756518439218069, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndTutorialMinigame2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
 --- !u!1 &204593455
 GameObject:
   m_ObjectHideFlags: 0

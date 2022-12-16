@@ -24,6 +24,7 @@ public class Main : MonoBehaviour
     {
         popUpCanvas.enabled = false;
         Instance = this;
+        Time.timeScale = 0.0f;
     }
 
     void Update()
@@ -34,13 +35,11 @@ public class Main : MonoBehaviour
             gameEnd = true;
             popUpCanvas.enabled = true;
             popUpText.text = winText;
-            Debug.Log("You Win!");
             PlayerPrefs.SetInt("WonMinigame", 1);
         }
 
         if (timeRemaining < 0 && gameEnd == false)
         {
-            Debug.Log("You Lose!");
             PlayerPrefs.SetInt("WonMinigame", 0);
             gameEnd = true;
             popUpCanvas.enabled = true;
@@ -49,8 +48,6 @@ public class Main : MonoBehaviour
         } 
         if (gameEnd == false && timeRemaining > 0) 
         {
-            Debug.Log("Game is still running");
-            Debug.Log(gameEnd);
             timeRemaining -= Time.deltaTime;
             // remove decimal places from timeRemaining
             timeRemainingSeconds = Mathf.Round(timeRemaining * 100f) / 100f;
@@ -61,7 +58,10 @@ public class Main : MonoBehaviour
     public void AddScore()
     {
         count++;
-        Debug.Log(count);
+    }
 
+    public void UnfreezeTime()
+    {
+        Time.timeScale = 1.0f;
     }
 }
