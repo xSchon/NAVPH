@@ -55,7 +55,11 @@ public class TextEntered : MonoBehaviour
     public void SetAttributes(string morse_text, string ascii_text, float time){
         this.morse_code = morse_text;
         this.ascii_code = ascii_text;
-        this.timeRemaining = time;
+
+        int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
+        if (difficulty == 1) { this.timeRemaining = time * 1.25f; } // easy
+        if (difficulty == 2) { this.timeRemaining = time; } // normal
+        if (difficulty == 3) { this.timeRemaining = time * 0.75f; } // hard
     }
 
     public void UnfreezeTime()

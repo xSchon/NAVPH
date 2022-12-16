@@ -11,7 +11,7 @@ public class Main : MonoBehaviour
 
     private int count = 0;
     private int ending = 9;
-    private float timeRemaining = 15f;
+    private float timeRemaining;
     private float timeRemainingSeconds;
     [SerializeField] private TMPro.TextMeshProUGUI timerTextMesh;
     [SerializeField] private Canvas popUpCanvas;
@@ -25,6 +25,11 @@ public class Main : MonoBehaviour
         popUpCanvas.enabled = false;
         Instance = this;
         Time.timeScale = 0.0f;
+
+        int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
+        if (difficulty == 1) { timeRemaining = 25f; } // easy
+        if (difficulty == 2) { timeRemaining = 20f; } // normal
+        if (difficulty == 3) { timeRemaining = 15f; } // hard
     }
 
     void Update()

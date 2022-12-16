@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private TMP_Text mainTimer;
     // time granularity of program is in 10 minutes
     // select how many seconds represent one window of 10 minutes
-    public float secondsInTenMinutes = 8.0f;
+    private float secondsInTenMinutes = 4.0f;
     // first hour of a working day. 24 hour format. 8.5 represents 8:30
     public float startingHour = 7.0f;
     public float endingHour = 15.0f;
@@ -24,16 +24,8 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        // 7 seconds per 10 minutes makes in game 8 hours == 5.5 minutes irl
-        Debug.Log(startingHour);
-        if (secondsInTenMinutes <= 0)
-        {
-            secondsInTenMinutes = 7.0f;
-        }
-        if (startingHour < 0)
-        {
-            startingHour = 8.0f;
-        }
+        // 4 seconds per 10 minutes makes in game 8 hours == 3 minutes irl
+        DifficultySectorsInMinutes();
         timerActive = true;
         timePassed = 0;
 
@@ -112,5 +104,13 @@ public class Timer : MonoBehaviour
         int tmpMins;
         tmpMins = (int)TimeSpan.Parse(timeHHMM).TotalMinutes;
         return tmpMins;
+    }
+
+    private void DifficultySectorsInMinutes()
+    {
+        int difficulty = PlayerPrefs.GetInt("difficulty", 2);
+        if (difficulty == 1) { this.secondsInTenMinutes = 5; } // easy
+        if (difficulty == 2) { this.secondsInTenMinutes = 3.5f; } // normal
+        if (difficulty == 3) { this.secondsInTenMinutes = 2; } // hard
     }
 }

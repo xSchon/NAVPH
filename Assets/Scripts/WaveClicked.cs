@@ -236,11 +236,13 @@ public class WaveClicked : MonoBehaviour
             timer.StopTimer();
 
             int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            //int index = 1;          // remove!!!!!!!!!!
             StartCoroutine(LoadMinigame(minigamesIDs[index]));
         }
         else {
-            minigameChance += 0.1f;
+            int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
+            if (difficulty == 1) { minigameChance += 0.05f; } // easy
+            if (difficulty == 2) { minigameChance += 0.1f; } // normal
+            if (difficulty == 3) { minigameChance += 0.15f; } // hard
         }
     }
 }

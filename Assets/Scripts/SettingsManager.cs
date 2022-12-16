@@ -17,6 +17,11 @@ public class SettingsManager : MonoBehaviour
         {
             soundTextMesh.text = "ON";
         }
+
+        int currentDiff =  PlayerPrefs.GetInt("difficulty", 2);
+        if (currentDiff == 1) { difficultyTextMesh.text = "Easy"; } // easy
+        if (currentDiff == 2) { difficultyTextMesh.text = "Medium"; } // normal
+        if (currentDiff == 3) { difficultyTextMesh.text = "Hard"; } // hard
     }
 
     public void MuteAllSounds()
@@ -37,18 +42,24 @@ public class SettingsManager : MonoBehaviour
 
     public void SetDifficulty()
     {
+        int difficulty = 2;
         if (difficultyTextMesh.text == "Easy")
         {
+            difficulty = 2;
             difficultyTextMesh.text = "Medium";
         }
         else if (difficultyTextMesh.text == "Medium")
         {
+            difficulty = 3;
             difficultyTextMesh.text = "Hard";
         }
         else if (difficultyTextMesh.text == "Hard")
         {
+            difficulty = 1;
             difficultyTextMesh.text = "Easy";
         }
 
+        PlayerPrefs.SetInt("difficulty", difficulty);
+        PlayerPrefs.Save();
     }
 }

@@ -34,8 +34,6 @@ public class DayStartLetters : MonoBehaviour
 
             int dayIndexInt = int.Parse(dayIndex) + 1;
             dayIndex = dayIndexInt.ToString();
-
-            Debug.Log(dayIndex);
         }
 
         // load new day message accordingly to day

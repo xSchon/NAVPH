@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
     {
         folderPath = Application.persistentDataPath;
         files = Directory.GetFiles(folderPath);
-        Debug.Log(files.Length);
         if (files.Length == 0) 
         {
             continueButton.SetActive(false);
@@ -38,7 +37,6 @@ public class MainMenu : MonoBehaviour
         if (files.Length > 0) 
         {
             // 1. delete save file
-            // to do: add confirmation for deleting save files
             bool decision = EditorUtility.DisplayDialog(
             "New Game", // title
             "Starting a new game will delete all save files. Continue?", // description
@@ -65,7 +63,7 @@ public class MainMenu : MonoBehaviour
             }
             
         }
-        // 2. load game 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // 2. load new game 
+        SceneManager.LoadScene("Video");
     }
 }

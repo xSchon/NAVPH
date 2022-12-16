@@ -90,9 +90,13 @@ public class GameLogic : MonoBehaviour
         dayIndex = dayIndexInt.ToString();
         Debug.Log("Today is the day number: " + dayIndex);
 
-
         susMeterValue = savedData.susMeterValue;
-        susMeterValue -= days[dayIndex].susDecrease;  // decrease sus value daily
+
+        int decreaseAmount = days[dayIndex].susDecrease;  // decrease sus value daily, based on dificulty as well
+        int difficulty = PlayerPrefs.GetInt("difficulty", 2);
+        if (difficulty == 1) { decreaseAmount = (int) (decreaseAmount * 1.5); } // easy
+        if (difficulty == 3) { decreaseAmount = (int) (decreaseAmount * 0.5); } // hard
+        susMeterValue -= decreaseAmount;
         currentStoryLines = savedData.storyLines;
 
         Dictionary<string, Day> day = JsonConvert.DeserializeObject<Dictionary<string, Day>>(daysJson.text);
@@ -113,10 +117,6 @@ public class GameLogic : MonoBehaviour
         timer.SetEndingHour(day[dayIndex].endingTime);
 
         FindObjectOfType<WaveClicked>().setMinigames(day[dayIndex].minigamesEnabled);
-
-        // some additional setup when it is first run?
-        // TODO: add reset after game is done
-
     }
 
     public void StatusFromStoryLines(string field, int amount)
@@ -242,6 +242,7 @@ public class GameLogic : MonoBehaviour
             sceneRadios[activateRadio - 1].SetActive(true);
         }
     }
+
     private int EvaluateHealthStatus(float susDiff)
     {
         int currentStatus = 3;

@@ -41,6 +41,7 @@ public class EndMinigames : MonoBehaviour
     public void EndMinigameSusDecrease()
     {
         PlayerPrefs.SetInt("WonMinigame", 0);
+        PlayerPrefs.Save();
         EndMinigame();
     }
 }
