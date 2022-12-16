@@ -17,6 +17,7 @@ public class VideoManager : MonoBehaviour
 
     void Update()
     {
+        //introVideo.SetDirectAudioMute(0, true);
         if (introVideo.frame + 1 == Convert.ToInt64(introVideo.frameCount))
         {
             // if video ended
