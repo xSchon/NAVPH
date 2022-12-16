@@ -41,7 +41,7 @@ public class TextEntered : MonoBehaviour
         else if (!gameEnd)
         {
             timeRemaining -= Time.deltaTime;
-            timeField.text = timeRemaining.ToString();
+            timeField.text = timeRemaining.ToString("F2");;
             PlayerPrefs.SetInt("WonMinigame", 1);
         }
     }
