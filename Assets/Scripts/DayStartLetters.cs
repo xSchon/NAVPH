@@ -24,9 +24,9 @@ public class DayStartLetters : MonoBehaviour
         if (!files.Any())
         {
             // no save was found, create new
-            dayIndex = "1"; 
+            dayIndex = "1";
         }
-        else  
+        else
         {
             // load day number from saved files
             Save savedData = JsonConvert.DeserializeObject<Save>(File.ReadAllText(files.First().FullName));

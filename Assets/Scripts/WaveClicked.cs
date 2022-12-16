@@ -18,7 +18,7 @@ public class WaveClicked : MonoBehaviour
     public GameObject susBarObject;
     private SusBar susBar;
     private int activeRadio = 0;
-    public float minigameChance = 0.2f;
+    private float minigameChance = 0.2f;
     private int[] minigamesIDs;
     private bool loadAfterMinigame = false;
     private Scene main_scene;
