@@ -15,19 +15,6 @@ public class VideoManager : MonoBehaviour
     public VideoPlayer introVideo;
     public TMPro.TextMeshProUGUI skipText;
 
-    void Start()
-    {
-        // Disable Skip button and fade it away
-        gameObject.GetComponent<Button>().enabled = false;
-
-        var tmp = gameObject.GetComponent<Image>().color;
-        tmp.a = 0;
-        gameObject.GetComponent<Image>().color = tmp;
-
-        tmp = skipText.color;
-        tmp.a = 0;
-        skipText.color = tmp; ;
-    }
     void Update()
     {
         if (introVideo.frame + 1 == Convert.ToInt64(introVideo.frameCount))

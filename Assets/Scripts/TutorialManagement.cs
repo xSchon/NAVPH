@@ -19,7 +19,7 @@ public class TutorialManagement : MonoBehaviour
 
     public void NextScreen(){
         // check if it was not the last screen
-        if (activeScreen == tutorialsScreen.Length)
+        if (activeScreen == tutorialsScreen.Length - 1)
         {
             EndTutorial();
             return;
@@ -31,8 +31,7 @@ public class TutorialManagement : MonoBehaviour
 
     public void EndTutorial()
     {
+        Debug.Log("Ending tutorial, starting first day");
         SceneManager.LoadScene("OfficeScene");
-        Debug.Log("Last tutorial screen");
-
     }
 }
