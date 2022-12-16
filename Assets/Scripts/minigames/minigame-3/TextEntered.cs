@@ -61,7 +61,7 @@ public class TextEntered : MonoBehaviour
         int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
         if (difficulty == 1) { this.timeRemaining = time * 1.25f; } // easy
         if (difficulty == 2) { this.timeRemaining = time; } // normal
-        if (difficulty == 3) { this.timeRemaining = time * 0.75f; } // hard
+        if (difficulty == 3) { this.timeRemaining = time * 0.6f; } // hard
     }
 
     public void UnfreezeTime()
