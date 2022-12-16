@@ -10,6 +10,6 @@ public class MoveArmy : MonoBehaviour
 
     public void SelectSector()
     {
-        sectors.noteSector(this.name);
+        sectors.NoteSector(this.name);
     }
 }

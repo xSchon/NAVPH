@@ -165,7 +165,7 @@ public class WaveClicked : MonoBehaviour
         deff.sectorNum = activeConvo.sector;
         deff.storyNum = activeConvo.storyLine;
         deff.susPunish = activeConvo.susMeterPenalisation;
-        sectrsDeff.NewToDeffend(
+        sectrsDeff.NewToDefend(
             timer.mmHHtoMinutes(activeConvo.whenDeffendSector), deff
         );
 
