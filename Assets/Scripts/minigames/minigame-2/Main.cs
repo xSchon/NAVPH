@@ -1,3 +1,4 @@
+/* MKain script for minigame-2 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,13 +21,13 @@ public class Main : MonoBehaviour
     private string loseText = "What the hell are you doing, Comrade? You can't stay disconnected from the radio for too long!";
     private bool gameEnd = false;
 
-    private void Awake() 
+    private void Awake()
     {
         popUpCanvas.enabled = false;
         Instance = this;
         Time.timeScale = 0.0f;
 
-        int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
+        int difficulty = PlayerPrefs.GetInt("difficulty", 2);
         if (difficulty == 1) { timeRemaining = 25f; } // easy
         if (difficulty == 2) { timeRemaining = 20f; } // normal
         if (difficulty == 3) { timeRemaining = 15f; } // hard
@@ -50,14 +51,14 @@ public class Main : MonoBehaviour
             popUpCanvas.enabled = true;
             popUpText.text = loseText;
 
-        } 
-        if (gameEnd == false && timeRemaining > 0) 
+        }
+        if (gameEnd == false && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             // remove decimal places from timeRemaining
             timeRemainingSeconds = Mathf.Round(timeRemaining * 100f) / 100f;
             timerTextMesh.text = timeRemainingSeconds.ToString();
-        }   
+        }
     }
 
     public void AddScore()

@@ -434,7 +434,7 @@
         },
         "12:30": {
             "Radio": 2,
-            "Author": "Jan",
+            "Author": "Ivan",
             "HourShow": "12:30",
             "HourTill": "14:30",
             "Text": [
@@ -560,7 +560,7 @@
             "StoryLine": 4,
             "Sector": 3,
             "WhenDeffendSector": "15:40",
-            "SusMeterPenalisation": 0
+            "SusMeterPenalisation": 10
         },
         "10:10": {
             "Radio": 3,

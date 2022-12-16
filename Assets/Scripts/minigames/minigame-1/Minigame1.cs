@@ -1,3 +1,4 @@
+/* Management script for minigame-1 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class Minigame1 : MonoBehaviour
     public GameObject button;
     public Camera minigameCamera;
     public Canvas tutorial;
-    
+
     void Start()
     {
         popup.enabled = false;
@@ -32,33 +33,40 @@ public class Minigame1 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)){
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
             SpawNewBrick();
         }
         UpdateUI();
 
         IncrementScore();
-        
+
     }
 
-    public void SpawNewBrick(){
+    // Spawns new brick at the top of screen
+    public void SpawNewBrick()
+    {
         IncrementScore();
         CheckScore();
-        if (!endGame) {
+        if (!endGame)
+        {
             activeBrick = Instantiate(brick,
                         transform.position,
                         Quaternion.identity);
-        
+
             numberOfBricks--;
         }
     }
 
-    public void IncrementScore(){
+    // Increment score
+    public void IncrementScore()
+    {
         float newScore = 0f;
 
-        foreach(GameObject brickHeight in placedBricks)
+        foreach (GameObject brickHeight in placedBricks)
         {
-            if (brickHeight.transform.position.y > newScore){
+            if (brickHeight.transform.position.y > newScore)
+            {
                 newScore = brickHeight.transform.position.y;
             }
         }
@@ -66,8 +74,11 @@ public class Minigame1 : MonoBehaviour
         score = newScore;
     }
 
-    private void CheckScore(){
-        if (score > endScore){
+    // Check if the game didnt end
+    private void CheckScore()
+    {
+        if (score > endScore)
+        {
             popup.enabled = true;
             button.SetActive(true);
             popup.text = winText;
@@ -76,7 +87,8 @@ public class Minigame1 : MonoBehaviour
             Time.timeScale = 0.0f;
         }
 
-        if(numberOfBricks <= 0){
+        if (numberOfBricks <= 0)
+        {
             numberOfBricks--;
             popup.enabled = true;
             button.SetActive(true);
@@ -86,34 +98,21 @@ public class Minigame1 : MonoBehaviour
         }
     }
 
+    // Add newly placed brick to list of existing to recalculate new height
     public void AddPlacedBrick(GameObject brick)
     {
         placedBricks.Add(brick);
     }
 
-    void UpdateUI(){
+    // Update UI with new values
+    void UpdateUI()
+    {
         UIscore.text = "Height: " + score.ToString("F2");
         UIbricks.text = "Bricks: " + (numberOfBricks + 1);
-   }
-
-    public void BackToMenu(){
-        int countLoaded = SceneManager.sceneCount;
-        int parent_scene_id = -1;
-        for (int i = 0; i < countLoaded; i++)
-        {
-            
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.name != "minigame-1"){
-                parent_scene_id = i;
-            }
-        }
-
-        SceneManager.SetActiveScene(SceneManager.GetSceneAt(parent_scene_id));
-        minigameCamera.enabled = false;
     }
 
-   public void EndTutorial()
-   {
+    public void EndTutorial()
+    {
         tutorial.enabled = false;
-   }
+    }
 }

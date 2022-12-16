@@ -1,3 +1,4 @@
+/* Script responsible for wires randomization */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

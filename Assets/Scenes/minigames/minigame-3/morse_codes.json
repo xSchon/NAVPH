@@ -1,39 +1,39 @@
 {
     "morse": [
         {
-            "morse_text": ".-.. . -. .. -.",
-            "ascii_text": "lenin",
-            "guess_time": 60
+            "morseText": ".-.. . -. .. -.",
+            "asciiText": "lenin",
+            "guessTime": 60
         },
         {
-            "morse_text": ".-. . -.. / .-. . ...- --- .-.. ..- - .. --- -.",
-            "ascii_text": "red revolution",
-            "guess_time": 180
+            "morseText": ".-. . -.. / .-. . ...- --- .-.. ..- - .. --- -.",
+            "asciiText": "red revolution",
+            "guessTime": 180
         },
         {
-            "morse_text": ".- -- . .-. .. -.-. .- -. / .. -. ...- .- ... .. --- -.",
-            "ascii_text": "american invasion",
-            "guess_time": 120
+            "morseText": ".- -- . .-. .. -.-. .- -. / .. -. ...- .- ... .. --- -.",
+            "asciiText": "american invasion",
+            "guessTime": 120
         },
         {
-            "morse_text": "-.-. --- -- -- ..- -. .. ... --",
-            "ascii_text": "communism",
-            "guess_time": 60
+            "morseText": "-.-. --- -- -- ..- -. .. ... --",
+            "asciiText": "communism",
+            "guessTime": 60
         },
         {
-            "morse_text": "--. --- - - .-- .- .-.. -..",
-            "ascii_text": "gottwald",
-            "guess_time": 60
+            "morseText": "--. --- - - .-- .- .-.. -..",
+            "asciiText": "gottwald",
+            "guessTime": 60
         },
         {
-            "morse_text": "...- .- ... .. .-.. / -... .. .-.. .- -.-",
-            "ascii_text": "vasil bilak",
-            "guess_time": 120
+            "morseText": "...- .- ... .. .-.. / -... .. .-.. .- -.-",
+            "asciiText": "vasil bilak",
+            "guessTime": 120
         },
         {
-            "morse_text": ".-.. . --- -. .. -.. / .. .-.. .--- .. -.-. / -... .-. . --.. -. . ...-",
-            "ascii_text": "leonid iljic breznev",
-            "guess_time": 180
+            "morseText": ".-.. . --- -. .. -.. / .. .-.. .--- .. -.-. / -... .-. . --.. -. . ...-",
+            "asciiText": "leonid iljic breznev",
+            "guessTime": 180
         }
     ]
 }

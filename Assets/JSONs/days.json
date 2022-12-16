@@ -22,31 +22,31 @@
         "StartingTime": "08:30",
         "EndingTime": "15:30",
         "RadiosEnabled" : [1,2],
-        "MinigamesEnabled": [1,2,4]
+        "MinigamesEnabled": [1,2,3]
     },
     "5": {
         "StartingTime": "08:40",
         "EndingTime": "15:00",
         "RadiosEnabled" : [1,2],
-        "MinigamesEnabled": [1,4]
+        "MinigamesEnabled": [1,3]
     },
     "6": {
         "StartingTime": "09:00",
         "EndingTime": "17:30",
         "RadiosEnabled" : [1,2],
-        "MinigamesEnabled": [1,2,4]
+        "MinigamesEnabled": [1,2,3]
     },
     "7": {
         "StartingTime": "08:30",
         "EndingTime": "17:00",
         "RadiosEnabled" : [1,2,3],
-        "MinigamesEnabled": [1,2,4]
+        "MinigamesEnabled": [1,2,3]
     },
     "8": {
         "StartingTime": "09:00",
         "EndingTime": "17:30",
         "RadiosEnabled" : [1,2,3],
-        "MinigamesEnabled": [1,2,4]
+        "MinigamesEnabled": [1,2,3]
     },
     "9": {
         "StartingTime": "08:40",
