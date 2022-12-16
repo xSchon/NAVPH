@@ -915,6 +915,7 @@ MonoBehaviour:
   sectrsDeff: {fileID: 466179460}
   susBar: {fileID: 546358029}
   mainCamera: {fileID: 106259164}
+  mainEventSystem: {fileID: 54646751}
   timer: {fileID: 1845140555}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075

@@ -15,67 +15,66 @@ public class WaveClicked : MonoBehaviour
     public TMP_Text gameText;
     private RadioConfig[] radios;
     public SectorsDefence sectrsDeff;
-    //public GameObject susBarObject;
     public SusBar susBar;
     private int activeRadio = 0;
     private float minigameChance = 0.2f;
     private int[] minigamesIDs;
     private bool loadAfterMinigame = false;
-    private Scene main_scene;
+    private Scene mainScene;
     public Camera mainCamera;
-    private Camera minigame_camera;
-    private EventSystem mainEventSystem;
-    private Dictionary<int, List<int>> resetSearch  = new Dictionary<int, List<int>>();
+    private Camera minigameCamera;
+    public EventSystem mainEventSystem;
+    private Dictionary<int, List<int>> resetSearch = new Dictionary<int, List<int>>();
     public Timer timer;
     [SerializeField] private AudioSource radioStatic;
 
-    
+
     void Start()
     {
         readingScreen.SetActive(false);
 
-        radios = 
+        radios =
         new RadioConfig[3]
-        {new RadioConfig(1, new Color (0.2f, 0.6f, 0.55f)), 
-        new RadioConfig(2, new Color (0.23f, 0.15f, 0.12f)), 
+        {new RadioConfig(1, new Color (0.2f, 0.6f, 0.55f)),
+        new RadioConfig(2, new Color (0.23f, 0.15f, 0.12f)),
         new RadioConfig(3, new Color (0.3f, 0.3f, 0.27f))};
 
-        main_scene = SceneManager.GetActiveScene();
-        mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        mainScene = SceneManager.GetActiveScene();
 
         SceneManager.activeSceneChanged += returnScene;
-    }   
+    }
 
     void Update()
     {
         updatePosX();
     }
 
-    private void updatePosX(){
+    private void updatePosX()
+    {
         this.radios[activeRadio].SetPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
     }
 
-    IEnumerator LoadMinigame(int index){
-        AsyncOperation async = SceneManager.LoadSceneAsync($"minigame-{index}", LoadSceneMode.Additive); 
-        
-        while (!async.isDone)
+    // Method that additively loads minigame, waits till it is loaded.
+    private IEnumerator LoadMinigame(int index)
+    {
+        mainEventSystem.enabled = false;                // Disable one of event systems (from main scene).
+
+        AsyncOperation async = SceneManager.LoadSceneAsync($"minigame-{index}", LoadSceneMode.Additive);    // Load chosen minigame
+
+        while (!async.isDone)                           // Load scene, wait until it is done
         {
-            Debug.Log("nacitavam scenu");
             yield return async;
-            //yield return new WaitForEndOfFrame();
-            //GUIManager.instance.guiLoading.setProgress(async.progress);
         }
-        
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName($"minigame-{index}"));
 
-        minigame_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName($"minigame-{index}"));      // Set new scene as main.
 
-        mainCamera.enabled = false;
-        radioScreen.SetActive(false);
-        mainEventSystem.enabled = false;
+        minigameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();             // load new camera from minigame
+        mainCamera.enabled = false;                                                         // disable camera in main scene
+        radioScreen.SetActive(false);                                                       // disable opened radio screen
 
-        clickable = GameObject.FindGameObjectsWithTag("Clickable");
-        foreach(GameObject clickObject in clickable){
+        clickable = GameObject.FindGameObjectsWithTag("Clickable");                         // load all objects that should be disabled
+        foreach (GameObject clickObject in clickable)
+        {
             clickObject.SetActive(false);
         }
     }
@@ -90,50 +89,61 @@ public class WaveClicked : MonoBehaviour
         RectTransform tmp = GameObject.Find("FindingCursor").GetComponent<RectTransform>();
         tmp.localPosition = new Vector3(this.radios[activeRadio].GetPosX(), tmp.localPosition.y, tmp.localPosition.z);
 
-        GameObject.Find("FindingCursor").GetComponent<SearchMessage>().setSearch(radios[radioNumber].IsActive());
-        if(!radios[radioNumber].IsActive()){
+        GameObject.Find("FindingCursor").GetComponent<SearchMessage>().SetSearch(radios[radioNumber].IsActive());
+        if (!radios[radioNumber].IsActive())
+        {
             gameText.text = "...";
             GameObject.Find("WaveButton").GetComponent<Button>().enabled = true;
-        } else {
+        }
+        else
+        {
             GameObject.Find("WaveButton").GetComponent<Button>().enabled = false;
         }
     }
 
+    // Method which is called after main scene is changed.
     private void returnScene(Scene arg0, Scene arg1)
     {
-        if (arg1.name == main_scene.name && arg0.name != "Summary")
+        // If ending scene is minigame and game is returning to Office, unload the minigame scene
+        if (arg1.name == mainScene.name && arg0.name != "Summary")
         {
             AsyncOperation async = SceneManager.UnloadSceneAsync(arg0.name);
             async.completed += OpenRadioScreen;
         }
     }
 
+    // Method called after minigame is unloaded.
     private void OpenRadioScreen(AsyncOperation async)
     {
+        // Enable camera and mainEventSystem in main scene
         mainCamera.enabled = true;
         mainEventSystem.enabled = true;
 
-        foreach(GameObject clickObject in clickable){
+        // Enable back disabled objects
+        foreach (GameObject clickObject in clickable)
+        {
             clickObject.SetActive(true);
         }
 
         loadAfterMinigame = false;
 
-        Debug.Log("Pred: " + susBar.GetSusValue());
+        // If player won game.
         if (Convert.ToBoolean(PlayerPrefs.GetInt("WonMinigame")))
         {
             susBar.DecreaseSus();
-        } 
-        else 
+        }
+        else
         {
             susBar.IncreaseSus();
         }
 
+        // Enable time in main scene again.
         Time.timeScale = 1.0f;
-        Debug.Log("Po: " + susBar.GetSusValue());
+        // Enable opened radio screen again.
         radioScreen.SetActive(true);
     }
 
+    // Get minigames from json file.
     public void setMinigames(int[] minigamesIndexes)
     {
         minigamesIDs = minigamesIndexes;
@@ -143,21 +153,28 @@ public class WaveClicked : MonoBehaviour
     {
         int radioNumber = activeConvo.radio - 1;
         radios[radioNumber].SetActive(false);
-        try{
-            if (this.activeRadio == radioNumber){
+        try
+        {
+            if (this.activeRadio == radioNumber)
+            {
                 loadScene(radioNumber + 1);
-            }}
-        catch (NullReferenceException){
+            }
+        }
+        catch (NullReferenceException)
+        {
             // Expected exception for the time when radio is closed
         };
 
         int renewSearch = timer.HHMMtoMinutes(activeConvo.hourTill);
-        if (this.resetSearch.ContainsKey(renewSearch)){
+        if (this.resetSearch.ContainsKey(renewSearch))
+        {
             List<int> tmp = this.resetSearch[renewSearch];
             tmp.Add(radioNumber);
             this.resetSearch[renewSearch] = tmp;
-        } else {
-            this.resetSearch.Add(renewSearch, (new List<int>{radioNumber}));
+        }
+        else
+        {
+            this.resetSearch.Add(renewSearch, (new List<int> { radioNumber }));
         }
 
         // Add new information to map, information obtained from radio text
@@ -169,23 +186,30 @@ public class WaveClicked : MonoBehaviour
             timer.HHMMtoMinutes(activeConvo.whenDeffendSector), deff
         );
 
-        radios[radioNumber].SetRadioArray(activeConvo.text);     
+        radios[radioNumber].SetRadioArray(activeConvo.text);
         radios[radioNumber].SetAuthor(activeConvo.author);
     }
 
     public void checkStopped(int currentTime)
     {
-        if (this.resetSearch.ContainsKey(currentTime)){
-            foreach(int timeRen in this.resetSearch[currentTime]){
+        if (this.resetSearch.ContainsKey(currentTime))
+        {
+            foreach (int timeRen in this.resetSearch[currentTime])
+            {
                 this.radios[timeRen].SetActive(true);
                 this.radios[timeRen].SetRadioArray(Array.Empty<string>());
                 this.radios[timeRen].SetAuthor("");
-                try{
-                    if (this.activeRadio == timeRen){
+                try
+                {
+                    if (this.activeRadio == timeRen)
+                    {
                         loadScene(timeRen + 1);
-                    }} catch (NullReferenceException){
-                        // Expected exception for the time when radio is closed
-                    };
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    // Expected exception for the time when radio is closed
+                };
             }
         }
     }
@@ -193,9 +217,12 @@ public class WaveClicked : MonoBehaviour
     public void StartVoice()
     {
         CheckMinigame();
+
+        // Check if game is not in minigame
         if (!loadAfterMinigame)
             ClickedRead();
     }
+
     public void ClickedRead()
     {
         // pause radioStatic sound
@@ -219,23 +246,29 @@ public class WaveClicked : MonoBehaviour
         loadScene(activeRadio + 1);
     }
 
+    // Check if Minigame should pop.
     private void CheckMinigame()
     {
+        // Calculate new probability
         float probability = UnityEngine.Random.Range(0.0f, 1.0f);
 
+        // If minigames were not specified
         if (minigamesIDs == null)
             return;
 
-        if (probability <= minigameChance){
+        // If minigame pops
+        if (probability <= minigameChance)
+        {
             loadAfterMinigame = true;
-            minigameChance = minigameChance / 2;
-            timer.StopTimer();
+            minigameChance = minigameChance / 2;                // Divide chance of new minigame
+            timer.StopTimer();                                  // Stop timer in main scene
 
-            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);
-            StartCoroutine(LoadMinigame(minigamesIDs[index]));
+            int index = UnityEngine.Random.Range(0, minigamesIDs.Length);   // Load random minigame from specified 
+            StartCoroutine(LoadMinigame(minigamesIDs[index]));              // Load new minigame
         }
-        else {
-            int difficulty =  PlayerPrefs.GetInt("difficulty", 2);
+        else
+        {
+            int difficulty = PlayerPrefs.GetInt("difficulty", 2);
             if (difficulty == 1) { minigameChance += 0.05f; } // easy
             if (difficulty == 2) { minigameChance += 0.1f; } // normal
             if (difficulty == 3) { minigameChance += 0.15f; } // hard
