@@ -19,8 +19,6 @@ public class Timer : MonoBehaviour
     public float startingHour = 7.0f;
     public float endingHour = 15.0f;
 
-
-
     void Start()
     {
         // 4 seconds per 10 minutes makes in game 8 hours == 3 minutes irl

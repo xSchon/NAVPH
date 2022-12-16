@@ -1,11 +1,12 @@
+/* Scene used for in-menu settings saving and swapping */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SettingsManager : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI soundTextMesh;
-    [SerializeField] private TMPro.TextMeshProUGUI difficultyTextMesh;
+    public TMPro.TextMeshProUGUI soundTextMesh;
+    public TMPro.TextMeshProUGUI difficultyTextMesh;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class SettingsManager : MonoBehaviour
             soundTextMesh.text = "ON";
             Debug.Log("Unmute");
         }
-        PlayerPrefs.SetInt("volume", (int) AudioListener.volume);
+        PlayerPrefs.SetInt("volume", (int) AudioListener.volume);   // 0 is audio turned off
         PlayerPrefs.Save();
     }
 
