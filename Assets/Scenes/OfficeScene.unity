@@ -904,8 +904,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radioScreen: {fileID: 1849400422}
-  susBarObject: {fileID: 546358026}
+  readingScreen: {fileID: 783298520}
+  gameText: {fileID: 1456071056}
+  sectrsDeff: {fileID: 466179460}
+  susBar: {fileID: 546358029}
   mainCamera: {fileID: 106259164}
+  timer: {fileID: 1845140555}
   radioStatic: {fileID: 1849400427}
 --- !u!1 &231307075
 GameObject:
