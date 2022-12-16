@@ -10,15 +10,15 @@ using TMPro;
 public class WaveClicked : MonoBehaviour
 {
     public GameObject radioScreen;
-    private GameObject readingScreen;
+    public GameObject readingScreen;
     private GameObject[] clickable;
-    private TMP_Text gameText;
+    public TMP_Text gameText;
     private RadioConfig[] radios;
-    private SectorsDefence sectrsDeff;
-    public GameObject susBarObject;
-    private SusBar susBar;
+    public SectorsDefence sectrsDeff;
+    //public GameObject susBarObject;
+    public SusBar susBar;
     private int activeRadio = 0;
-    private float minigameChance = 0.2f;
+    private float minigameChance = 1f;//0.2f;
     private int[] minigamesIDs;
     private bool loadAfterMinigame = false;
     private Scene main_scene;
@@ -26,19 +26,14 @@ public class WaveClicked : MonoBehaviour
     private Camera minigame_camera;
     private EventSystem mainEventSystem;
     private Dictionary<int, List<int>> resetSearch  = new Dictionary<int, List<int>>();
-    private Timer timer;
+    public Timer timer;
     [SerializeField] private AudioSource radioStatic;
 
     
     void Start()
     {
-        readingScreen = GameObject.Find("ReadingScreen");
         readingScreen.SetActive(false);
-        sectrsDeff = GameObject.Find("selectedSectors").GetComponent<SectorsDefence>();
-        susBar = susBarObject.GetComponent<SusBar>();
 
-        gameText = GameObject.Find("Subtitles").GetComponent<TextMeshProUGUI>();
-        timer = GameObject.Find("DailyTimer").GetComponent<Timer>();
         radios = 
         new RadioConfig[3]
         {new RadioConfig(1, new Color (0.2f, 0.6f, 0.55f)), 
@@ -46,11 +41,9 @@ public class WaveClicked : MonoBehaviour
         new RadioConfig(3, new Color (0.3f, 0.3f, 0.27f))};
 
         main_scene = SceneManager.GetActiveScene();
-        //mainCamera = (Camera) FindObjectOfType(typeof(Camera));
         mainEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
         SceneManager.activeSceneChanged += returnScene;
-        clickable = GameObject.FindGameObjectsWithTag("Clickable");
     }   
 
     void Update()
@@ -81,6 +74,7 @@ public class WaveClicked : MonoBehaviour
         radioScreen.SetActive(false);
         mainEventSystem.enabled = false;
 
+        clickable = GameObject.FindGameObjectsWithTag("Clickable");
         foreach(GameObject clickObject in clickable){
             clickObject.SetActive(false);
         }
