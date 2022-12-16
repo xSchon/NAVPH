@@ -297,10 +297,10 @@ RectTransform:
   m_Father: {fileID: 1749881386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1128, y: 567}
+  m_SizeDelta: {x: 280, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650150331
 MonoBehaviour:
@@ -1618,6 +1618,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_text
+      value: This is minigame 1. Your task is to build new big tower as part of our
+        new fence to defend borders! In order to drop brick press SPACE. Goal is
+        to build tower 6 meters tall. Be carefull, gravity can be really tricky!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8608756518282507546, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
