@@ -39,7 +39,7 @@ public class SettingsManager : MonoBehaviour
             soundTextMesh.text = "ON";
             Debug.Log("Unmute");
         }
-        PlayerPrefs.SetInt("volume", AudioListener.volume);
+        PlayerPrefs.SetInt("volume", (int) AudioListener.volume);
         PlayerPrefs.Save();
     }
 

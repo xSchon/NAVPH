@@ -13,14 +13,16 @@ public class PrepareNewDay : MonoBehaviour
     private Scene mainScene;
     public TextAsset statusFile;
 
-    public void changeScene(){
+    public void changeScene()
+    {
         SceneManager.LoadScene("OfficeScene");
     }
 
-    private void loadDay(){
+    private void loadDay()
+    {
         DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
         IOrderedEnumerable<FileInfo> files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime);
-        
+
         string savedDataText = File.ReadAllText(directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
         Save savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
         NestedStatus nestedStatus = savedData.status;
