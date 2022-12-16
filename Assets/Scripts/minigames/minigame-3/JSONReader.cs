@@ -1,36 +1,23 @@
+/* Class reposnsible for loading morse from JSON, picking one and sending to TextEntered script */
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class JSONReader : MonoBehaviour
 {
     public TextAsset jsonFile;
-    private TextEntered script;
+    public TextEntered script;
+    private Morse selectedMorse;
+    private MorseList morseArray = new MorseList();
 
-    [System.Serializable]
-    public class Morse{
-        public string morse_text;
-        public string ascii_text;
-        public float guess_time;
-    }
-
-    [System.Serializable]
-    public class MorseList{
-        public Morse[] morse;
-    }
-
-    public MorseList morse_array = new MorseList();
-    // Start is called before the first frame update
     void Start()
     {
-        script = FindObjectOfType<TextEntered>();
-        morse_array = JsonUtility.FromJson<MorseList>(jsonFile.text);
-
-        Morse selected_morse = morse_array.morse[Random.Range(0, morse_array.morse.Length)];
-        
-        Debug.Log(morse_array.morse.Length);
-        Debug.Log(selected_morse.morse_text + selected_morse.ascii_text + selected_morse.guess_time);
-
-        script.SetAttributes(selected_morse.morse_text, selected_morse.ascii_text, selected_morse.guess_time);
+        morseArray = JsonConvert.DeserializeObject<MorseList>(jsonFile.text);
+        selectedMorse = morseArray.morse[Random.Range(0, morseArray.morse.Length)];
+        script.SetAttributes(selectedMorse.morseText, selectedMorse.asciiText, selectedMorse.guessTime);
     }
 }

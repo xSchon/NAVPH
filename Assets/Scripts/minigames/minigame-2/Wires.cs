@@ -1,3 +1,4 @@
+/* Class responsible for wire management */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class Wires : MonoBehaviour
     Vector3 startPoint;
     Vector3 startPosition;
     public SpriteRenderer wireEnd;
-  
+
     void Start()
     {
         startPoint = transform.parent.position;
@@ -50,9 +51,6 @@ public class Wires : MonoBehaviour
 
         float dist = Vector2.Distance(startPoint, newPosition);
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
-
-
-
     }
 
     private void OnMouseUp()
@@ -63,11 +61,4 @@ public class Wires : MonoBehaviour
         float dist = Vector2.Distance(startPoint, startPosition);
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
     }
-
-    public void backToMenu()
-    {
-        SceneManager.LoadScene("Menu");
-       //GameObject.Find("MainMenu").GetComponent<MainMenu>().active = false;
-        //GameObject.FindObjectsOfTypeAll("MinigamesMenu").SetActive(true);
-   }
 }
