@@ -1999,7 +1999,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2358715203904528658, guid: 1e321e69e03038d44a2178b500349245, type: 3}
       propertyPath: minigameName
-      value: minigame-4
+      value: minigame-3
       objectReference: {fileID: 0}
     - target: {fileID: 2358715203904528658, guid: 1e321e69e03038d44a2178b500349245, type: 3}
       propertyPath: minigameCamera

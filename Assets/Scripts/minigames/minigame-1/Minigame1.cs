@@ -10,7 +10,7 @@ public class Minigame1 : MonoBehaviour
     public GameObject brick;
     private GameObject activeBrick;
     private List<GameObject> placedBricks = new List<GameObject>();
-    public float endScore = 7.0f;
+    public float endScore = 6.0f;
     public string lostText;
     public string winText;
     private float score = 0f;
@@ -25,7 +25,6 @@ public class Minigame1 : MonoBehaviour
     
     void Start()
     {
-        //SpawNewBrick();
         popup.enabled = false;
         button.SetActive(false);
     }
@@ -43,6 +42,7 @@ public class Minigame1 : MonoBehaviour
     }
 
     public void SpawNewBrick(){
+        IncrementScore();
         CheckScore();
         if (!endGame) {
             activeBrick = Instantiate(brick,

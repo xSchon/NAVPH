@@ -25,4 +25,9 @@ public class TutorialManager : MonoBehaviour
         script3.UnfreezeTime();
         tutorial.gameObject.SetActive(false);
     }
+
+    public void EndTutorialMinigame4()
+    {
+        tutorial.gameObject.SetActive(false);
+    }
 }
