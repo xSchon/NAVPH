@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
-    private GameObject pauseScreen;
+    public GameObject pauseScreen;
 
     void Start()
     {
-        pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
         Time.timeScale = 0.0f;
     }
