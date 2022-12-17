@@ -725,7 +725,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4448341325531754, guid: f029166666a260840b1c44d817bd1614, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4448341325531754, guid: f029166666a260840b1c44d817bd1614, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1309,7 +1309,7 @@ GameObject:
   - component: {fileID: 277032318}
   - component: {fileID: 277032317}
   m_Layer: 5
-  m_Name: susBarFill
+  m_Name: SusBarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,7 +1602,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1861599602767591638, guid: 918ebf17348d7b8438a4b68cb859bf65, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1861599602767591638, guid: 918ebf17348d7b8438a4b68cb859bf65, type: 3}
       propertyPath: m_LocalScale.x
@@ -1880,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400191095, guid: 135f82f643e394e0f9d6e442cc746237, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400191095, guid: 135f82f643e394e0f9d6e442cc746237, type: 3}
       propertyPath: m_LocalScale.x
@@ -2133,7 +2133,7 @@ Transform:
   m_Children:
   - {fileID: 362716157}
   m_Father: {fileID: 527009665}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &507426359 stripped
 Transform:
@@ -2306,6 +2306,7 @@ Transform:
   - {fileID: 251928546}
   - {fileID: 639281504}
   - {fileID: 352162484}
+  - {fileID: 1397526361}
   - {fileID: 507426359}
   - {fileID: 994038685}
   - {fileID: 1956778817}
@@ -2318,7 +2319,6 @@ Transform:
   - {fileID: 652506928}
   - {fileID: 966321700}
   - {fileID: 802110727}
-  - {fileID: 1397526361}
   - {fileID: 243548881}
   - {fileID: 739437616}
   m_Father: {fileID: 0}
@@ -2932,7 +2932,7 @@ Transform:
   m_Children:
   - {fileID: 545621391}
   m_Father: {fileID: 527009665}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!224 &660919257 stripped
 RectTransform:
@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 692085734}
   - component: {fileID: 692085733}
   m_Layer: 5
-  m_Name: mainMap
+  m_Name: MainMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3081,7 +3081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49499411660388365, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_Name
-      value: Wall (1)
+      value: BackWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7073467639de0249a20371b145c7651, type: 3}
@@ -3149,7 +3149,7 @@ Transform:
   m_Children:
   - {fileID: 329002332}
   m_Father: {fileID: 527009665}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &783298520
 GameObject:
@@ -3348,7 +3348,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 527009665}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &888483193
 PrefabInstance:
@@ -3451,7 +3451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067435, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Name
-      value: backButton
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067438, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Color.a
@@ -3692,7 +3692,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 527009665}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &974327619
 GameObject:
@@ -3968,7 +3968,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4762248877496680, guid: d5ba47b910ffd5a48b8db7bdd6cfdee8, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4762248877496680, guid: d5ba47b910ffd5a48b8db7bdd6cfdee8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4053,7 +4053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49499411660388365, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_Name
-      value: Wall (2)
+      value: LeftWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7073467639de0249a20371b145c7651, type: 3}
@@ -4378,7 +4378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067435, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Name
-      value: closeButton
+      value: CloseButton
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067438, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Color.b
@@ -4455,7 +4455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49499411660388365, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_Name
-      value: Wall (3)
+      value: RightWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7073467639de0249a20371b145c7651, type: 3}
@@ -5612,7 +5612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067435, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Name
-      value: closeButton
+      value: CloseButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
@@ -5641,7 +5641,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4880014067165436, guid: 03f20034d807f154aac7b5ed64a2b8d4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4880014067165436, guid: 03f20034d807f154aac7b5ed64a2b8d4, type: 3}
       propertyPath: m_LocalScale.x
@@ -6032,7 +6032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067435, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Name
-      value: closeButton
+      value: CloseButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
@@ -6340,7 +6340,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -6891,7 +6891,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4629707166177696, guid: 8a5e4aaa4b16e474f9860a425e52c985, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4629707166177696, guid: 8a5e4aaa4b16e474f9860a425e52c985, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7552,7 +7552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067435, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Name
-      value: backButton
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 3137823461411067438, guid: 65033e2c06bbc0a49bbe92bb32f4f383, type: 3}
       propertyPath: m_Color.a
@@ -7599,7 +7599,7 @@ GameObject:
   - component: {fileID: 2070254931}
   - component: {fileID: 2070254930}
   m_Layer: 5
-  m_Name: timeImage
+  m_Name: TimeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7676,7 +7676,7 @@ GameObject:
   - component: {fileID: 2077073107}
   - component: {fileID: 2077073106}
   m_Layer: 5
-  m_Name: radioBackground
+  m_Name: RadioBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7851,7 +7851,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 49499411660388354, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 49499411660388354, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_LocalScale.x
@@ -7899,7 +7899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49499411660388365, guid: e7073467639de0249a20371b145c7651, type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: FrontWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7073467639de0249a20371b145c7651, type: 3}
