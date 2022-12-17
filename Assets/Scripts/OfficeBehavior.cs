@@ -13,7 +13,7 @@ public class OfficeBehavior : MonoBehaviour
     private string[] radiosNames = new string[3] { "Radio1", "Radio2", "Radio3" };
     private string mapObjectName = "Map";
     public AudioSource radioStatic;
-    public WaveClicked waveClicked;
+    public RadioLogic waveClicked;
 
     void Start()
     {

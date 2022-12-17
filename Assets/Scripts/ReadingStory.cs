@@ -10,7 +10,7 @@ public class ReadingStory : MonoBehaviour
     private string messageAuthor;
     private string[] messageText;
     private TMP_Text textField;
-    public WaveClicked waveClicked;
+    public RadioLogic waveClicked;
     private float sinceLast = 0.0f;
     public float secondsForText = 4.0f;
     private int currentChunk = 0;
