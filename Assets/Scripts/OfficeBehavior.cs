@@ -13,6 +13,7 @@ public class OfficeBehavior : MonoBehaviour
     private string[] radiosNames = new string[3] { "Radio1", "Radio2", "Radio3" };
     private string mapObjectName = "Map";
     public AudioSource radioStatic;
+    public WaveClicked waveClicked;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class OfficeBehavior : MonoBehaviour
                     radioScreen.SetActive(true);
                     radioStatic.Play();
                     radioScreen.GetComponent<Canvas>().enabled = true;
-                    GameObject.Find("WaveButton").GetComponent<WaveClicked>().loadScene(selectedRadio);
+                    waveClicked.loadScene(selectedRadio);
                 }
 
                 else if (colliderHit == mapObjectName)

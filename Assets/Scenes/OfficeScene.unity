@@ -608,6 +608,7 @@ MonoBehaviour:
   mapScreen: {fileID: 1418183435}
   pauseScreen: {fileID: 2078902928}
   radioStatic: {fileID: 1849400427}
+  waveClicked: {fileID: 167223024}
 --- !u!1001 &119706005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4561,7 +4562,7 @@ GameObject:
   - component: {fileID: 1230587117}
   - component: {fileID: 1230587116}
   m_Layer: 5
-  m_Name: StandardSccreenLayer2
+  m_Name: StandardScreenLayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5744,6 +5745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a717b39d5ea5ac04aaa6d74ca7964e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseScreen: {fileID: 2078902928}
 --- !u!114 &1589353191
 MonoBehaviour:
   m_ObjectHideFlags: 0
