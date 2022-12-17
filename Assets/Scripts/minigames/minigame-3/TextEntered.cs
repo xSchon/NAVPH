@@ -24,6 +24,7 @@ public class TextEntered : MonoBehaviour
     
     void Start()
     {
+        morseField.enabled = false;
         popupCanvas.enabled = false;
         morseField.text = morseCode;
         outputText.readOnly = true;
@@ -76,5 +77,6 @@ public class TextEntered : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         outputText.readOnly = false;
+        morseField.enabled = true;
     }
 }
