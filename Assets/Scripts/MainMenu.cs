@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        if (files.Length > 0)
+        /* if (files.Length > 0)
         {
             // 1. delete save file
             bool decision = EditorUtility.DisplayDialog(
@@ -68,10 +68,10 @@ public class MainMenu : MonoBehaviour
         }
 
         else // no save file was found, we can start a new game 
-        {
+        { */
             // 2. load new game, starting from tutorial
             SceneManager.LoadScene("Video");
-        }
+        //}
 
     }
 }

@@ -82,7 +82,9 @@ public class DayLogic : MonoBehaviour
     private void LoadDay()
     {
         DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
-        IEnumerable<FileInfo> files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
+        IEnumerable<FileInfo> files = directory.GetFiles();
+        string[] namesSkip = {"prefs", "Player.log", "Player-prev.log"};    
+        files = files.OrderByDescending(f => f.LastWriteTime).Where(f => !namesSkip.Any(f.Name.Contains));
 
         if (!files.Any())
         {  // no save was found

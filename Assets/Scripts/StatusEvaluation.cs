@@ -25,7 +25,9 @@ public class StatusEvaluation : MonoBehaviour
         LoadDayStatus();
 
         DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
-        IEnumerable<FileInfo> files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
+        IEnumerable<FileInfo> files = directory.GetFiles();
+        string[] namesSkip = {"prefs", "Player.log", "Player-prev.log"};    
+        files = files.OrderByDescending(f => f.LastWriteTime).Where(f => !namesSkip.Any(f.Name.Contains));
         string savedDataText = File.ReadAllText(files.First().FullName);
         savedData = JsonConvert.DeserializeObject<Save>(savedDataText);
 
@@ -56,7 +58,9 @@ public class StatusEvaluation : MonoBehaviour
     {
         // load all files in save directory
         DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
-        IEnumerable<FileInfo> files = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).Where(f => f.Name != "prefs");
+        IEnumerable<FileInfo> files = directory.GetFiles();
+        string[] namesSkip = {"prefs", "Player.log", "Player-prev.log"};    
+        files = files.OrderByDescending(f => f.LastWriteTime).Where(f => !namesSkip.Any(f.Name.Contains));
 
         // load data about status mapping save to status.json 
         string savedDataText = File.ReadAllText(directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
