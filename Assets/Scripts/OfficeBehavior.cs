@@ -41,7 +41,7 @@ public class OfficeBehavior : MonoBehaviour
                     radioScreen.SetActive(true);
                     radioStatic.Play();
                     radioScreen.GetComponent<Canvas>().enabled = true;
-                    waveClicked.LoadScene(selectedRadio);
+                    waveClicked.LoadRadioScene(selectedRadio);
                 }
 
                 else if (colliderHit == mapObjectName)

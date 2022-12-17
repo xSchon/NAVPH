@@ -912,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioScreen: {fileID: 1849400422}
   readingScreen: {fileID: 783298520}
+  findingCursor: {fileID: 538641652}
   gameText: {fileID: 1456071056}
   sectrsDeff: {fileID: 466179460}
   susBar: {fileID: 546358029}
@@ -921,6 +922,7 @@ MonoBehaviour:
   timer: {fileID: 1845140555}
   radioStatic: {fileID: 1849400427}
   cursorPos: {fileID: 538641653}
+  radioBackground: {fileID: 2077073106}
 --- !u!1 &231307075
 GameObject:
   m_ObjectHideFlags: 0

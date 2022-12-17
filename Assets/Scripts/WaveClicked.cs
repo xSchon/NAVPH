@@ -1,3 +1,4 @@
+/* Script taking care of radio loading and clicking on Waves */
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -11,6 +12,7 @@ public class WaveClicked : MonoBehaviour
 {
     public GameObject radioScreen;
     public GameObject readingScreen;
+    public GameObject findingCursor;
     private GameObject[] clickable;
     public TMP_Text gameText;
     private RadioConfig[] radios;
@@ -29,6 +31,7 @@ public class WaveClicked : MonoBehaviour
     public Timer timer;
     public AudioSource radioStatic;
     public RectTransform cursorPos;
+    public Image radioBackground;
 
 
     void Start()
@@ -75,17 +78,18 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    public void LoadScene(int radioNumber)
+    // Load radio and configure it depending on which one was clicked
+    public void LoadRadioScene(int radioNumber)
     {
         radioNumber = radioNumber - 1;
 
-        GameObject.Find("radioBackground").GetComponent<Image>().color = radios[radioNumber].GetColor();
+        radioBackground.color = radios[radioNumber].GetColor();
         gameText.text = "";
         this.activeRadio = radioNumber;
-        RectTransform tmp = GameObject.Find("FindingCursor").GetComponent<RectTransform>();
+        RectTransform tmp = findingCursor.GetComponent<RectTransform>();
         tmp.localPosition = new Vector3(this.radios[activeRadio].GetPosX(), tmp.localPosition.y, tmp.localPosition.z);
 
-        GameObject.Find("FindingCursor").GetComponent<SearchMessage>().SetSearch(radios[radioNumber].IsActive());
+        findingCursor.GetComponent<SearchMessage>().SetSearch(radios[radioNumber].IsActive());
         if (!radios[radioNumber].IsActive())
         {
             gameText.text = "...";
@@ -145,6 +149,7 @@ public class WaveClicked : MonoBehaviour
         minigamesIDs = minigamesIndexes;
     }
 
+    // Load messages to radio and information about them
     public void RadioActivation(Conversation activeConvo)
     {
         int radioNumber = activeConvo.radio - 1;
@@ -153,7 +158,7 @@ public class WaveClicked : MonoBehaviour
         {
             if (this.activeRadio == radioNumber)
             {
-                LoadScene(radioNumber + 1);
+                LoadRadioScene(radioNumber + 1);
             }
         }
         catch (NullReferenceException)
@@ -186,6 +191,7 @@ public class WaveClicked : MonoBehaviour
         radios[radioNumber].SetAuthor(activeConvo.author);
     }
 
+    // Check if the radio should be stopped
     public void CheckStopped(int currentTime)
     {
         if (this.resetSearch.ContainsKey(currentTime))
@@ -199,7 +205,7 @@ public class WaveClicked : MonoBehaviour
                 {
                     if (this.activeRadio == timeRen)
                     {
-                        LoadScene(timeRen + 1);
+                        LoadRadioScene(timeRen + 1);
                     }
                 }
                 catch (NullReferenceException)
@@ -239,7 +245,7 @@ public class WaveClicked : MonoBehaviour
         timer.StartTimer();
         readingScreen.SetActive(false);
         radios[activeRadio].SetActive(true);
-        LoadScene(activeRadio + 1);
+        LoadRadioScene(activeRadio + 1);
     }
 
     // Check if Minigame should pop.
