@@ -11,7 +11,7 @@ public class Minigame1 : MonoBehaviour
     public GameObject brick;
     private GameObject activeBrick;
     private List<GameObject> placedBricks = new List<GameObject>();
-    public float endScore = 6.0f;
+    public float endScore = 7.0f;
     public string lostText;
     public string winText;
     private float score = 0f;
@@ -61,7 +61,7 @@ public class Minigame1 : MonoBehaviour
     // Increment score
     public void IncrementScore()
     {
-        float newScore = 0f;
+        float newScore = -0.5f;
 
         foreach (GameObject brickHeight in placedBricks)
         {
@@ -71,13 +71,13 @@ public class Minigame1 : MonoBehaviour
             }
         }
 
-        score = newScore;
+        score = Mathf.Ceil(newScore + 0.4f);
     }
 
     // Check if the game didnt end
     private void CheckScore()
     {
-        if (score > endScore)
+        if (score >= endScore)
         {
             popup.enabled = true;
             button.SetActive(true);
@@ -107,7 +107,7 @@ public class Minigame1 : MonoBehaviour
     // Update UI with new values
     void UpdateUI()
     {
-        UIscore.text = "Height: " + score.ToString("F2");
+        UIscore.text = "Height: " + score;
         UIbricks.text = "Bricks: " + (numberOfBricks + 1);
     }
 
