@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
     string[] files = null;
     string folderPath;
+    public GameObject dialogueWindow;
     public GameObject continueButton;
 
     void Start()
@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
         {
             continueButton.SetActive(false);
         }
-
+        dialogueWindow.SetActive(false);
     }
 
     public void PlayGame() // Continue Game if save files exist, othwerise continue button is disabled 
@@ -35,43 +35,40 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        /* if (files.Length > 0)
+        dialogueWindow.SetActive(true);
+    }
+
+    public void NewGameConfirmed()
+    {
+        if (files.Length > 0)
         {
             // 1. delete save file
-            bool decision = EditorUtility.DisplayDialog(
-            "New Game", // title
-            "Starting a new game will delete all save files. Continue?", // description
-            "Yes", // OK button
-            "No" // Cancel button
-        );
-
-            if (decision)
+            try
             {
-                try
+                string folderPath = Application.persistentDataPath;
+                IEnumerable<string> files = Directory.EnumerateFiles(folderPath);
+                foreach (string file in files)
                 {
-                    string folderPath = Application.persistentDataPath;
-                    IEnumerable<string> files = Directory.EnumerateFiles(folderPath);
-                    foreach (string file in files)
-                    {
-                        File.Delete(file);
-                    }
-                    // 2. load new game 
-                    SceneManager.LoadScene("Video");
+                    File.Delete(file);
                 }
-                catch (System.Exception)
-                {
-                    Debug.Log("System exception in deciding");
-                }
-
+                // 2. load new game 
+                SceneManager.LoadScene("Video");
             }
-
+            catch (System.Exception)
+            {
+                Debug.Log("System exception in deciding");
+            }
         }
 
         else // no save file was found, we can start a new game 
-        { */
+        {
             // 2. load new game, starting from tutorial
             SceneManager.LoadScene("Video");
-        //}
+        }
+    }
 
+    public void NewGameDenied()
+    {
+        dialogueWindow.SetActive(false);
     }
 }
