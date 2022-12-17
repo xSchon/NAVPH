@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brick: {fileID: 2866074355760913533, guid: c3cb71b9740d50b42bde707be65295f8, type: 3}
-  endScore: 6
+  endScore: 7
   lostText: You lost :( Your SUS bar has increased. Socialist people are disappointed
     with your work in defending the state border!
   winText: You won :) Your SUS bar has decreased. Socialist people value your help
@@ -1622,7 +1622,8 @@ PrefabInstance:
       propertyPath: m_text
       value: This is minigame 1. Your task is to build new big tower as part of our
         new fence to defend borders! In order to drop brick press SPACE. Goal is
-        to build tower 6 meters tall. Be carefull, gravity can be really tricky!
+        to build tower 7 or more meters tall. Be carefull, gravity can be really
+        tricky!
       objectReference: {fileID: 0}
     - target: {fileID: 8608756518180717573, guid: a8bddb03a285d4b4cbaa96fe6538addc, type: 3}
       propertyPath: m_HorizontalAlignment
