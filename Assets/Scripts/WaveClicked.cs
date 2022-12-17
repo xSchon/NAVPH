@@ -28,6 +28,7 @@ public class WaveClicked : MonoBehaviour
     private Dictionary<int, List<int>> resetSearch = new Dictionary<int, List<int>>();
     public Timer timer;
     public AudioSource radioStatic;
+    public RectTransform cursorPos;
 
 
     void Start()
@@ -41,18 +42,12 @@ public class WaveClicked : MonoBehaviour
         new RadioConfig(3, new Color (0.3f, 0.3f, 0.27f))};
 
         mainScene = SceneManager.GetActiveScene();
-
-        SceneManager.activeSceneChanged += returnScene;
+        SceneManager.activeSceneChanged += ReturnScene;
     }
 
     void Update()
     {
-        UpdatePosX();
-    }
-
-    private void UpdatePosX()
-    {
-        this.radios[activeRadio].SetPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
+        this.radios[activeRadio].SetPosX(cursorPos.localPosition.x);
     }
 
     // Method that additively loads minigame, waits till it is loaded.

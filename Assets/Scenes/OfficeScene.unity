@@ -915,10 +915,12 @@ MonoBehaviour:
   gameText: {fileID: 1456071056}
   sectrsDeff: {fileID: 466179460}
   susBar: {fileID: 546358029}
+  waveButton: {fileID: 167223021}
   mainCamera: {fileID: 106259164}
   mainEventSystem: {fileID: 54646751}
   timer: {fileID: 1845140555}
   radioStatic: {fileID: 1849400427}
+  cursorPos: {fileID: 538641653}
 --- !u!1 &231307075
 GameObject:
   m_ObjectHideFlags: 0
