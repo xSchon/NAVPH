@@ -44,6 +44,7 @@ public class SearchMessage : MonoBehaviour
 
         return new Rect(min, size);
     }
+
     private bool RectContainsAnother(RectTransform rct, RectTransform another)
     {
         Rect r = GetWorldRect(rct);

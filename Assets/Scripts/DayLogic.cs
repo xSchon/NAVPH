@@ -37,7 +37,7 @@ public class DayLogic : MonoBehaviour
         // load conversations, minigames and radios of given day
         conversations = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Conversation>>>(conversationsJson.text);
         LoadDayMessages();
-        waveClicked.setMinigames(days[dayIndex].minigamesEnabled);
+        waveClicked.SetMinigames(days[dayIndex].minigamesEnabled);
         EnableRadios();
     }
 
@@ -73,9 +73,9 @@ public class DayLogic : MonoBehaviour
         if (this.messagesTimes.ContainsKey(currentMinutes))
         {
             // if yes, display this message
-            waveClicked.radioActivation(conversations[dayIndex][messagesTimes[currentMinutes]]);
+            waveClicked.RadioActivation(conversations[dayIndex][messagesTimes[currentMinutes]]);
         }
-        waveClicked.checkStopped(currentMinutes);
+        waveClicked.CheckStopped(currentMinutes);
         sectrsDeff.CheckSectors(currentMinutes);
     }
 
@@ -122,7 +122,7 @@ public class DayLogic : MonoBehaviour
         timer.SetStartingHour(day[dayIndex].startingTime);
         timer.SetEndingHour(day[dayIndex].endingTime);
 
-        waveClicked.setMinigames(day[dayIndex].minigamesEnabled);
+        waveClicked.SetMinigames(day[dayIndex].minigamesEnabled);
     }
 
     public void StatusFromStoryLines(string field, int amount)

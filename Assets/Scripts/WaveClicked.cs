@@ -16,6 +16,7 @@ public class WaveClicked : MonoBehaviour
     private RadioConfig[] radios;
     public SectorsDefence sectrsDeff;
     public SusBar susBar;
+    public Button waveButton;
     private int activeRadio = 0;
     private float minigameChance = 0.2f;
     private int[] minigamesIDs;
@@ -26,7 +27,7 @@ public class WaveClicked : MonoBehaviour
     public EventSystem mainEventSystem;
     private Dictionary<int, List<int>> resetSearch = new Dictionary<int, List<int>>();
     public Timer timer;
-    [SerializeField] private AudioSource radioStatic;
+    public AudioSource radioStatic;
 
 
     void Start()
@@ -46,10 +47,10 @@ public class WaveClicked : MonoBehaviour
 
     void Update()
     {
-        updatePosX();
+        UpdatePosX();
     }
 
-    private void updatePosX()
+    private void UpdatePosX()
     {
         this.radios[activeRadio].SetPosX(GameObject.Find("FindingCursor").GetComponent<RectTransform>().localPosition.x);
     }
@@ -79,7 +80,7 @@ public class WaveClicked : MonoBehaviour
         }
     }
 
-    public void loadScene(int radioNumber)
+    public void LoadScene(int radioNumber)
     {
         radioNumber = radioNumber - 1;
 
@@ -93,16 +94,16 @@ public class WaveClicked : MonoBehaviour
         if (!radios[radioNumber].IsActive())
         {
             gameText.text = "...";
-            GameObject.Find("WaveButton").GetComponent<Button>().enabled = true;
+            waveButton.enabled = true;
         }
         else
         {
-            GameObject.Find("WaveButton").GetComponent<Button>().enabled = false;
+            waveButton.enabled = false;
         }
     }
 
     // Method which is called after main scene is changed.
-    private void returnScene(Scene arg0, Scene arg1)
+    private void ReturnScene(Scene arg0, Scene arg1)
     {
         // If ending scene is minigame and game is returning to Office, unload the minigame scene
         if (arg1.name == mainScene.name && arg0.name != "Summary")
@@ -144,12 +145,12 @@ public class WaveClicked : MonoBehaviour
     }
 
     // Get minigames from json file.
-    public void setMinigames(int[] minigamesIndexes)
+    public void SetMinigames(int[] minigamesIndexes)
     {
         minigamesIDs = minigamesIndexes;
     }
 
-    public void radioActivation(Conversation activeConvo)
+    public void RadioActivation(Conversation activeConvo)
     {
         int radioNumber = activeConvo.radio - 1;
         radios[radioNumber].SetActive(false);
@@ -157,7 +158,7 @@ public class WaveClicked : MonoBehaviour
         {
             if (this.activeRadio == radioNumber)
             {
-                loadScene(radioNumber + 1);
+                LoadScene(radioNumber + 1);
             }
         }
         catch (NullReferenceException)
@@ -190,7 +191,7 @@ public class WaveClicked : MonoBehaviour
         radios[radioNumber].SetAuthor(activeConvo.author);
     }
 
-    public void checkStopped(int currentTime)
+    public void CheckStopped(int currentTime)
     {
         if (this.resetSearch.ContainsKey(currentTime))
         {
@@ -203,7 +204,7 @@ public class WaveClicked : MonoBehaviour
                 {
                     if (this.activeRadio == timeRen)
                     {
-                        loadScene(timeRen + 1);
+                        LoadScene(timeRen + 1);
                     }
                 }
                 catch (NullReferenceException)
@@ -243,7 +244,7 @@ public class WaveClicked : MonoBehaviour
         timer.StartTimer();
         readingScreen.SetActive(false);
         radios[activeRadio].SetActive(true);
-        loadScene(activeRadio + 1);
+        LoadScene(activeRadio + 1);
     }
 
     // Check if Minigame should pop.
