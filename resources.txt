@@ -1,0 +1,14 @@
+- all sounds are from: https://freesound.org
+- menu background: https://dominations.fandom.com/wiki/Iron_Curtain_Descends
+- cable images from cable minigame: Smart Penguin (resources on Discord)
+- minigame 4 (sliding puzzles): https://assetstore.unity.com/packages/templates/packs/sliding-tile-puzzle-game-41798
+- newspaper: Canva 
+	https://www.canva.com/design/DAFVCnORBWg/bi2xHzlZDcUSTe203ayPqQ/edit?layoutQuery=newspaper
+	https://www.canva.com/design/DAFVCsFZ7_Y/VyFZYxWdd6psItzp22Tonw/edit?layoutQuery=newspaper
+- images from the gamme:
+	https://a.rgbimg.com/users/t/ta/tacluda/600/qybpq8c.jpg
+	https://www.warrelics.eu/forum/attachments/documents-non-award-photographs-ids-posters-other-ephemera/101330d1272680642-soviet-documents-holocaust-dachau-ccf04302010_00001.jpg
+	https://www.delcampe.net/static/img_large/auction/000/399/888/827_002.jpg?v=0
+- woman photograph: generated via Midjourney 
+- fonts: https://www.1001fonts.com
+- video cutscene (shortened): https://www.youtube.com/watch?v=IE0VddDqJa8&t=49s
