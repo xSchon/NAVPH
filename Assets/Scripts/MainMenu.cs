@@ -40,7 +40,17 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        dialogueWindow.SetActive(true);
+        DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
+        IEnumerable<FileInfo> files = directory.GetFiles();
+        string[] namesSkip = {"prefs", "Player.log", "Player-prev.log"};    
+        files = files.OrderByDescending(f => f.LastWriteTime).Where(f => !namesSkip.Any(f.Name.Contains));
+        
+        if (!files.Any())
+        {
+            SceneManager.LoadScene("Video");
+        } else {
+            dialogueWindow.SetActive(true);
+        }
     }
 
     public void NewGameConfirmed()
