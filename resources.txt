@@ -10,5 +10,13 @@
 	https://www.warrelics.eu/forum/attachments/documents-non-award-photographs-ids-posters-other-ephemera/101330d1272680642-soviet-documents-holocaust-dachau-ccf04302010_00001.jpg
 	https://www.delcampe.net/static/img_large/auction/000/399/888/827_002.jpg?v=0
 - woman photograph: generated via Midjourney 
-- fonts: https://www.1001fonts.com
+- JMH typewriter font: https://www.dafont.com/jmh-typewriter.font
+- Digital Dismay font: https://www.dafont.com/digital-dismay.font 
+- other fonts: https://www.1001fonts.com
 - video cutscene (shortened): https://www.youtube.com/watch?v=IE0VddDqJa8&t=49s
+- Map: https://www.oldmapsonline.org
+- Radios: https://assetstore.unity.com/packages/3d/props/old-radio-148636
+       	  https://assetstore.unity.com/packages/3d/props/electronics/1960s-radio-175080
+	  https://assetstore.unity.com/packages/3d/props/electronics/vintage-style-radio-158856
+
+- Office parts: https://assetstore.unity.com/packages/3d/environments/office-low-poly-133510
