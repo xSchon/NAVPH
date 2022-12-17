@@ -90,7 +90,7 @@ public class Minigame1 : MonoBehaviour
             Time.timeScale = 0.0f;
         }
 
-        if (numberOfBricks <= 0)
+        else if (numberOfBricks <= 0)
         {
             numberOfBricks--;
             popup.enabled = true;
