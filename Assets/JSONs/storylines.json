@@ -1,12 +1,4 @@
 {
-    "0":{
-        "succesful_storyline" : [false, true, true],
-        "ending" : {"type" : "full_ending",
-                    "messages" : ["There was a peaceful revolution against communism in CSSR. Rebels escaped the country during regime and with the help from other countries, it was possible to free CSSR. The country is entering its democratic state."],
-                    "field" : "vehicle",
-                    "influence" : -4                     
-    }
-    },
     "1" : {
         "succesful_storyline" : [true, true, true],
         "ending" : {"type" : "full_ending",
@@ -40,5 +32,11 @@
         "messages" : ["Smuggler escaped the country, he got through borders. Someone is rumoured to be bribed by new car."],
         "field" : "vehicle",
         "influence" : 1}
+    },
+    "6":{
+        "succesful_storyline" : [true, true, true],
+        "ending" : {"type" : "full_ending",
+                    "messages" : ["Seems like you don't know what your job should be about...try again."]                  
+    }
     }
 }

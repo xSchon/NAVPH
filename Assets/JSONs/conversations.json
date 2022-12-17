@@ -16,10 +16,10 @@
                 "Now listen: the first sector you need to protect is sector 3",
                 "Make sure it is protected from 9:00"
             ],
-            "StoryLine": 0,
+            "StoryLine": 6,
             "Sector": 3,
             "WhenDeffendSector": "09:00",
-            "SusMeterPenalisation": 100
+            "SusMeterPenalisation": 5
         },
         "09:20": {
             "Radio": 1,
@@ -31,7 +31,7 @@
                 "Tresspasing in sector 6",
                 "Make sure it is protected from 10:00"
             ],
-            "StoryLine": 0,
+            "StoryLine": 6,
             "Sector": 6,
             "WhenDeffendSector": "10:00",
             "SusMeterPenalisation": 5
@@ -51,7 +51,7 @@
                 "I'm in sector 1 and I need your help at 11:40.",
                 "Could you do that for me? Comrade, I would be forever grateful. Please..."
             ],
-            "StoryLine": 0,
+            "StoryLine": 6,
             "Sector": 1,
             "WhenDeffendSector": "11:40",
             "SusMeterPenalisation": 5
