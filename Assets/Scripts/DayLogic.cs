@@ -24,7 +24,7 @@ public class DayLogic : MonoBehaviour
     public GameObject[] sceneRadios;
     private NestedStatus statusData = new NestedStatus();
     public Timer timer;
-    public WaveClicked waveClicked;
+    public RadioLogic waveClicked;
     public SectorsDefence sectrsDeff;
     public SusBar susBar;
 

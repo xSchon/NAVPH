@@ -1,4 +1,4 @@
-/* Script taking care of radio loading and clicking on Waves */
+/* Script taking care of radio and its messages */
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class WaveClicked : MonoBehaviour
+public class RadioLogic : MonoBehaviour
 {
     public GameObject radioScreen;
     public GameObject readingScreen;
@@ -191,7 +191,7 @@ public class WaveClicked : MonoBehaviour
         radios[radioNumber].SetAuthor(activeConvo.author);
     }
 
-    // Check if the radio should be stopped
+    // Check if the radio should be stopped, load receivec message
     public void CheckStopped(int currentTime)
     {
         if (this.resetSearch.ContainsKey(currentTime))
@@ -214,38 +214,6 @@ public class WaveClicked : MonoBehaviour
                 };
             }
         }
-    }
-
-    public void StartVoice()
-    {
-        CheckMinigame();
-
-        // Check if game is not in minigame
-        if (!loadAfterMinigame)
-            ClickedRead();
-    }
-
-    public void ClickedRead()
-    {
-        // pause radioStatic sound
-        radioStatic.Pause();
-        string[] showText = radios[this.activeRadio].GetRadioArray();
-        string authr = radios[this.activeRadio].GetAuthor();
-
-        readingScreen.SetActive(true);
-        timer.StopTimer();
-
-        // read message 
-        readingScreen.GetComponent<ReadingStory>().DisplayConversation(authr, showText, gameText);
-    }
-
-    public void FinishedRead()
-    {
-        radioStatic.Play();
-        timer.StartTimer();
-        readingScreen.SetActive(false);
-        radios[activeRadio].SetActive(true);
-        LoadRadioScene(activeRadio + 1);
     }
 
     // Check if Minigame should pop.
@@ -276,4 +244,40 @@ public class WaveClicked : MonoBehaviour
             if (difficulty == 3) { minigameChance += 0.15f; } // hard
         }
     }
+
+    // When clicked on button
+    public void StartVoice()
+    {
+        CheckMinigame();
+
+        // Check if game is not in minigame
+        if (!loadAfterMinigame)
+            ClickedRead();
+    }
+
+    // Reading screen with it's text
+    public void ClickedRead()
+    {
+        // pause radioStatic sound
+        radioStatic.Pause();
+        string[] showText = radios[this.activeRadio].GetRadioArray();
+        string authr = radios[this.activeRadio].GetAuthor();
+
+        readingScreen.SetActive(true);
+        timer.StopTimer();
+
+        // read message 
+        readingScreen.GetComponent<ReadingStory>().DisplayConversation(authr, showText, gameText);
+    }
+
+    // Continue with game after message was received
+    public void FinishedRead()
+    {
+        radioStatic.Play();
+        timer.StartTimer();
+        readingScreen.SetActive(false);
+        radios[activeRadio].SetActive(true);
+        LoadRadioScene(activeRadio + 1);
+    }
+
 }
