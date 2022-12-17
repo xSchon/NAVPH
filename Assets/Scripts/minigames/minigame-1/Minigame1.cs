@@ -23,11 +23,13 @@ public class Minigame1 : MonoBehaviour
     public GameObject button;
     public Camera minigameCamera;
     public Canvas tutorial;
+    public Image background;
 
     void Start()
     {
         popup.enabled = false;
         button.SetActive(false);
+        background.enabled = false;
     }
 
 
@@ -81,6 +83,7 @@ public class Minigame1 : MonoBehaviour
         {
             popup.enabled = true;
             button.SetActive(true);
+            background.enabled = true;
             popup.text = winText;
             endGame = true;
             PlayerPrefs.SetInt("WonMinigame", 1);
@@ -91,6 +94,7 @@ public class Minigame1 : MonoBehaviour
         {
             numberOfBricks--;
             popup.enabled = true;
+            background.enabled = true;
             button.SetActive(true);
             popup.text = lostText;
             endGame = true;

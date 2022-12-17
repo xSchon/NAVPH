@@ -8,8 +8,8 @@ public class BrickBehavior : MonoBehaviour
     private bool has_gravity = false;
     public bool hasEntered = false;
     public bool tutorial = true;
-    private bool movingLeft = true;
-    public float speed = 0.03f;
+    private Vector3 dir = Vector3.left;
+    private float speed;
     public float mass = 2f;
     private Minigame1 spawner;
     public Rigidbody rb;
@@ -17,6 +17,11 @@ public class BrickBehavior : MonoBehaviour
     void Start()
     {
         spawner = FindObjectOfType<Minigame1>();
+
+        int difficulty = PlayerPrefs.GetInt("difficulty", 2);
+        if (difficulty == 1) { speed = 10f; } // easy
+        if (difficulty == 2) { speed = 20f; } // normal
+        if (difficulty == 3) { speed = 20f; } // hard
     }
 
     void Update()
@@ -26,20 +31,19 @@ public class BrickBehavior : MonoBehaviour
             addGravity();
         }
 
+        // Change direction
         if (!has_gravity)
         {
-            if (movingLeft)
+            if (transform.position.x <= -5)
             {
-                transform.position += new Vector3(-speed, 0, 0);
-
-                if (transform.position.x < -5) movingLeft = false;
+                dir = Vector3.right;
             }
-            else
+            else if (transform.position.x >= 5)
             {
-                transform.position += new Vector3(speed, 0, 0);
-
-                if (transform.position.x > 5) movingLeft = true;
+                dir = Vector3.left;
             }
+
+            transform.Translate(dir * speed * Time.deltaTime);
         }
     }
 

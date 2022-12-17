@@ -234,7 +234,7 @@ public class DayLogic : MonoBehaviour
     private int EvaluateHealthStatus(float susDiff)
     {
         float healthStatusStep = 15f;
-        int currentStatus = 3;
+        int currentStatus = 2;
 
         if (savedData != null)
             currentStatus = savedData.status.health;
@@ -250,7 +250,7 @@ public class DayLogic : MonoBehaviour
     private int EvaluateVehicleStatus(float susDiff)
     {
         float vehicleStep = 15f;
-        int currentStatus = 3;
+        int currentStatus = 2;
 
         if (savedData != null)
             currentStatus = savedData.status.vehicle;
@@ -266,7 +266,7 @@ public class DayLogic : MonoBehaviour
     private int EvaluateSocialStatus(float susDiff)
     {
         float socialStatusStep = 15f;
-        int currentStatus = 3;
+        int currentStatus = 2;
 
         if (savedData != null)
             currentStatus = savedData.status.socialStatus;
@@ -282,7 +282,7 @@ public class DayLogic : MonoBehaviour
     private int EvaluateLivingStatus(float susDiff)
     {
         float socialLivingStep = 15f;
-        int currentStatus = 3;
+        int currentStatus = 2;
 
         if (savedData != null)
             currentStatus = savedData.status.living;

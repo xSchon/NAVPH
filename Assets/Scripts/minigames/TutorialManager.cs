@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
     {
         script.SpawNewBrick();
         tutorial.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     // End tutorial at minigame-2
@@ -22,6 +23,7 @@ public class TutorialManager : MonoBehaviour
     {
         script2.UnfreezeTime();
         tutorial.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     // End tutorial at minigame-3
@@ -29,11 +31,13 @@ public class TutorialManager : MonoBehaviour
     {
         script3.UnfreezeTime();
         tutorial.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     // End tutorial at minigame-4
     public void EndTutorialMinigame4()
     {
         tutorial.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
